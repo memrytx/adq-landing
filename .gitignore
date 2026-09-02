@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+.chrome-*/
+.edge-*/
+qa-*.png
+*-check*.png
+
+.DS_Store
+Thumbs.db
+*.log
