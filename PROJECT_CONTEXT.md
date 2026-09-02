@@ -73,6 +73,7 @@ The exact source links are kept in `Gaming.tsx` and `NonGaming.tsx` and came fro
 - Playable plan mapping is fixed by playable ID, not array order: BASIC = `ivg-131-4`, ENHANCED = `iop-434-25`, ADVANCED = `anb-25-20t`, INTERACTIVE = `anbm-03-57`, PREMIUM 3D = `ac-20-15`.
 - Ambient lighting is content-scoped, not page-fixed. The old global field of 12 CSS circles and the giant section pseudo-elements were removed because they produced oversized mobile blobs unrelated to the layout.
 - `GlowAccent.tsx` places the supplied transparent exports `ambient-im1.png` through `ambient-im4.png` around specific content: hero/about, audience headings, Plans, and the closing CTA. Desktop and mobile have separate sizes and opacity.
+- Section-local CSS radial spots remain underneath those PNG accents so the page keeps the reference's blue/purple color rhythm instead of becoming flat gray. On mobile their fixed radii are roughly 170-220px; do not replace them with viewport-sized or page-fixed circles.
 - Glow images use restrained alpha breathing, pointer parallax, and a small scroll offset. Keep mobile movement subtle and never turn these assets into full-screen fixed backgrounds.
 - Video play buttons open a modal without leaving the site.
 - Offer video buttons are centered inside the image-only wrapper (`offerVisual`), so price rows do not affect their vertical position.
@@ -81,6 +82,7 @@ The exact source links are kept in `Gaming.tsx` and `NonGaming.tsx` and came fro
 - Gaming case icons come from the supplied sprite exports `case-meta-icons.png` and `case-story-icons.png`; do not replace them with text glyphs.
 - On mobile, case artwork is placed between the case heading and details, story posters form a horizontal snap rail, and video controls use the green/blue `Watch video` pill from the reference.
 - `Mix Packages` is a two-column desktop composition with the heading beside two full-width cards; on mobile it is a snap carousel showing one card plus part of the next.
+- On 360px mobile the Playable Ads audience banner is 360px tall and the Plans heading follows it with no layout gap. The closing process order is `Choose Your Package` -> `Complete the Brief` -> `LETS GO!` -> `Sign the contract` -> `Share Your Assets`; keep every label clear of the CTA.
 - `prefers-reduced-motion` is respected by the global CSS.
 
 ## Running locally

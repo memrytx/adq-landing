@@ -104,7 +104,9 @@
   padding-top: 190px;
   position: relative;
   isolation: isolate;
-  background: transparent;
+  background:
+    radial-gradient(ellipse 720px 480px at 2% 0%, rgba(0, 137, 224, 0.42), transparent 72%),
+    radial-gradient(ellipse 680px 460px at 98% 2%, rgba(111, 48, 236, 0.36), transparent 72%);
 }
 .heroGlowAsset {
   width: 1280px;
@@ -233,6 +235,9 @@
   height: 900px;
   position: relative;
   isolation: isolate;
+  background:
+    radial-gradient(ellipse 560px 390px at 4% 30%, rgba(0, 139, 225, 0.34), transparent 72%),
+    radial-gradient(ellipse 520px 360px at 96% 82%, rgba(106, 45, 229, 0.3), transparent 72%);
 }
 .aboutGlowAsset {
   width: 980px;
@@ -318,6 +323,9 @@
   z-index: 1;
   isolation: isolate;
   text-align: center;
+  background:
+    radial-gradient(ellipse 520px 360px at 8% 48%, rgba(0, 130, 223, 0.3), transparent 72%),
+    radial-gradient(ellipse 560px 380px at 92% 50%, rgba(105, 45, 230, 0.32), transparent 72%);
 }
 .audienceGlowLayer {
   position: absolute;
@@ -424,16 +432,33 @@
   background: transparent;
 }
 .gaming {
-  background: transparent;
+  background:
+    radial-gradient(ellipse 470px 310px at 0% 18%, rgba(0, 132, 225, 0.27), transparent 72%),
+    radial-gradient(ellipse 440px 300px at 100% 34%, rgba(104, 43, 229, 0.26), transparent 72%),
+    radial-gradient(ellipse 480px 320px at 0% 55%, rgba(13, 118, 222, 0.25), transparent 72%),
+    radial-gradient(ellipse 450px 310px at 100% 76%, rgba(111, 43, 228, 0.24), transparent 72%),
+    radial-gradient(ellipse 450px 290px at 4% 94%, rgba(0, 126, 220, 0.23), transparent 72%);
 }
 .playables {
-  background: transparent;
+  background:
+    radial-gradient(ellipse 470px 310px at 0% 22%, rgba(0, 132, 225, 0.28), transparent 72%),
+    radial-gradient(ellipse 450px 300px at 100% 46%, rgba(108, 45, 231, 0.27), transparent 72%),
+    radial-gradient(ellipse 470px 310px at 0% 72%, rgba(12, 116, 222, 0.25), transparent 72%),
+    radial-gradient(ellipse 450px 300px at 100% 92%, rgba(104, 43, 229, 0.24), transparent 72%);
 }
 .nonGaming {
-  background: transparent;
+  background:
+    radial-gradient(ellipse 470px 310px at 0% 16%, rgba(0, 132, 225, 0.28), transparent 72%),
+    radial-gradient(ellipse 450px 300px at 100% 32%, rgba(107, 44, 231, 0.26), transparent 72%),
+    radial-gradient(ellipse 470px 310px at 0% 51%, rgba(0, 126, 221, 0.25), transparent 72%),
+    radial-gradient(ellipse 450px 300px at 100% 69%, rgba(103, 43, 228, 0.25), transparent 72%),
+    radial-gradient(ellipse 470px 310px at 0% 88%, rgba(0, 126, 219, 0.24), transparent 72%);
 }
 .closing {
-  background: transparent;
+  background:
+    radial-gradient(ellipse 520px 360px at 50% 5%, rgba(42, 91, 238, 0.34), transparent 72%),
+    radial-gradient(ellipse 450px 300px at 100% 43%, rgba(108, 45, 230, 0.25), transparent 72%),
+    radial-gradient(ellipse 470px 320px at 0% 72%, rgba(0, 127, 218, 0.25), transparent 72%);
 }
 .gaming:before {
   width: 650px;
@@ -1653,11 +1678,34 @@
   .nonGaming:before {
     display: none;
   }
-  .gaming,
-  .playables,
-  .nonGaming,
+  .gaming {
+    background:
+      radial-gradient(ellipse 175px 135px at 0% 17%, rgba(0, 132, 225, 0.34), transparent 72%),
+      radial-gradient(ellipse 170px 130px at 100% 36%, rgba(106, 43, 231, 0.32), transparent 72%),
+      radial-gradient(ellipse 180px 140px at 0% 57%, rgba(0, 125, 222, 0.3), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 77%, rgba(108, 43, 230, 0.3), transparent 72%),
+      radial-gradient(ellipse 175px 130px at 0% 94%, rgba(0, 126, 220, 0.28), transparent 72%);
+  }
+  .playables {
+    background:
+      radial-gradient(ellipse 180px 140px at 0% 20%, rgba(0, 132, 225, 0.35), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 46%, rgba(109, 44, 232, 0.33), transparent 72%),
+      radial-gradient(ellipse 180px 140px at 0% 71%, rgba(0, 123, 222, 0.31), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 92%, rgba(105, 43, 230, 0.3), transparent 72%);
+  }
+  .nonGaming {
+    background:
+      radial-gradient(ellipse 180px 140px at 0% 15%, rgba(0, 132, 225, 0.35), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 31%, rgba(108, 44, 231, 0.32), transparent 72%),
+      radial-gradient(ellipse 180px 140px at 0% 50%, rgba(0, 125, 222, 0.31), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 69%, rgba(105, 43, 230, 0.31), transparent 72%),
+      radial-gradient(ellipse 180px 140px at 0% 88%, rgba(0, 126, 220, 0.29), transparent 72%);
+  }
   .closing {
-    background: transparent;
+    background:
+      radial-gradient(ellipse 210px 155px at 50% 5%, rgba(42, 91, 238, 0.42), transparent 72%),
+      radial-gradient(ellipse 170px 135px at 100% 44%, rgba(108, 45, 230, 0.31), transparent 72%),
+      radial-gradient(ellipse 180px 140px at 0% 75%, rgba(0, 127, 218, 0.31), transparent 72%);
   }
   .content {
     width: 100%;
@@ -1720,6 +1768,9 @@
   .hero {
     height: 720px;
     padding-top: 140px;
+    background:
+      radial-gradient(ellipse 220px 165px at 0% 0%, rgba(0, 137, 224, 0.38), transparent 72%),
+      radial-gradient(ellipse 210px 160px at 100% 3%, rgba(111, 48, 236, 0.32), transparent 72%);
   }
   .heroGlowAsset {
     width: 560px;
@@ -1776,6 +1827,9 @@
     height: auto;
     min-height: 0;
     padding-bottom: 90px;
+    background:
+      radial-gradient(ellipse 185px 145px at 0% 20%, rgba(0, 139, 225, 0.38), transparent 72%),
+      radial-gradient(ellipse 175px 140px at 100% 84%, rgba(106, 45, 229, 0.34), transparent 72%);
   }
   .aboutGlowAsset {
     width: 430px;
@@ -1817,8 +1871,11 @@
   }
   .audienceBanner {
     height: auto;
-    min-height: 500px;
-    padding: 135px 0 80px;
+    min-height: 440px;
+    padding: 110px 0 55px;
+    background:
+      radial-gradient(ellipse 190px 145px at 0% 45%, rgba(0, 130, 223, 0.38), transparent 72%),
+      radial-gradient(ellipse 190px 145px at 100% 48%, rgba(105, 45, 230, 0.4), transparent 72%);
   }
   .audienceBanner:before,
   .audienceBanner:after {
@@ -1849,7 +1906,7 @@
   }
   .logoRail {
     width: calc(100% + 200px);
-    margin: 72px -100px 0;
+    margin: 58px -100px 0;
   }
   .logoTrack {
     --logo-gap: 20px;
@@ -1867,12 +1924,15 @@
   }
   .audience_playable {
     height: auto;
-    min-height: 500px;
-    padding-top: 150px;
+    min-height: 360px;
+    padding: 95px 0 35px;
+  }
+  .audience_playable .logoRail {
+    margin-top: 45px;
   }
   .audience_non-gaming {
     height: auto;
-    min-height: 500px;
+    min-height: 440px;
   }
   .wideMedia {
     width: 100%;
@@ -2378,9 +2438,12 @@
   .mixGrid .packageCard small {
     font-size: 11px;
   }
+  .nonGaming > .content {
+    padding-bottom: 60px;
+  }
   .closing {
     min-height: 0;
-    padding: 100px 0 60px;
+    padding: 70px 0 60px;
   }
   .closingGlowAsset {
     width: 560px;
@@ -2403,22 +2466,24 @@
     font-size: 20px;
   }
   .process {
-    height: 440px;
+    height: 500px;
     margin: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    display: block;
   }
   .process:before {
     width: 1px;
     height: auto;
     left: 50%;
     right: auto;
-    top: 40px;
-    bottom: 40px;
+    top: 18px;
+    bottom: 42px;
   }
   .process span {
+    width: 190px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     font-size: 12px;
     z-index: 1;
     background: transparent;
@@ -2428,20 +2493,32 @@
   }
   .process span:after {
     left: 50%;
-    top: -18px;
+    top: -22px;
   }
   .process span:nth-of-type(even) {
     padding: 0;
   }
   .process span:nth-of-type(even):after {
-    top: -18px;
+    top: -22px;
+  }
+  .process span:nth-of-type(1) {
+    top: 35px;
+  }
+  .process span:nth-of-type(2) {
+    top: 145px;
+  }
+  .process span:nth-of-type(3) {
+    top: 325px;
+  }
+  .process span:nth-of-type(4) {
+    top: 440px;
   }
   .process a {
     width: 170px;
     height: 48px;
     position: absolute;
     left: 50%;
-    top: 155px;
+    top: 205px;
     font-size: 13px;
   }
   .closing .blockTitle {
