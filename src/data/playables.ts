@@ -1,7 +1,7 @@
 import { assetUrl } from '../assetUrl'
 
 export type Playable = { id: string; title: string; studio: string; file: string; preview: string; icon: string; installs: string }
-const playable = (id: string, title: string, studio: string, installs: string): Playable => ({ id, title, studio, installs, file: assetUrl(`playables/${id}.html`), preview: assetUrl(`assets/playable-previews/${id}.png`), icon: assetUrl(`assets/playable-icons/${id}.png`) })
+const playable = (id: string, title: string, studio: string, installs: string): Playable => ({ id, title, studio, installs, file: assetUrl(`playable.html?id=${encodeURIComponent(id)}`), preview: assetUrl(`assets/playable-previews/${id}.png`), icon: assetUrl(`assets/playable-icons/${id}.png`) })
 export const playables: Playable[] = [
   playable('ac-15-19','Idle Lumber Empire','AppQuantum','100M+'),
   playable('anb-42-10','Angry Birds 2','Rovio','100M+'),

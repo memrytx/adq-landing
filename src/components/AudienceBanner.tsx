@@ -1,4 +1,5 @@
 import s from '../App.module.css'
+import { GlowAccent } from './GlowAccent'
 import { assetUrl } from '../assetUrl'
 
 const gamingLogos = ['logo-peak.png', 'logo-helio.png', 'logo-rovio.png', 'logo-cm.png', 'logo-playrix.png', 'logo-supercent.png', 'logo-gamegos.png']
@@ -11,5 +12,11 @@ export function LogoRail({ networks = false }: { networks?: boolean }) {
 
 export function AudienceBanner({ type }: { type: 'gaming' | 'playable' | 'non-gaming' }) {
   const id = type === 'playable' ? 'playable-ads' : type
-  return <section className={`${s.audienceBanner} ${s[`audience_${type}`]}`} id={id}><h2>{type === 'gaming' ? <><small>For</small> Gaming<br />Companies</> : type === 'playable' ? <>Playable Ads</> : <><small>For</small> Non-Gaming<br />Companies</>}</h2><LogoRail networks={type === 'playable'} /></section>
+  return <section className={`${s.audienceBanner} ${s[`audience_${type}`]}`} id={id}>
+    <div className={s.audienceGlowLayer} aria-hidden="true">
+      <GlowAccent asset="lenses-a" className={s.audienceGlowLeft} />
+      <GlowAccent asset="lenses-b" className={s.audienceGlowRight} reverse />
+    </div>
+    <h2>{type === 'gaming' ? <><small>For</small> Gaming<br />Companies</> : type === 'playable' ? <>Playable Ads</> : <><small>For</small> Non-Gaming<br />Companies</>}</h2><LogoRail networks={type === 'playable'} />
+  </section>
 }

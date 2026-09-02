@@ -50,6 +50,7 @@ The company/user has permission to use the supplied assets.
 ## Video behavior
 
 - On mobile/coarse-pointer devices, playable HTML files open directly in the current tab instead of inside an iframe. This avoids a Chrome Android/Adreno WebGL shader issue that can render complex Luna/Unity scenes magenta. Browser Back returns to the landing page; desktop keeps the modal iframe.
+- Playables are launched through `public/playable.html`, which keeps the original Luna exports byte-identical and disables Unity Fog on Android before the first frame. The supplied complex exports use Luna 6.4.0–7.0.0 with WebGL2-only shaders; current Chrome/Adreno combinations can otherwise render those materials magenta.
 
 Videos open in a modal directly on the site:
 
@@ -61,6 +62,8 @@ The exact source links are kept in `Gaming.tsx` and `NonGaming.tsx` and came fro
 
 ## Motion and interaction
 
+- Mobile sections use content-driven heights. Do not restore the old fixed `980px` About, `620–680px` audience banners, or `3000px` Closing height: those values created entire blank screens between content blocks on real phones.
+
 - The hero creative rail loops continuously.
 - The Plans carousel advances automatically and uses paired enter/exit animations: the old full plan leaves in the navigation direction and the new plan enters from the opposite side.
 - Opening a playable pauses auto-advance.
@@ -68,7 +71,9 @@ The exact source links are kept in `Gaming.tsx` and `NonGaming.tsx` and came fro
 - Package cards become touch-scrollable snap carousels with translucent pagination dots below 900px.
 - The end of Playable Ads contains a five-level BASIC / ENHANCED / ADVANCED / INTERACTIVE / PREMIUM 3D panel.
 - Playable plan mapping is fixed by playable ID, not array order: BASIC = `ivg-131-4`, ENHANCED = `iop-434-25`, ADVANCED = `anb-25-20t`, INTERACTIVE = `anbm-03-57`, PREMIUM 3D = `ac-20-15`.
-- Numerous local blue/purple glows sit behind content groups; additional slow-pulsing glow orbs react to pointer and scroll position at two parallax depths.
+- Ambient lighting is content-scoped, not page-fixed. The old global field of 12 CSS circles and the giant section pseudo-elements were removed because they produced oversized mobile blobs unrelated to the layout.
+- `GlowAccent.tsx` places the supplied transparent exports `ambient-im1.png` through `ambient-im4.png` around specific content: hero/about, audience headings, Plans, and the closing CTA. Desktop and mobile have separate sizes and opacity.
+- Glow images use restrained alpha breathing, pointer parallax, and a small scroll offset. Keep mobile movement subtle and never turn these assets into full-screen fixed backgrounds.
 - Video play buttons open a modal without leaving the site.
 - Offer video buttons are centered inside the image-only wrapper (`offerVisual`), so price rows do not affect their vertical position.
 - Adventure Bay and Bloom City use their supplied transparent organic shapes; case detail icons are enlarged, key phrases are cyan, and Result labels/icons are green.

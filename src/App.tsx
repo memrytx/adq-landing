@@ -17,8 +17,8 @@ export default function App() {
     const updatePointer = (event: PointerEvent) => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
-        const x = (event.clientX / window.innerWidth - 0.5) * 78
-        const y = (event.clientY / window.innerHeight - 0.5) * 52
+        const x = (event.clientX / window.innerWidth - 0.5) * 30
+        const y = (event.clientY / window.innerHeight - 0.5) * 20
         root.style.setProperty('--parallax-x', `${x.toFixed(2)}px`)
         root.style.setProperty('--parallax-y', `${y.toFixed(2)}px`)
         root.style.setProperty('--parallax-x-reverse', `${(-x * 0.58).toFixed(2)}px`)
@@ -27,7 +27,8 @@ export default function App() {
     }
 
     const updateScroll = () => {
-      root.style.setProperty('--scroll-glow', `${(Math.sin(window.scrollY / 520) * 34).toFixed(2)}px`)
+      const distance = window.matchMedia('(max-width: 900px)').matches ? 6 : 12
+      root.style.setProperty('--scroll-glow', `${(Math.sin(window.scrollY / 620) * distance).toFixed(2)}px`)
     }
 
     window.addEventListener('pointermove', updatePointer, { passive: true })
@@ -47,5 +48,5 @@ export default function App() {
     requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }))
   }, [])
 
-  return <div className={s.page}><div className={s.glowField} aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <span key={index} />)}</div><Header /><main><Hero /><About /><Gaming /><PlayableAds /><NonGaming /><Closing /></main><Footer /></div>
+  return <div className={s.page}><Header /><main><Hero /><About /><Gaming /><PlayableAds /><NonGaming /><Closing /></main><Footer /></div>
 }

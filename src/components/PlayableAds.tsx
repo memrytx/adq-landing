@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { playables } from '../data/playables'
 import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
 import { AudienceBanner } from './AudienceBanner'
+import { GlowAccent } from './GlowAccent'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import s from '../App.module.css'
 
@@ -119,16 +120,20 @@ export function PlayableAds() {
   return <section className={s.playables} id="playable-ads">
     <AudienceBanner type="playable" />
     <div className={s.content}>
-      <h3 className={s.blockTitle}>Plans</h3>
-      <div className={s.playablePlan} id="playable-plans">
-        <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
-        <div className={s.planStage}>
-          {previous !== null && <PlanSlide plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
-          <PlanSlide plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
+      <section className={s.plansShowcase}>
+        <GlowAccent asset="sweep" className={s.planTitleGlow} />
+        <GlowAccent asset="sweep" className={s.planPanelGlow} reverse />
+        <h3 className={s.blockTitle}>Plans</h3>
+        <div className={s.playablePlan} id="playable-plans">
+          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
+          <div className={s.planStage}>
+            {previous !== null && <PlanSlide plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
+            <PlanSlide plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
+          </div>
+          <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan">›</button>
         </div>
-        <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan">›</button>
-      </div>
-      <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={active === index ? s.dotActive : ''} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
+        <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={active === index ? s.dotActive : ''} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
+      </section>
 
       <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={s.playDemo} type="button" onClick={() => openDemo()}>Play demo</button></div>
       <div className={s.fastTrack}><div className={s.fastPhone}><img src={item.preview} alt="" /></div><PackageCarousel items={packages} /></div>

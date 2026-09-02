@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Playable</title>
+    <style>
+      html, body { width: 100%; height: 100%; margin: 0; background: #111015; color: #fff; font: 14px Arial, sans-serif; }
+      body { display: grid; place-items: center; }
+    </style>
+  </head>
+  <body>
+    <span>Loading playable…</span>
+    <script>
+      (async function loadPlayable() {
+        const id = new URLSearchParams(location.search).get('id') || ''
+        if (!/^[a-z0-9-]+$/.test(id)) {
+          document.body.textContent = 'Playable not found.'
+          return
+        }
+
+        try {
+          const response = await fetch(new URL(`playables/${id}.html`, location.href))
+          if (!response.ok) throw new Error(`HTTP ${response.status}`)
+
+          let source = await response.text()
+          const compatibilityCode = `(function () {
+            if (!/Android/i.test(navigator.userAgent)) return;
+            window.addEventListener('luna:initialized', function () {
+              try {
+                if (window.UnityEngine && UnityEngine.RenderSettings) UnityEngine.RenderSettings.fog = false;
+              } catch (error) {
+                console.warn('Android fog compatibility fallback was not applied', error);
+              }
+            }, { once: true });
+          })();`
+          const compatibilityScript = '<scr' + 'ipt>' + compatibilityCode + '</scr' + 'ipt>'
+          source = source.replace(/<head([^>]*)>/i, (head) => head + compatibilityScript)
+
+          document.open()
+          document.write(source)
+          document.close()
+        } catch (error) {
+          console.error(error)
+          document.body.textContent = 'Unable to load playable.'
+        }
+      })()
+    </script>
+  </body>
+</html>
