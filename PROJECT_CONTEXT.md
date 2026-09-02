@@ -49,6 +49,8 @@ The company/user has permission to use the supplied assets.
 
 ## Video behavior
 
+- On mobile/coarse-pointer devices, playable HTML files open directly in the current tab instead of inside an iframe. This avoids a Chrome Android/Adreno WebGL shader issue that can render complex Luna/Unity scenes magenta. Browser Back returns to the landing page; desktop keeps the modal iframe.
+
 Videos open in a modal directly on the site:
 
 - YouTube watch links are converted to `youtube.com/embed/...` URLs.

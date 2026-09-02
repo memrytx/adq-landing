@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { playables } from '../data/playables'
+import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
 import { AudienceBanner } from './AudienceBanner'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import s from '../App.module.css'
@@ -92,6 +93,11 @@ export function PlayableAds() {
     setPrevious(null)
     setAnimating(false)
     setActive(index)
+    const selectedPlayable = playableById(planSlides[index].playableId)
+    if (shouldOpenPlayableDirectly()) {
+      openPlayableDirectly(selectedPlayable.file)
+      return
+    }
     setOpen(true)
   }
 
