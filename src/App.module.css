@@ -34,6 +34,38 @@
   object-fit: contain;
   animation: glowAssetPulse 10s ease-in-out infinite alternate;
 }
+.glowBridge {
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(35, 113, 235, 0.34) 0%,
+    rgba(78, 68, 204, 0.24) 40%,
+    rgba(95, 52, 191, 0.09) 62%,
+    transparent 76%
+  );
+  filter: blur(24px);
+}
+.glowBridge img {
+  display: none;
+}
+.glowSweep img {
+  -webkit-mask-image: radial-gradient(
+    ellipse 76% 82% at center,
+    #000 0%,
+    #000 38%,
+    rgba(0, 0, 0, 0.72) 58%,
+    rgba(0, 0, 0, 0.18) 78%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 76% 82% at center,
+    #000 0%,
+    #000 38%,
+    rgba(0, 0, 0, 0.72) 58%,
+    rgba(0, 0, 0, 0.18) 78%,
+    transparent 100%
+  );
+}
 .page > main {
   position: relative;
   z-index: 1;
@@ -335,7 +367,7 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
   opacity: 0.3;
 }
