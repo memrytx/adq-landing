@@ -12,14 +12,16 @@ const ugc: PackagePlan[] = [
 ]
 const mix = ugc.map((x, i) => ({ ...x, price: ['$3,400', '$6,400', '$9,000', '$11,200'][i], note: `From $${[375,350,325,300][i]} per asset` }))
 
-function CreativeRow({ title, images, tiers, videos }: { title: string; images: string[]; tiers: [string,string][]; videos:string[] }) { return <section className={s.creativeRow}><h3>{title}</h3><div className={s.tierColumn}>{tiers.map(([name,price]) => <article key={name}><strong>{name}</strong><span>✓ 10 variations<br />✓ 10 variations<br />✓ 10 working days</span><b>{price}</b></article>)}</div><div className={s.creativeImages}>{images.map((src,i) => <span key={src}><img src={src} alt="" /><VideoButton url={videos[i]} label={`Watch ${title} example ${i + 1}`} /></span>)}</div></section> }
+type CreativeTier = { name: string; price: string; features: string[] }
+
+function CreativeRow({ title, images, tiers, videos }: { title: string; images: string[]; tiers: CreativeTier[]; videos:string[] }) { return <section className={s.creativeRow}><h3>{title}</h3><div className={s.tierColumn}>{tiers.map((tier) => <article key={tier.name}><strong>{tier.name}</strong><span>{tier.features.map((feature) => <span key={feature}>✓ {feature}</span>)}</span><b>{tier.price}</b></article>)}</div><div className={s.creativeImages}>{images.map((src,i) => <span key={src}><img src={src} alt="" /><VideoButton url={videos[i]} label={`Watch ${title} example ${i + 1}`} /></span>)}</div></section> }
 
 export function NonGaming() {
   return <section className={s.nonGaming} id="non-gaming"><AudienceBanner type="non-gaming" /><div className={s.content}>
     <div className={s.ugcHero}><img src={assetUrl('assets/design/ugc-burger.png')} alt="UGC creative" /><VideoButton url="https://www.youtube.com/watch?v=_NeBAHdmlLA" label="Watch UGC creative" /></div>
     <h3 className={s.blockTitle}>UGC Net New Packages</h3><PackageCarousel items={ugc} />
-    <CreativeRow title="AIGC creatives" images={[assetUrl('assets/design/ai-princess.png'), assetUrl('assets/design/ai-chat.png')]} videos={['https://drive.google.com/file/d/10qxnSKEwPQcQ_WGpdIvL8m6122DVSsFz/view','https://drive.google.com/file/d/1I133-EQl5WF2PwMqyKnuEG4EzyqOqpd2/view']} tiers={[["100 creatives","$2,500"],["200 creatives","$4,500"]]} />
-    <CreativeRow title="Video AI" images={[assetUrl('assets/design/ai-baby.png'), assetUrl('assets/design/ai-family.png')]} videos={['https://drive.google.com/file/d/1BvMhRpw3nVEFsrXzZtEE0t6MGfGs8IRM/view?usp=sharing','https://drive.google.com/file/d/1tXfPMPDhgvITeGOIiqXjhP6gmZV2k9N5/view?usp=sharing']} tiers={[["50 creatives","$2,500"],["100 creatives","$4,500"]]} />
+    <CreativeRow title="AIGC creatives" images={[assetUrl('assets/design/ai-princess.png'), assetUrl('assets/design/ai-chat.png')]} videos={['https://drive.google.com/file/d/10qxnSKEwPQcQ_WGpdIvL8m6122DVSsFz/view','https://drive.google.com/file/d/1I133-EQl5WF2PwMqyKnuEG4EzyqOqpd2/view']} tiers={[{ name: '100 creatives', price: '$2,500', features: ['10 avatars', '10 variations', '10 working days'] }, { name: '200 creatives', price: '$4,500', features: ['20 avatars', '10 variations', '15 working days'] }]} />
+    <CreativeRow title="Video AI" images={[assetUrl('assets/design/ai-baby.png'), assetUrl('assets/design/ai-family.png')]} videos={['https://drive.google.com/file/d/1BvMhRpw3nVEFsrXzZtEE0t6MGfGs8IRM/view?usp=sharing','https://drive.google.com/file/d/1tXfPMPDhgvITeGOIiqXjhP6gmZV2k9N5/view?usp=sharing']} tiers={[{ name: '50 creatives', price: '$2,500', features: ['5 AI main body', '10 variations', '15 working days'] }, { name: '100 creatives', price: '$6,500', features: ['10 AI main body', '10 variations', '20 working days'] }]} />
     <h3 className={s.blockTitle}>Mix type UGC/AI/2D/3D <small>Create your own pack</small></h3><PackageCarousel items={mix} />
     <section className={s.mixPackages} id="mix-packages">
       <h3 className={s.blockTitle}>Mix Packages</h3>

@@ -99,6 +99,10 @@
 .heroLogoMobile {
   display: none;
 }
+.heroCtaMobile,
+.caseCtaMobile {
+  display: none;
+}
 .hero {
   height: 1420px;
   padding-top: 190px;
@@ -232,7 +236,7 @@
   font-size: 21px;
 }
 .about {
-  height: 900px;
+  height: 760px;
   position: relative;
   isolation: isolate;
   background:
@@ -269,7 +273,7 @@
 .aboutInner {
   width: min(1100px, calc(100% - 120px));
   margin: auto;
-  padding-top: 110px;
+  padding-top: 80px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 170px;
@@ -317,8 +321,8 @@
   font-size: 13px;
 }
 .audienceBanner {
-  height: 820px;
-  padding-top: 210px;
+  height: 560px;
+  padding-top: 125px;
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -333,20 +337,21 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  opacity: 0.3;
 }
 .audienceGlowLeft {
   width: 500px;
   height: 390px;
   left: 3%;
-  top: 120px;
-  opacity: 0.86;
+  top: 55px;
+  opacity: 0.7;
 }
 .audienceGlowRight {
   width: 520px;
   height: 385px;
   right: 2%;
-  top: 125px;
-  opacity: 0.8;
+  top: 60px;
+  opacity: 0.65;
 }
 .audienceBanner h2,
 .audienceBanner .logoRail {
@@ -380,18 +385,18 @@
   vertical-align: middle;
 }
 .audience_playable {
-  height: 820px;
-  padding-top: 250px;
+  height: 560px;
+  padding-top: 150px;
 }
 .audience_playable h2 {
   font-size: 130px;
 }
 .audience_non-gaming {
-  height: 850px;
+  height: 560px;
 }
 .logoRail {
   width: calc(100% + 260px);
-  margin: 120px -130px 0;
+  margin: 70px -130px 0;
   overflow: hidden;
 }
 .logoTrack {
@@ -470,8 +475,8 @@
 }
 .wideMedia {
   width: min(1440px, calc(100% - 120px));
-  height: 760px;
-  margin: 0 auto 260px;
+  height: 720px;
+  margin: 0 auto 120px;
   position: relative;
   display: grid;
   place-items: center;
@@ -519,22 +524,51 @@
   box-shadow: 0 0 42px rgba(38, 194, 238, 0.42);
 }
 .videoOffer {
-  min-height: 900px;
-  margin-bottom: 140px;
+  margin-bottom: 100px;
+}
+.offerHeading {
+  margin-bottom: 45px;
+  position: relative;
+  text-align: center;
+}
+.offerHeading h3 {
+  margin: 20px 0 0;
+  font-size: 58px;
+  line-height: 1;
+}
+.offerPackageNote {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d8d5d7;
+  font-size: 15px;
+}
+.offerPackageNote strong {
+  margin-left: 5px;
+  font-size: 24px;
+}
+.offerLayout {
   display: grid;
-  grid-template-columns: 1fr 2.1fr;
-  gap: 110px;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 90px;
   align-items: center;
 }
-.videoOffer.reverse {
-  grid-template-columns: 2.1fr 1fr;
-}
-.videoOffer.reverse .offerText {
+.offerLayout .offerText {
   grid-column: 2;
+  grid-row: 1;
 }
-.videoOffer.reverse .offerMedia {
+.offerLayout .offerMedia {
   grid-column: 1;
   grid-row: 1;
+}
+.videoOffer.reverse .offerLayout {
+  grid-template-columns: 1fr 2.1fr;
+}
+.videoOffer.reverse .offerText {
+  grid-column: 1;
+}
+.videoOffer.reverse .offerMedia {
+  grid-column: 2;
 }
 .pill {
   display: inline-block;
@@ -544,9 +578,8 @@
   background: #504d50;
   font-size: 14px;
 }
-.offerText h3,
+.offerHeading h3,
 .caseIntro h3 {
-  margin: 25px 0 65px;
   font-size: 58px;
   line-height: 1;
 }
@@ -564,7 +597,7 @@
   position: relative;
 }
 .offerVisual {
-  height: 670px;
+  height: 590px;
   position: relative;
 }
 .offerVisual > img {
@@ -573,13 +606,13 @@
   object-fit: cover;
 }
 .pricePair {
-  height: 230px;
+  height: 190px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: rgba(22, 20, 24, 0.32);
 }
 .pricePair > div {
-  padding: 45px;
+  padding: 34px 40px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   flex-direction: column;
@@ -592,8 +625,8 @@
   font-size: 31px;
 }
 .caseIntro {
-  min-height: 1050px;
-  margin-top: 120px;
+  min-height: 900px;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: 500px minmax(0, 1fr);
   gap: 30px;
@@ -636,7 +669,7 @@
   z-index: 1;
 }
 .detailList {
-  margin-top: 70px;
+  margin-top: 45px;
   display: grid;
   gap: 35px;
 }
@@ -688,8 +721,8 @@
   color: #67d56e;
 }
 .caseVideo {
-  min-height: 850px;
-  margin: 70px 0 180px;
+  min-height: 790px;
+  margin: 45px 0 110px;
   padding: 70px;
   display: grid;
   grid-template-columns: 1.45fr 1fr;
@@ -754,7 +787,7 @@
   opacity: 0.25;
 }
 .blockTitle {
-  margin: 0 0 90px;
+  margin: 0 0 50px;
   font-size: 44px;
 }
 .plansShowcase {
@@ -891,7 +924,7 @@
   font-weight: 700;
 }
 .dots {
-  height: 150px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -908,7 +941,7 @@
   background: #fff;
 }
 .fastHead {
-  margin-top: 170px;
+  margin-top: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -920,7 +953,7 @@
   background: linear-gradient(90deg, #5bd568, #21b5e8);
 }
 .fastTrack {
-  margin-top: 80px;
+  margin-top: 45px;
   display: grid;
   grid-template-columns: 370px 1fr;
   gap: 70px;
@@ -1188,7 +1221,7 @@
   cursor: pointer;
 }
 .playables > .content {
-  padding-bottom: 280px;
+  padding-bottom: 140px;
 }
 .nonGaming:before {
   width: 900px;
@@ -1200,7 +1233,7 @@
 }
 .ugcHero {
   height: 740px;
-  margin-bottom: 240px;
+  margin-bottom: 110px;
   position: relative;
 }
 .ugcHero img {
@@ -1210,11 +1243,11 @@
   object-fit: cover;
 }
 .nonGaming .packageViewport {
-  margin-bottom: 220px;
+  margin-bottom: 110px;
 }
 .creativeRow {
-  min-height: 900px;
-  margin-bottom: 140px;
+  min-height: 820px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-columns: 280px 1fr;
   grid-template-rows: auto 1fr;
@@ -1245,11 +1278,14 @@
 .tierColumn strong {
   font-size: 19px;
 }
-.tierColumn span {
+.tierColumn article > span {
   margin: 20px 0;
   color: #38c7eb;
   font-size: 13px;
   line-height: 1.7;
+}
+.tierColumn article > span > span {
+  display: block;
 }
 .tierColumn b {
   margin-top: auto;
@@ -1265,7 +1301,7 @@
 }
 .creativeImages img {
   width: 100%;
-  height: 850px;
+  height: 780px;
   object-fit: cover;
 }
 .mixPackages {
@@ -1321,11 +1357,11 @@
   font-size: 17px;
 }
 .nonGaming > .content {
-  padding-bottom: 220px;
+  padding-bottom: 130px;
 }
 .closing {
-  min-height: 3500px;
-  padding: 200px 0;
+  min-height: 0;
+  padding: 130px 0 150px;
 }
 .closingGlowAsset {
   width: 1500px;
@@ -1356,12 +1392,12 @@
   font-size: 45px;
 }
 .closingTitle h2 {
-  margin: 50px 0 0;
+  margin: 34px 0 0;
   font-size: 70px;
   line-height: 1.05;
 }
 .processTitle {
-  margin: 190px 0 130px;
+  margin: 110px 0 85px;
   font-size: 44px;
 }
 .process {
@@ -1418,7 +1454,7 @@
   font-weight: 700;
 }
 .closing .blockTitle {
-  margin-top: 220px;
+  margin-top: 130px;
 }
 .requirements {
   padding: 70px 95px;
@@ -1448,7 +1484,7 @@
   line-height: 1.3;
 }
 .important {
-  margin-top: 100px;
+  margin-top: 70px;
   padding: 70px 95px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 45px;
@@ -1766,8 +1802,8 @@
     line-height: 1;
   }
   .hero {
-    height: 720px;
-    padding-top: 140px;
+    height: 735px;
+    padding-top: 138px;
     background:
       radial-gradient(ellipse 220px 165px at 0% 0%, rgba(0, 137, 224, 0.38), transparent 72%),
       radial-gradient(ellipse 210px 160px at 100% 3%, rgba(111, 48, 236, 0.32), transparent 72%);
@@ -1791,34 +1827,42 @@
     display: none;
   }
   .heroCopy h1 {
-    font-size: 31px;
+    font-size: 42px;
   }
   .heroCopy p {
-    margin-top: 10px;
-    font-size: 13px;
+    margin-top: 16px;
+    font-size: 16px;
   }
   .heroRail {
-    width: calc(100% + 50px);
-    height: 320px;
-    margin: 48px -25px 0;
+    width: calc(100% + 30px);
+    height: 325px;
+    margin: 34px -15px 0;
   }
   .heroTrack {
-    --rail-gap: 12px;
-    --rail-offset: 6px;
+    --rail-gap: 18px;
+    --rail-offset: 9px;
     gap: var(--rail-gap);
     animation-duration: 30s;
   }
   .heroTrack img {
-    width: 118px;
-    height: 265px;
-    flex-basis: 118px;
-    border-radius: 10px;
+    width: 154px;
+    height: 317px;
+    flex-basis: 154px;
+    border-radius: 14px;
   }
   .hero > .gradientButton {
-    width: 120px;
-    height: 38px;
-    margin-top: 15px;
-    font-size: 9px;
+    width: calc(100% - 40px);
+    height: 52px;
+    margin-top: 18px;
+    font-size: 16px;
+  }
+  .heroCtaDesktop,
+  .caseCtaDesktop {
+    display: none;
+  }
+  .heroCtaMobile,
+  .caseCtaMobile {
+    display: inline;
   }
   .heroLogoMobile {
     display: none;
@@ -1844,12 +1888,12 @@
     display: block;
   }
   .aboutCopy .logo {
-    font-size: 30px;
+    font-size: 38px;
   }
   .aboutCopy p {
-    max-width: 300px;
+    max-width: 330px;
     margin-top: 18px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .stats {
     margin-top: 60px;
@@ -1857,22 +1901,22 @@
     gap: 45px 20px;
   }
   .stat strong {
-    font-size: 27px;
+    font-size: 30px;
   }
   .stat span {
-    font-size: 8px;
+    font-size: 10px;
   }
   .tiktok img {
     width: 36px;
     height: 36px;
   }
   .tiktok span {
-    font-size: 7px;
+    font-size: 9px;
   }
   .audienceBanner {
     height: auto;
-    min-height: 440px;
-    padding: 110px 0 55px;
+    min-height: 350px;
+    padding: 72px 0 38px;
     background:
       radial-gradient(ellipse 190px 145px at 0% 45%, rgba(0, 130, 223, 0.38), transparent 72%),
       radial-gradient(ellipse 190px 145px at 100% 48%, rgba(105, 45, 230, 0.4), transparent 72%);
@@ -1887,57 +1931,65 @@
     width: 225px;
     height: 178px;
     left: -76px;
-    top: 86px;
-    opacity: 0.62;
+    top: 55px;
+    opacity: 0.44;
   }
   .audienceGlowRight {
     width: 235px;
     height: 175px;
     right: -82px;
-    top: 96px;
-    opacity: 0.58;
+    top: 65px;
+    opacity: 0.4;
   }
   .audience_playable .audienceGlowLayer {
     opacity: 0.52;
   }
   .audienceBanner h2,
   .audience_playable h2 {
-    font-size: 50px;
+    font-size: 46px;
   }
   .logoRail {
-    width: calc(100% + 200px);
-    margin: 58px -100px 0;
+    width: auto;
+    margin: 42px 20px 0;
   }
   .logoTrack {
-    --logo-gap: 20px;
-    --logo-quarter-offset: 5px;
-    gap: var(--logo-gap);
-    animation-duration: 22s;
+    width: 100%;
+    display: block;
+    animation: none;
   }
-  .logoTrackReverse {
-    animation-duration: 25s;
+  .logoGroup {
+    display: none;
+  }
+  .logoGroup:first-child {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px 14px;
   }
   .logoTrack img {
-    width: 54px;
-    height: 30px;
-    flex-basis: 54px;
+    width: 100%;
+    height: 26px;
+    min-width: 0;
   }
   .audience_playable {
     height: auto;
-    min-height: 360px;
-    padding: 95px 0 35px;
+    min-height: 330px;
+    padding: 68px 0 34px;
+  }
+  .audience_playable h2 {
+    max-width: 245px;
+    margin-inline: auto;
   }
   .audience_playable .logoRail {
-    margin-top: 45px;
+    margin-top: 38px;
   }
   .audience_non-gaming {
     height: auto;
-    min-height: 440px;
+    min-height: 350px;
   }
   .wideMedia {
     width: 100%;
     height: 245px;
-    margin-bottom: 120px;
+    margin-bottom: 70px;
   }
   .wideMedia:before {
     inset: -20px;
@@ -1988,23 +2040,46 @@
     width: auto;
     margin: 0 0;
   }
-  .videoOffer,
-  .videoOffer.reverse {
-    min-height: 660px;
-    margin: 0 0 120px;
+  .videoOffer {
+    margin: 0 0 75px;
+  }
+  .offerHeading {
+    margin-bottom: 24px;
+    padding: 0 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    text-align: left;
+  }
+  .offerHeading h3 {
+    margin: 12px 0 0;
+    font-size: 26px;
+  }
+  .offerPackageNote {
+    max-width: 92px;
+    position: static;
+    font-size: 11px;
+    line-height: 1.1;
+    text-align: right;
+  }
+  .offerPackageNote strong {
+    display: block;
+    margin: 3px 0 0;
+    font-size: 22px;
+  }
+  .offerLayout,
+  .videoOffer.reverse .offerLayout {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    align-items: stretch;
+    gap: 22px;
   }
   .offerText {
+    order: 2;
     padding: 0 20px;
   }
-  .offerText h3 {
-    margin: 12px 0 22px;
-    font-size: 24px;
-  }
   .offerText h4 {
+    margin-top: 20px;
     font-size: 13px;
   }
   .offerText p {
@@ -2012,10 +2087,7 @@
     line-height: 1.45;
   }
   .offerMedia {
-    order: -1;
-  }
-  .videoOffer.reverse .offerText {
-    order: 0;
+    order: 1;
   }
   .offerVisual {
     height: 250px;
@@ -2044,7 +2116,7 @@
   }
   .caseIntro {
     min-height: 0;
-    margin: 100px 0 120px;
+    margin: 70px 0 80px;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
@@ -2111,7 +2183,7 @@
   }
   .caseVideo {
     min-height: 560px;
-    margin: 30px 0 120px;
+    margin: 25px 0 80px;
     padding: 20px 10px;
     display: block;
     border-radius: 18px;
@@ -2153,7 +2225,7 @@
     padding-top: 0;
   }
   .blockTitle {
-    margin: 0 0 35px;
+    margin: 0 0 24px;
     padding: 0 20px;
     font-size: 25px;
   }
@@ -2172,9 +2244,9 @@
     opacity: 0.42;
   }
   .playablePlan {
-    min-height: 380px;
-    grid-template-columns: 34px minmax(0, 1fr) 34px;
-    border-radius: 14px;
+    min-height: 620px;
+    grid-template-columns: 26px minmax(0, 1fr) 26px;
+    border-radius: 24px;
   }
   .planArrow {
     width: 22px;
@@ -2182,49 +2254,74 @@
     font-size: 14px;
   }
   .planStage {
-    min-height: 380px;
+    min-height: 620px;
   }
   .planSlide {
-    min-height: 380px;
-    padding: 24px 6px;
-    grid-template-columns: 105px 1fr;
-    gap: 12px;
+    min-height: 620px;
+    padding: 28px 8px 22px;
+    grid-template-columns: 138px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto auto auto;
+    gap: 0 14px;
+    align-items: start;
+  }
+  .planCopy {
+    display: contents;
   }
   .planSlide > img {
-    width: 100px;
-    height: 220px;
-    border-width: 3px;
-    border-radius: 17px;
+    width: 138px;
+    height: 320px;
+    grid-column: 1;
+    grid-row: 3 / 7;
+    align-self: center;
+    border-width: 4px;
+    border-radius: 24px;
   }
   .planCopy h4 {
-    font-size: 13px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 19px;
   }
   .planCopy p {
-    font-size: 8px;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 12px 0 24px;
+    font-size: 13px;
+    line-height: 1.35;
   }
   .planCopy small {
-    margin-top: 8px;
-    font-size: 7px;
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 18px;
+    font-size: 10px;
   }
   .planCopy > strong {
-    font-size: 23px;
+    grid-column: 2;
+    grid-row: 4;
+    font-size: 32px;
   }
   .planCopy ul {
-    font-size: 7px;
+    grid-column: 2;
+    grid-row: 5;
+    margin: 14px 0;
+    font-size: 10px;
+    line-height: 1.55;
   }
-  .demo {
-    padding: 7px 15px;
-    font-size: 8px;
+  .planCopy .demo {
+    grid-column: 2;
+    grid-row: 6;
+    justify-self: start;
+    padding: 10px 20px;
+    font-size: 11px;
   }
   .dots {
-    height: 65px;
+    height: 42px;
   }
   .dots button {
     width: 5px;
     height: 5px;
   }
   .fastHead {
-    margin-top: 90px;
+    margin-top: 45px;
     padding: 0 20px;
   }
   .fastHead .blockTitle {
@@ -2235,7 +2332,7 @@
     font-size: 8px;
   }
   .fastTrack {
-    margin-top: 30px;
+    margin-top: 22px;
     display: block;
   }
   .fastPhone {
@@ -2358,52 +2455,68 @@
     font-size: 44px;
   }
   .playables > .content {
-    padding-bottom: 150px;
+    padding-bottom: 80px;
   }
   .ugcHero {
     height: 230px;
-    margin-bottom: 120px;
+    margin-bottom: 70px;
   }
   .ugcHero:before {
     inset: -20px;
     filter: blur(22px);
   }
   .nonGaming .packageViewport {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
   }
   .creativeRow {
-    min-height: 600px;
-    margin-bottom: 80px;
-    display: grid;
-    grid-template-columns: 95px 1fr;
-    gap: 8px;
-    padding: 0 10px;
+    min-height: 0;
+    margin-bottom: 70px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
   .creativeRow h3 {
-    font-size: 19px;
+    order: 1;
+    font-size: 25px;
   }
   .tierColumn {
-    gap: 5px;
+    order: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
   .tierColumn article {
-    min-height: 125px;
-    padding: 10px;
+    min-height: 190px;
+    padding: 16px;
   }
   .tierColumn strong {
-    font-size: 8px;
+    font-size: 12px;
   }
-  .tierColumn span {
-    margin: 8px 0;
-    font-size: 6px;
+  .tierColumn article > span {
+    margin: 12px 0;
+    font-size: 10px;
+    line-height: 1.55;
   }
   .tierColumn b {
-    font-size: 11px;
+    font-size: 20px;
   }
   .creativeImages {
-    gap: 4px;
+    order: 2;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .creativeImages::-webkit-scrollbar {
+    display: none;
+  }
+  .creativeImages > span {
+    flex: 0 0 76%;
+    scroll-snap-align: start;
   }
   .creativeImages img {
-    height: 450px;
+    height: 470px;
   }
   .mixGrid {
     max-width: none;
@@ -2439,11 +2552,11 @@
     font-size: 11px;
   }
   .nonGaming > .content {
-    padding-bottom: 60px;
+    padding-bottom: 80px;
   }
   .closing {
     min-height: 0;
-    padding: 70px 0 60px;
+    padding: 70px 0 80px;
   }
   .closingGlowAsset {
     width: 560px;
@@ -2458,10 +2571,10 @@
   }
   .closingTitle h2 {
     margin-top: 25px;
-    font-size: 25px;
+    font-size: 27px;
   }
   .processTitle {
-    margin: 80px 0 50px;
+    margin: 65px 0 42px;
     padding: 0 20px;
     font-size: 20px;
   }
@@ -2522,10 +2635,10 @@
     font-size: 13px;
   }
   .closing .blockTitle {
-    margin-top: 70px;
+    margin-top: 55px;
   }
   .requirements {
-    padding: 25px 20px;
+    padding: 28px 20px;
     border-radius: 18px;
   }
   .requirementsHead,
@@ -2534,25 +2647,29 @@
     gap: 8px;
   }
   .requirementsHead {
-    font-size: 8px;
+    font-size: 10px;
   }
   .requirementRow {
-    padding: 9px 0;
-    font-size: 7px;
+    padding: 12px 0;
+    font-size: 9px;
+    line-height: 1.35;
   }
   .important {
-    margin: 50px 20px 0;
-    padding: 30px 20px;
-    border-radius: 18px;
+    margin: 45px 20px 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
   .important h3 {
-    font-size: 18px;
+    font-size: 21px;
   }
   .important ul {
     padding-left: 14px;
   }
   .important li {
-    font-size: 10px;
+    font-size: 13px;
+    line-height: 1.45;
   }
   .footer {
     min-height: 470px;

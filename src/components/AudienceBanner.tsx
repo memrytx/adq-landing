@@ -2,8 +2,8 @@ import s from '../App.module.css'
 import { GlowAccent } from './GlowAccent'
 import { assetUrl } from '../assetUrl'
 
-const gamingLogos = ['logo-peak.png', 'logo-helio.png', 'logo-rovio.png', 'logo-cm.png', 'logo-playrix.png', 'logo-supercent.png', 'logo-gamegos.png']
-const networkLogos = ['logo-applovin.png', 'logo-vungle.png', 'logo-moloco.png', 'logo-appreciate.png', 'logo-fyber.png', 'logo-supercent.png']
+const gamingLogos = ['logo-peak.png', 'logo-helio.png', 'logo-rovio.png', 'logo-cm.png', 'logo-playrix.png', 'logo-supercent.png', 'logo-gamegos.png', 'logo-applovin.png', 'logo-vungle.png', 'logo-moloco.png']
+const networkLogos = ['logo-applovin.png', 'logo-vungle.png', 'logo-moloco.png', 'logo-appreciate.png', 'logo-fyber.png', 'logo-supercent.png', 'logo-gamegos.png', 'logo-peak.png', 'logo-cm.png', 'logo-rovio.png']
 
 export function LogoRail({ networks = false }: { networks?: boolean }) {
   const names = networks ? networkLogos : gamingLogos

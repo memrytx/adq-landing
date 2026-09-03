@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { playables } from '../data/playables'
 import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
+import { assetUrl } from '../assetUrl'
 import { AudienceBanner } from './AudienceBanner'
 import { GlowAccent } from './GlowAccent'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
@@ -50,21 +51,6 @@ function PlanSlide({ plan, className = '', onDemo }: { plan: PlayablePlan; class
       <ul>{plan.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
       <button className={s.demo} type="button" onClick={onDemo}>Demo</button>
     </div>
-  </article>
-}
-
-function LevelCard({ plan, index, onDemo }: { plan: PlayablePlan; index: number; onDemo: () => void }) {
-  const item = playableById(plan.playableId)
-  const premium = plan.title === 'PREMIUM 3D'
-  return <article className={`${s.levelCard} ${toneClass(plan.tone)} ${premium ? s.levelPremium : ''}`}>
-    <div className={s.levelHeader}><h4>{plan.title}</h4><p>{plan.description}</p></div>
-    <img src={item.preview} alt={`${plan.title} playable example`} />
-    <div className={s.levelOffer}>
-      <div><small>Costs start at</small><strong>{plan.price}</strong></div>
-      <ul>{plan.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
-      <button className={s.demo} type="button" onClick={onDemo} aria-label={`Open ${plan.title} demo`}>Demo</button>
-    </div>
-    <span className={s.levelNumber} aria-hidden="true">0{index + 1}</span>
   </article>
 }
 
@@ -136,11 +122,8 @@ export function PlayableAds() {
       </section>
 
       <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={s.playDemo} type="button" onClick={() => openDemo()}>Play demo</button></div>
-      <div className={s.fastTrack}><div className={s.fastPhone}><img src={item.preview} alt="" /></div><PackageCarousel items={packages} /></div>
+      <div className={s.fastTrack}><div className={s.fastPhone}><img src={assetUrl('assets/design/hero-game.png')} alt="" /></div><PackageCarousel items={packages} /></div>
 
-      <section className={s.levelPanel} aria-label="Playable production levels">
-        {planSlides.map((slide, index) => <LevelCard plan={slide} index={index} onDemo={() => openDemo(index)} key={slide.title} />)}
-      </section>
     </div>
 
     {open && <div className={s.modal} role="dialog" aria-modal="true"><button className={s.modalClose} type="button" onClick={() => setOpen(false)} aria-label="Close">×</button><iframe src={item.file} title={item.title} allow="autoplay; fullscreen" /></div>}

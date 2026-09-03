@@ -41,10 +41,13 @@ function VideoOffer({ id, reverse = false, title, image, video, children, prices
   prices: [[string, string], [string, string]]
 }) {
   return <article className={`${s.videoOffer} ${reverse ? s.reverse : ''}`} id={id}>
-    <div className={s.offerText}><span className={s.pill}>Plan</span><h3>{title}</h3>{children}</div>
-    <div className={s.offerMedia}>
-      <div className={s.offerVisual}><img src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
-      <PricePair left={prices[0]} right={prices[1]} />
+    <div className={s.offerHeading}><div><span className={s.pill}>Plan</span><h3>{title}</h3></div>{id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}</div>
+    <div className={s.offerLayout}>
+      <div className={s.offerText}>{children}</div>
+      <div className={s.offerMedia}>
+        <div className={s.offerVisual}><img src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
+        <PricePair left={prices[0]} right={prices[1]} />
+      </div>
     </div>
   </article>
 }
@@ -119,7 +122,7 @@ export function Gaming() {
           <DetailList>
             <Detail icon="collaboration" title="Collaboration Period">May 2025 — Present</Detail>
             <Detail icon="creative" title="Creative Output">First Creative Pack:<br />3 high-quality ads</Detail>
-            <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement.</Detail>
+            <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement. Conclusion of a long-term cooperation agreement.</Detail>
           </DetailList>
         </div>
         <CaseArt variant="bloom" art={assetUrl('assets/design/case-bloom-art.png')} glow={assetUrl('assets/design/case-bloom-glow.png')} alt="Bloom City Match" />
@@ -127,7 +130,7 @@ export function Gaming() {
 
       <article className={`${s.caseVideo} ${s.bloomVideo}`} id="bloom-story">
         <div className={s.singlePoster}><img src={assetUrl('assets/design/bloom-video.png')} alt="Bloom City Match case" /><VideoButton url={links.bloom} label="Watch Bloom City Match case" /></div>
-        <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer">View case study</a>
+        <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer"><span className={s.caseCtaDesktop}>Full case study</span><span className={s.caseCtaMobile}>View case study</span></a>
         <DetailList>
           <Detail icon="challenge" title="Challenge:">Following Rovio Entertainment’s brief, we needed to create two new product locations, an intro, and implement <Accent>realistic physics-based animations</Accent>.</Detail>
           <Detail icon="solution" title="Solution:">We built the animation rigs from scratch, developed <Accent>high-quality textures</Accent> and character animations, and delivered the entire scope <Accent>within three weeks</Accent>.</Detail>
