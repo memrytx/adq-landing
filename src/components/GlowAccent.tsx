@@ -17,12 +17,13 @@ const assetClasses: Record<GlowAsset, string> = {
   sweep: s.glowSweep,
 }
 
-export function GlowAccent({ asset, className = '', reverse = false }: {
+export function GlowAccent({ asset, className = '', reverse = false, parallax = true }: {
   asset: GlowAsset
   className?: string
   reverse?: boolean
+  parallax?: boolean
 }) {
-  return <span className={`${s.glowAccent} ${assetClasses[asset]} ${reverse ? s.glowAccentReverse : ''} ${className}`} aria-hidden="true">
+  return <span className={`${s.glowAccent} ${assetClasses[asset]} ${reverse ? s.glowAccentReverse : ''} ${parallax ? '' : s.glowAccentStatic} ${className}`} aria-hidden="true">
     <img src={assetUrl(`assets/design/${sources[asset]}`)} alt="" />
   </span>
 }

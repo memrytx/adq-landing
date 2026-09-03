@@ -107,8 +107,8 @@ export function PlayableAds() {
     <AudienceBanner type="playable" />
     <div className={s.content}>
       <section className={s.plansShowcase}>
-        <GlowAccent asset="sweep" className={s.planTitleGlow} />
-        <GlowAccent asset="sweep" className={s.planPanelGlow} reverse />
+        <GlowAccent asset="sweep" className={s.planTitleGlow} parallax={false} />
+        <GlowAccent asset="sweep" className={s.planPanelGlow} reverse parallax={false} />
         <h3 className={s.blockTitle}>Plans</h3>
         <div className={s.playablePlan} id="playable-plans">
           <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
