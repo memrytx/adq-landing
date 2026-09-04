@@ -6,6 +6,7 @@ import { AudienceBanner } from './AudienceBanner'
 import { GlowAccent } from './GlowAccent'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import s from '../App.module.css'
+import phoneFrame from '../../../../exports/frames/playable-phone-frame.png'
 
 type PlanTone = 'blue' | 'pink' | 'mixed'
 type PlayablePlan = {
@@ -15,10 +16,11 @@ type PlayablePlan = {
   features: string[]
   playableId: string
   tone: PlanTone
+  preview?: string
 }
 
 const planSlides: PlayablePlan[] = [
-  { title: 'BASIC', description: 'Simple animations, no complex mechanics — just using the assets provided by the client', price: '$700', features: ['Up to 2 clicks', 'Delivered within 5 business days'], playableId: 'ivg-131-4', tone: 'blue' },
+  { title: 'BASIC', description: 'Simple animations, no complex mechanics — just using the assets provided by the client', price: '$700', features: ['Up to 2 clicks', 'Delivered within 5 business days'], playableId: 'ism-97-04', tone: 'blue', preview: assetUrl('assets/design/plan-phone.png') },
   { title: 'ENHANCED', description: 'Includes several animations, multiple storyline variations, and visual effects', price: '$1,500', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'iop-434-25', tone: 'pink' },
   { title: 'ADVANCED', description: 'Complex animations and effects, with multiple storyline variations', price: '$2,000', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'anb-25-20t', tone: 'pink' },
   { title: 'INTERACTIVE', description: 'Extensive animations and a game-like scenario that requires careful balancing', price: '$2,500', features: ['Up to 6 clicks', 'Delivered within 10 business days'], playableId: 'anbm-03-57', tone: 'blue' },
@@ -42,12 +44,11 @@ function playableById(id: string) {
 function PlanSlide({ plan, className = '', onDemo }: { plan: PlayablePlan; className?: string; onDemo: () => void }) {
   const item = playableById(plan.playableId)
   return <article className={`${s.planSlide} ${toneClass(plan.tone)} ${className}`}>
-    <img src={item.preview} alt={`${item.title} playable`} />
+    <div className={s.planPhone}><img className={s.phoneScreen} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
     <div className={s.planCopy}>
       <h4>{plan.title}</h4>
       <p>{plan.description}</p>
-      <small>Costs start at</small>
-      <strong>{plan.price}</strong>
+      <div className={s.planPriceFlag}><small>Costs start at</small><strong>{plan.price}</strong></div>
       <ul>{plan.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
       <button className={s.demo} type="button" onClick={onDemo}>Demo</button>
     </div>
@@ -122,7 +123,7 @@ export function PlayableAds() {
       </section>
 
       <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={s.playDemo} type="button" onClick={() => openDemo()}>Play demo</button></div>
-      <div className={s.fastTrack}><div className={s.fastPhone}><img src={assetUrl('assets/design/hero-game.png')} alt="" /></div><PackageCarousel items={packages} /></div>
+      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div><PackageCarousel items={packages} /></div>
 
     </div>
 

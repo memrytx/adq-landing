@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import s from '../App.module.css'
 
 function toEmbedUrl(url: string) {
@@ -28,29 +28,11 @@ export function VideoButton({ url, label = 'Watch video' }: { url: string; label
   const [open, setOpen] = useState(false)
   const embedUrl = useMemo(() => toEmbedUrl(url), [url])
 
-  useEffect(() => {
-    if (!open) return
-
-    const previousOverflow = document.body.style.overflow
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
-    }
-
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', closeOnEscape)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', closeOnEscape)
-    }
-  }, [open])
-
   return <>
-    <button className={s.playButton} type="button" onClick={() => setOpen(true)} aria-label={label}>▶</button>
-    {open && <div className={s.videoModal} role="dialog" aria-modal="true" aria-label={label} onClick={() => setOpen(false)}>
-      <div className={s.videoDialog} onClick={(event) => event.stopPropagation()}>
-        <button className={s.videoClose} type="button" onClick={() => setOpen(false)} aria-label="Close video">×</button>
-        <iframe className={s.videoFrame} src={embedUrl} title={label} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen />
-      </div>
+    {!open && <button className={s.playButton} type="button" onClick={() => setOpen(true)} aria-label={label}>▶</button>}
+    {open && <div className={s.inlineVideo} aria-label={label}>
+      <iframe className={s.videoFrame} src={embedUrl} title={label} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen />
+      <button className={s.videoClose} type="button" onClick={() => setOpen(false)} aria-label="Close video">×</button>
     </div>}
   </>
 }

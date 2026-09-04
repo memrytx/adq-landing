@@ -94,30 +94,13 @@
   display: none;
 }
 .logo {
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-  font-weight: 800;
+  display: inline-block;
+  line-height: 0;
 }
-.logoLetters {
-  display: inline-flex;
-  align-items: baseline;
-  letter-spacing: -0.18em;
-}
-.logoLetters b {
-  font-size: 1.15em;
-}
-.logoLetters b:nth-child(1) {
-  color: #21b7e6;
-}
-.logoLetters b:nth-child(2) {
-  color: #fff;
-}
-.logoLetters b:nth-child(3) {
-  color: #67d469;
-}
-.logoWord {
-  margin-left: 0.08em;
+.logo img {
+  width: auto;
+  height: 1em;
+  display: block;
 }
 .logoCompact {
   font-size: 22px;
@@ -203,13 +186,12 @@
 }
 .heroCopy h1 {
   margin: 0;
-  font-size: 74px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.045em;
+  line-height: 0;
 }
-.heroCopy h1 span {
-  color: #21b7e6;
+.heroTitleLogo {
+  width: min(480px, calc(100% - 40px));
+  height: auto;
+  margin-inline: auto;
 }
 .heroCopy p {
   width: max-content;
@@ -315,10 +297,12 @@
   margin: 36px 0 0;
   color: #c6c3c6;
   font-size: 25px;
+  font-weight: 500;
   line-height: 1.42;
 }
 .aboutCopy p span {
   color: #24bce8;
+  font-weight: 700;
 }
 .stats {
   display: grid;
@@ -366,21 +350,26 @@
   inset: 0;
   overflow: visible;
   pointer-events: none;
-  opacity: 0.3;
+  filter: saturate(1.5) contrast(1.08);
+  opacity: 0.58;
+}
+.audienceGlowLayer .glowAccent img {
+  animation: none;
+  opacity: 1;
 }
 .audienceGlowLeft {
   width: 500px;
   height: 390px;
   left: 3%;
   top: 55px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .audienceGlowRight {
   width: 520px;
   height: 385px;
   right: 2%;
   top: 60px;
-  opacity: 0.65;
+  opacity: 0.88;
 }
 .audienceBanner h2,
 .audienceBanner .logoRail {
@@ -506,27 +495,34 @@
   opacity: 0.22;
 }
 .wideMedia {
-  width: min(1440px, calc(100% - 120px));
-  height: 720px;
+  width: min(1320px, calc(100% - 160px));
+  height: auto;
+  aspect-ratio: 16 / 9;
   margin: 0 auto 120px;
   position: relative;
+  isolation: isolate;
   display: grid;
   place-items: center;
 }
 .wideMedia:before,
-.ugcHero:before {
+.offerMedia:before,
+.ugcHero:before,
+.singlePoster:before {
   content: "";
   position: absolute;
-  inset: -70px;
-  background: linear-gradient(135deg, #165ff5, #c600fa);
-  filter: blur(65px);
-  opacity: 0.45;
+  z-index: 1;
+  inset: -76px;
+  background: var(--video-glow) center / 100% 100% no-repeat;
+  pointer-events: none;
+  opacity: 0.82;
 }
 .wideMedia img {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 2;
   object-fit: cover;
+  border-radius: 18px;
 }
 .playButton {
   width: 108px;
@@ -627,6 +623,11 @@
 }
 .offerMedia {
   position: relative;
+  isolation: isolate;
+}
+.offerMedia > * {
+  position: relative;
+  z-index: 2;
 }
 .offerVisual {
   height: 590px;
@@ -636,12 +637,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 18px 18px 0 0;
 }
 .pricePair {
   height: 190px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: rgba(22, 20, 24, 0.32);
+  background: #242225;
+  border-radius: 0 0 18px 18px;
+  overflow: hidden;
 }
 .pricePair > div {
   padding: 34px 40px;
@@ -783,11 +787,24 @@
 .splitPosters span,
 .singlePoster {
   position: relative;
+  isolation: isolate;
+}
+.splitPosters span:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: -44px;
+  background: var(--video-glow-vertical) center / 100% 100% no-repeat;
+  pointer-events: none;
+  opacity: 0.8;
 }
 .splitPosters img {
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 2;
   object-fit: cover;
+  border-radius: 18px;
 }
 .bloomIntro {
   margin-top: 0;
@@ -802,7 +819,10 @@
 .singlePoster img {
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 2;
   object-fit: cover;
+  border-radius: 18px;
 }
 .bloomVideo > .gradientButton {
   width: 270px;
@@ -892,15 +912,21 @@
   overflow: hidden;
 }
 .planArrow {
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   margin: auto;
   position: relative;
   z-index: 4;
+  display: grid;
+  place-items: center;
+  padding: 0 0 5px;
   color: #fff;
   background: #55586a;
   border-radius: 50%;
-  font-size: 34px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 46px;
+  font-weight: 200;
+  line-height: 1;
   cursor: pointer;
   transition: background 0.25s ease, transform 0.25s ease;
 }
@@ -1291,12 +1317,15 @@
   height: 740px;
   margin-bottom: 110px;
   position: relative;
+  isolation: isolate;
 }
 .ugcHero img {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 2;
   object-fit: cover;
+  border-radius: 18px;
 }
 .nonGaming .packageViewport {
   margin-bottom: 110px;
@@ -1759,6 +1788,749 @@
     transform: translateY(18px) scale(0.98);
   }
 }
+/* Reference-matched glass surfaces and exported light artwork. */
+.glowBridge,
+.glowSweep {
+  border-radius: 0;
+  background: none;
+  filter: none;
+}
+.glowBridge img,
+.glowSweep img {
+  display: block;
+  object-fit: fill;
+}
+.gaming::after,
+.playables::after,
+.nonGaming::after,
+.closing::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.gaming::after {
+  background-image: var(--light-2), var(--light-1), var(--light-2), var(--light-1);
+  background-position: -360px 7%, calc(100% + 420px) 28%, -420px 58%, calc(100% + 380px) 86%;
+  background-size: 930px auto, 960px auto, 920px auto, 900px auto;
+  opacity: 0.3;
+}
+.playables::after {
+  background-image: var(--light-2), var(--light-1), var(--light-2);
+  background-position: -360px 18%, calc(100% + 390px) 48%, -390px 78%;
+  background-size: 940px auto, 930px auto, 900px auto;
+  opacity: 0.31;
+}
+.nonGaming::after {
+  background-image: var(--light-2), var(--light-1), var(--light-2), var(--light-1);
+  background-position: -380px 14%, calc(100% + 390px) 36%, -410px 63%, calc(100% + 410px) 86%;
+  background-size: 900px auto, 930px auto, 920px auto, 900px auto;
+  opacity: 0.29;
+}
+.closing::after {
+  background-image: var(--light-2), var(--light-1);
+  background-position: -420px 54%, calc(100% + 400px) 82%;
+  background-size: 950px auto, 920px auto;
+  opacity: 0.27;
+}
+.gaming > .content,
+.gaming > .wideMedia,
+.gaming > .audienceBanner,
+.playables > .content,
+.playables > .audienceBanner,
+.nonGaming > .content,
+.nonGaming > .audienceBanner,
+.closing > .content,
+.closing > .closingTitle {
+  position: relative;
+  z-index: 1;
+}
+.videoOffer:not(.reverse) .offerHeading {
+  width: calc((100% - 90px) * 0.677);
+  text-align: left;
+}
+.videoOffer:not(.reverse) .offerHeading .pill {
+  margin-left: 14px;
+}
+.pricePair {
+  height: 178px;
+  gap: 16px;
+  overflow: visible;
+  background: transparent;
+}
+.pricePair > div {
+  position: relative;
+  isolation: isolate;
+  padding: 28px 30px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 17px;
+  background: rgba(30, 35, 55, 0.38);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+.pricePair > div::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--frame-1) center / 100% 100% no-repeat;
+  opacity: 0.78;
+  pointer-events: none;
+}
+.pricePair span {
+  font-weight: 700;
+}
+.pricePair small {
+  margin-top: 25px;
+  color: #d7d2d7;
+  font-size: 13px;
+}
+.pricePair strong {
+  margin-top: 3px;
+}
+.caseArtGlow {
+  transform: scale(1.09);
+  opacity: 1;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.caseVideo {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  background: rgba(22, 39, 65, 0.36);
+  -webkit-backdrop-filter: blur(24px) saturate(130%);
+  backdrop-filter: blur(24px) saturate(130%);
+  box-shadow: 0 0 76px rgba(29, 126, 255, 0.24);
+}
+.caseVideo::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--frame-2) center / 100% 100% no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.playablePlan {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  background: rgba(34, 35, 50, 0.38);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  backdrop-filter: blur(24px) saturate(135%);
+}
+.playablePlan::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--frame-11) center / 100% 100% no-repeat;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.planPhone,
+.fastPhone {
+  position: relative;
+  isolation: isolate;
+}
+.planPhone {
+  width: 340px;
+  height: 660px;
+  justify-self: center;
+}
+.planPhone img,
+.fastPhone img {
+  position: absolute;
+  display: block;
+}
+.planPhone .phoneScreen,
+.fastPhone .phoneScreen {
+  z-index: 1;
+  inset: 3.7% 5.1% 3.7%;
+  width: 89.8%;
+  height: 92.6%;
+  object-fit: cover;
+  border: 0;
+  border-radius: 12% / 6%;
+}
+.planPhone .phoneFrame,
+.fastPhone .phoneFrame {
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none;
+}
+.fastPhone {
+  animation: phoneFloat 4.8s ease-in-out infinite;
+}
+.fastPhone .phoneScreen,
+.fastPhone .phoneFrame {
+  animation: none;
+}
+.planPriceFlag {
+  width: min(640px, calc(100% + 80px));
+  margin: 26px 0 12px -24px;
+  padding: 24px 24px 25px;
+  position: relative;
+  background: var(--price-flag) left center / 100% 100% no-repeat;
+}
+
+@media (max-width: 900px) {
+  .gaming::after {
+    background-position: -245px 8%, calc(100% + 250px) 29%, -250px 60%, calc(100% + 245px) 88%;
+    background-size: 500px auto;
+    opacity: 0.38;
+  }
+  .playables::after,
+  .nonGaming::after,
+  .closing::after {
+    background-size: 510px auto;
+    opacity: 0.36;
+  }
+  .videoOffer:not(.reverse) .offerHeading {
+    width: auto;
+    text-align: left;
+  }
+  .videoOffer:not(.reverse) .offerHeading .pill {
+    margin-left: 0;
+  }
+  .pricePair {
+    height: 132px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+  .pricePair > div {
+    padding: 18px 14px;
+    border-radius: 10px;
+  }
+  .pricePair small {
+    margin-top: 12px;
+    font-size: 8px;
+  }
+  .pricePair strong {
+    margin-top: 2px;
+  }
+  .caseVideo::before {
+    background-image: var(--frame-10);
+    opacity: 0.48;
+  }
+  .planPhone {
+    width: 138px;
+    height: 320px;
+    grid-column: 1;
+    grid-row: 3 / 6;
+    align-self: center;
+  }
+  .planPriceFlag {
+    width: calc(100% + 18px);
+    margin: 0 0 4px -9px;
+    padding: 13px 9px 14px;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+  }
+  .planPriceFlag small {
+    font-size: 9px;
+  }
+  .planPriceFlag strong {
+    font-size: 32px;
+  }
+  .planCopy ul {
+    grid-row: 4;
+  }
+  .planCopy .demo {
+    grid-row: 5;
+  }
+  .packageCard::after {
+    background-image: var(--frame-6);
+  }
+  .packageCard:nth-child(2)::after,
+  .packageCard:nth-child(3)::after,
+  .packageCard:nth-child(4)::after {
+    background-image: var(--frame-7);
+  }
+  .requirements::before {
+    background-image: var(--frame-10);
+    opacity: 0.4;
+  }
+  .inlineVideo .videoClose {
+    width: 36px;
+    height: 36px;
+    right: 9px;
+    top: 9px;
+    font-size: 25px;
+  }
+}
+
+/* Keep the precision pass authoritative over legacy responsive overrides. */
+.videoOffer:not(.reverse) .offerHeading > div {
+  width: auto;
+}
+.videoOffer:not(.reverse) .offerHeading .pill {
+  margin: 0 0 0 2px;
+}
+.pricePair > div:first-child {
+  background: linear-gradient(130deg, rgba(37, 51, 94, 0.56), rgba(24, 75, 151, 0.28));
+}
+.pricePair > div:last-child {
+  background: linear-gradient(130deg, rgba(25, 31, 49, 0.54), rgba(29, 30, 36, 0.28));
+}
+
+@media (max-width: 900px) {
+  .heroGlowAsset,
+  .closingGlowAsset {
+    width: calc(100vw + 620px);
+    max-width: none;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .heroGlowAsset {
+    height: 470px;
+    top: -105px;
+  }
+  .closingGlowAsset {
+    height: 500px;
+    top: -70px;
+  }
+  .videoOffer:not(.reverse) .offerHeading > div {
+    width: auto;
+  }
+  .videoOffer:not(.reverse) .offerHeading .pill {
+    margin-left: 0;
+  }
+  .caseVideo::before {
+    background-image: var(--frame-11);
+    opacity: 0.32;
+  }
+  .bloomVideo {
+    min-height: 0;
+    padding: 12px;
+    display: block;
+  }
+  .bloomMeta {
+    padding: 18px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .bloomMeta > .gradientButton {
+    width: 150px;
+    height: 38px;
+    position: static;
+    margin: 0;
+  }
+  .bloomMeta > .detailList {
+    margin: 0;
+  }
+}
+
+/* Pixel-alignment pass: reference geometry, single glass contours and full-bleed light. */
+.heroGlowAsset,
+.closingGlowAsset {
+  width: calc(100vw + 900px);
+  max-width: none;
+  left: 50%;
+  opacity: 0.56;
+  overflow: visible;
+  transform: translate3d(-50%, 0, 0);
+}
+.heroGlowAsset {
+  height: 990px;
+  top: -500px;
+}
+.closingGlowAsset {
+  height: 1020px;
+  top: -315px;
+}
+.heroGlowAsset img,
+.closingGlowAsset img {
+  object-fit: fill;
+  animation: none;
+}
+
+.gaming > .content {
+  width: min(1280px, calc(100% - 120px));
+}
+.videoOffer {
+  margin-bottom: 150px;
+}
+.offerHeading,
+.videoOffer:not(.reverse) .offerHeading {
+  width: calc((100% - 70px) * 0.68);
+  margin-bottom: 32px;
+  text-align: left;
+}
+.videoOffer.reverse .offerHeading {
+  width: 68%;
+  margin-left: auto;
+}
+.offerHeading > div,
+.videoOffer:not(.reverse) .offerHeading > div {
+  width: auto;
+}
+.offerHeading .pill,
+.videoOffer:not(.reverse) .offerHeading .pill {
+  width: max-content;
+  margin: 0 0 0 2px;
+}
+.offerHeading h3 {
+  margin-top: 16px;
+  font-size: 48px;
+}
+.offerLayout {
+  grid-template-columns: minmax(0, 2.33fr) minmax(260px, 1fr);
+  gap: 108px;
+}
+.videoOffer.reverse .offerLayout {
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 2.33fr);
+}
+.offerVisual {
+  height: auto;
+  aspect-ratio: 1.64 / 1;
+}
+.offerVisual > img {
+  border-radius: 14px 14px 0 0;
+}
+.offerMedia::before {
+  inset: -72px -84px -92px;
+  z-index: 0;
+  opacity: 0.92;
+}
+.pricePair {
+  height: 198px;
+  gap: 16px;
+}
+.pricePair > div {
+  padding: 30px 30px;
+  border-radius: 14px;
+  background: rgba(30, 34, 49, 0.34);
+  -webkit-backdrop-filter: blur(34px) saturate(78%) brightness(0.72);
+  backdrop-filter: blur(34px) saturate(78%) brightness(0.72);
+}
+.pricePair > div:first-child {
+  background: linear-gradient(130deg, rgba(39, 50, 87, 0.86), rgba(26, 55, 101, 0.75));
+}
+.pricePair > div:last-child {
+  background: linear-gradient(130deg, rgba(28, 31, 43, 0.9), rgba(29, 30, 36, 0.78));
+}
+.pricePair small {
+  margin-top: auto;
+  font-size: 13px;
+}
+.pricePair strong {
+  margin-top: 3px;
+  font-size: 30px;
+}
+.pricePair > div::after {
+  opacity: 0.34;
+}
+
+.blobAdventure .caseArtGlow {
+  width: 122%;
+  height: 122%;
+  inset: -11%;
+  transform: none;
+  opacity: 1;
+  filter: saturate(1.25) brightness(1.08);
+}
+.blobMedia {
+  --case-edge-space: min(14vw, calc((100vw - min(1280px, calc(100vw - 120px))) / 2));
+}
+.blobAdventure .caseArtPicture {
+  filter: drop-shadow(0 0 20px rgba(59, 134, 255, 0.75)) drop-shadow(0 0 24px rgba(220, 44, 255, 0.55));
+}
+.blobBloom .caseArtPicture {
+  filter: drop-shadow(-12px 10px 26px rgba(36, 136, 255, 0.7)) drop-shadow(16px 8px 26px rgba(226, 43, 255, 0.62));
+}
+
+.caseVideo {
+  overflow: visible;
+  border: 0;
+  border-radius: 38px;
+  background: linear-gradient(130deg, rgba(21, 52, 90, 0.28), rgba(26, 31, 51, 0.22));
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  backdrop-filter: blur(28px) saturate(140%);
+  box-shadow:
+    -34px 0 95px rgba(28, 134, 255, 0.34),
+    34px 0 95px rgba(91, 54, 233, 0.24);
+}
+.caseVideo::before {
+  z-index: 0;
+  background: var(--frame-11) center / 100% 100% no-repeat;
+  opacity: 0.38;
+}
+.caseVideo > * {
+  position: relative;
+  z-index: 1;
+}
+.splitPosters span::before {
+  inset: -46px;
+  opacity: 0.94;
+}
+
+.bloomVideo {
+  min-height: 0;
+  padding: 34px;
+  display: block;
+}
+.bloomVideo .singlePoster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.bloomVideo .singlePoster::before {
+  inset: -60px;
+  opacity: 0.92;
+}
+.bloomVideo .singlePoster img {
+  border-radius: 22px;
+}
+.bloomMeta {
+  padding: 46px 0 8px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.25fr);
+  gap: 70px;
+  align-items: start;
+}
+.bloomMeta > .gradientButton,
+.bloomVideo > .gradientButton {
+  width: min(100%, 390px);
+  height: 64px;
+  position: static;
+  margin: 0;
+  align-self: start;
+}
+.bloomMeta > .detailList {
+  margin: 0;
+  gap: 28px;
+}
+
+.playablePlan {
+  border: 0;
+  background: linear-gradient(120deg, rgba(34, 34, 45, 0.28), rgba(38, 47, 78, 0.25));
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+  backdrop-filter: blur(28px) saturate(135%);
+  box-shadow: 0 0 70px rgba(37, 111, 245, 0.18);
+}
+.playablePlan::before {
+  background-image: var(--frame-11);
+  opacity: 0.34;
+}
+.planPriceFlag {
+  background: linear-gradient(90deg, rgba(35, 194, 234, 0.96), rgba(25, 116, 208, 0.62) 58%, rgba(27, 45, 76, 0.08) 100%);
+}
+.tonePink .planPriceFlag {
+  background: linear-gradient(90deg, rgba(216, 55, 227, 0.95), rgba(144, 52, 188, 0.58) 58%, rgba(46, 34, 66, 0.08) 100%);
+}
+.toneMixed .planPriceFlag {
+  background: linear-gradient(90deg, rgba(38, 190, 230, 0.94), rgba(36, 102, 187, 0.55) 58%, rgba(43, 38, 65, 0.08) 100%);
+}
+.planPriceFlag::before {
+  opacity: 0.12;
+}
+.toneBlue .planPriceFlag strong,
+.toneMixed .planPriceFlag strong {
+  color: #fff;
+}
+.tonePink .planPriceFlag strong {
+  color: #fff;
+}
+
+.packageCard,
+.tierColumn article,
+.requirements,
+.important {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: linear-gradient(135deg, rgba(39, 42, 59, 0.27), rgba(26, 29, 42, 0.2));
+  -webkit-backdrop-filter: blur(26px) saturate(135%);
+  backdrop-filter: blur(26px) saturate(135%);
+}
+.packageCard::after,
+.tierColumn article::after,
+.requirements::before,
+.important::before {
+  content: none;
+}
+
+@media (max-width: 900px) {
+  .heroGlowAsset,
+  .closingGlowAsset {
+    width: calc(100vw + 620px);
+    transform: translate3d(-50%, 0, 0);
+  }
+  .heroGlowAsset {
+    height: 470px;
+    top: -105px;
+  }
+  .closingGlowAsset {
+    height: 500px;
+    top: -70px;
+  }
+  .gaming > .content {
+    width: auto;
+  }
+  .videoOffer {
+    margin-bottom: 76px;
+  }
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading,
+  .videoOffer.reverse .offerHeading {
+    width: auto;
+    margin: 0 0 22px;
+    padding: 0 20px;
+  }
+  .offerHeading .pill,
+  .videoOffer:not(.reverse) .offerHeading .pill {
+    margin-left: 0;
+  }
+  .offerHeading h3 {
+    margin-top: 11px;
+    font-size: 27px;
+  }
+  .offerLayout,
+  .videoOffer.reverse .offerLayout {
+    gap: 18px;
+  }
+  .offerMedia::before {
+    inset: -34px -42px -48px;
+    opacity: 0.85;
+  }
+  .pricePair {
+    height: 124px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+  .pricePair > div {
+    padding: 17px 14px;
+    border-radius: 9px;
+  }
+  .pricePair small {
+    font-size: 8px;
+  }
+  .pricePair strong {
+    font-size: 20px;
+  }
+  .caseVideo {
+    overflow: visible;
+    border-radius: 18px;
+  }
+  .caseVideo::before {
+    background-image: var(--frame-11);
+    opacity: 0.32;
+  }
+  .bloomVideo {
+    padding: 12px;
+  }
+  .bloomMeta {
+    padding: 18px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .bloomMeta > .gradientButton {
+    width: 150px;
+    height: 38px;
+  }
+  .bloomMeta > .detailList {
+    margin: 0;
+  }
+  .packageCard,
+  .tierColumn article,
+  .requirements,
+  .important {
+    border-radius: 14px;
+  }
+}
+.planPriceFlag small,
+.planPriceFlag strong {
+  display: block;
+}
+.planPriceFlag small {
+  margin: 0;
+}
+.planPriceFlag strong {
+  color: #27c6ef;
+  font-size: 60px;
+}
+.tonePink .planPriceFlag strong {
+  color: #d83fec;
+}
+.packageCard,
+.tierColumn article,
+.requirements,
+.important {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  background: rgba(34, 34, 48, 0.34);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+.packageCard::after,
+.tierColumn article::after,
+.requirements::before,
+.important::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.packageCard::after { background-image: var(--frame-3); opacity: 0.72; }
+.packageCard:nth-child(2)::after { background-image: var(--frame-4); }
+.packageCard:nth-child(3)::after { background-image: var(--frame-6); }
+.packageCard:nth-child(4)::after { background-image: var(--frame-7); }
+.tierColumn article::after { background-image: var(--frame-5); opacity: 0.72; }
+.requirements::before { background-image: var(--frame-8); opacity: 0.48; }
+.important::before { background-image: var(--frame-9); opacity: 0.7; }
+.requirements,
+.important {
+  box-shadow: 0 0 78px rgba(36, 116, 255, 0.22);
+}
+.inlineVideo {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #080808;
+  animation: modalFade 0.2s ease both;
+}
+.inlineVideo .videoFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+}
+.inlineVideo .videoClose {
+  right: 14px;
+  top: 14px;
+}
+.process::before {
+  height: 1px;
+}
+.process span::after {
+  box-shadow: 0 0 0 7px #2d2b2c;
+}
+.process a {
+  left: 37.5%;
+}
+
 @media (max-width: 900px) {
   .glowAccent img {
     animation-duration: 14s;
@@ -1886,6 +2658,9 @@
   .heroCopy h1 {
     font-size: 42px;
   }
+  .heroTitleLogo {
+    width: min(320px, calc(100% - 40px));
+  }
   .heroCopy p {
     margin-top: 16px;
     font-size: 16px;
@@ -1989,17 +2764,17 @@
     height: 178px;
     left: -76px;
     top: 55px;
-    opacity: 0.44;
+    opacity: 0.8;
   }
   .audienceGlowRight {
     width: 235px;
     height: 175px;
     right: -82px;
     top: 65px;
-    opacity: 0.4;
+    opacity: 0.76;
   }
   .audience_playable .audienceGlowLayer {
-    opacity: 0.52;
+    opacity: 0.7;
   }
   .audienceBanner h2,
   .audience_playable h2 {
@@ -2044,13 +2819,14 @@
     min-height: 350px;
   }
   .wideMedia {
-    width: 100%;
-    height: 245px;
+    width: calc(100% - 32px);
+    height: auto;
+    aspect-ratio: 16 / 9;
     margin-bottom: 70px;
   }
   .wideMedia:before {
-    inset: -20px;
-    filter: blur(25px);
+    inset: -28px;
+    opacity: 0.68;
   }
   .playButton {
     width: 145px;
@@ -2146,13 +2922,18 @@
   .offerMedia {
     order: 1;
   }
+  .offerMedia:before,
+  .singlePoster:before {
+    inset: -28px;
+    opacity: 0.66;
+  }
   .offerVisual {
     height: 250px;
   }
   .offerVisual > img {
     width: 100%;
     height: 100%;
-    border-radius: 0;
+    border-radius: 14px 14px 0 0;
   }
   .pricePair {
     height: 125px;
@@ -2262,6 +3043,14 @@
     flex: 0 0 78%;
     scroll-snap-align: start;
   }
+  .splitPosters span:before {
+    inset: -24px;
+    opacity: 0.66;
+  }
+  .splitPosters img,
+  .singlePoster img {
+    border-radius: 14px;
+  }
   .caseVideo > .detailList {
     margin-top: 20px;
   }
@@ -2304,13 +3093,14 @@
   }
   .playablePlan {
     min-height: 620px;
-    grid-template-columns: 26px minmax(0, 1fr) 26px;
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
     border-radius: 24px;
   }
   .planArrow {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    padding-bottom: 3px;
+    font-size: 26px;
   }
   .planStage {
     min-height: 620px;
@@ -2517,12 +3307,16 @@
     padding-bottom: 80px;
   }
   .ugcHero {
+    width: calc(100% - 32px);
     height: 230px;
-    margin-bottom: 70px;
+    margin: 0 auto 70px;
+  }
+  .ugcHero img {
+    border-radius: 14px;
   }
   .ugcHero:before {
-    inset: -20px;
-    filter: blur(22px);
+    inset: -28px;
+    opacity: 0.66;
   }
   .nonGaming .packageViewport {
     margin-bottom: 80px;
@@ -2792,5 +3586,421 @@
     right: -7px;
     top: -48px;
     font-size: 28px;
+  }
+}
+
+/* Final reference-locked sizing pass. */
+.videoOffer:not(.reverse) .offerHeading > div { width: auto; }
+.videoOffer:not(.reverse) .offerHeading .pill {
+  width: max-content;
+  display: block;
+  margin: 0 0 0 2px;
+}
+.pricePair > div:first-child { background: linear-gradient(130deg, rgba(39, 50, 87, 0.86), rgba(26, 55, 101, 0.75)); }
+.pricePair > div:last-child { background: linear-gradient(130deg, rgba(28, 31, 43, 0.9), rgba(29, 30, 36, 0.78)); }
+.plansShowcase > .blockTitle {
+  width: min(960px, 100%);
+  margin: 0 auto 50px;
+}
+.playablePlan {
+  width: min(960px, 100%);
+  min-height: 600px;
+  margin-inline: auto;
+  grid-template-columns: 70px minmax(0, 1fr) 70px;
+}
+.planStage {
+  min-height: 600px;
+}
+.planSlide {
+  padding: 42px 24px;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 46px;
+}
+.planPhone {
+  width: 260px;
+  height: 534px;
+}
+.planPriceFlag {
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(35, 194, 234, 0.96), rgba(25, 116, 208, 0.62) 58%, rgba(27, 45, 76, 0.08) 100%);
+}
+.planPriceFlag::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--price-flag) left center / 100% 100% no-repeat;
+  opacity: 0.12;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+.process {
+  min-height: 190px;
+}
+.wideMedia .inlineVideo,
+.offerVisual .inlineVideo,
+.ugcHero .inlineVideo,
+.singlePoster .inlineVideo,
+.splitPosters .inlineVideo,
+.creativeImages .inlineVideo {
+  border-radius: 18px;
+}
+
+@media (max-width: 900px) {
+  .gaming::after {
+    background-position: -245px 8%, calc(100% + 250px) 29%, -250px 60%, calc(100% + 245px) 88%;
+    background-size: 500px auto;
+    opacity: 0.38;
+  }
+  .playables::after,
+  .nonGaming::after,
+  .closing::after {
+    background-size: 510px auto;
+    opacity: 0.36;
+  }
+  .videoOffer:not(.reverse) .offerHeading {
+    width: auto;
+  }
+  .videoOffer:not(.reverse) .offerHeading .pill {
+    margin: 0;
+  }
+  .pricePair {
+    height: 132px;
+    gap: 8px;
+    padding-inline: 8px;
+  }
+  .pricePair > div {
+    padding: 18px 14px;
+    border-radius: 10px;
+  }
+  .pricePair small {
+    margin-top: 12px;
+    font-size: 8px;
+  }
+  .pricePair strong {
+    margin-top: 2px;
+  }
+  .plansShowcase > .blockTitle {
+    width: auto;
+    margin: 0 0 24px;
+  }
+  .playablePlan {
+    width: 100%;
+    min-height: 620px;
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+  }
+  .planStage {
+    min-height: 620px;
+  }
+  .planSlide {
+    min-height: 620px;
+    padding: 28px 8px 22px;
+    grid-template-columns: 138px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto auto;
+    gap: 0 14px;
+  }
+  .planPhone {
+    width: 138px;
+    height: 320px;
+    grid-column: 1;
+    grid-row: 3 / 6;
+    align-self: center;
+  }
+  .planPriceFlag {
+    width: calc(100% + 18px);
+    margin: 0 0 4px -9px;
+    padding: 13px 9px 14px;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+  }
+  .planPriceFlag small {
+    font-size: 9px;
+  }
+  .planPriceFlag strong {
+    font-size: 32px;
+  }
+  .planCopy ul {
+    grid-row: 4;
+  }
+  .planCopy .demo {
+    grid-row: 5;
+  }
+  .caseVideo::before {
+    background-image: var(--frame-11);
+    opacity: 0.32;
+  }
+  .packageCard::after {
+    background-image: var(--frame-6);
+  }
+  .packageCard:nth-child(2)::after,
+  .packageCard:nth-child(3)::after,
+  .packageCard:nth-child(4)::after {
+    background-image: var(--frame-7);
+  }
+  .requirements::before {
+    content: none;
+  }
+  .inlineVideo .videoClose {
+    width: 36px;
+    height: 36px;
+    right: 9px;
+    top: 9px;
+    font-size: 25px;
+  }
+  .heroGlowAsset,
+  .closingGlowAsset {
+    width: calc(100vw + 620px);
+    max-width: none;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .heroGlowAsset { height: 470px; top: -105px; }
+  .closingGlowAsset { height: 500px; top: -70px; }
+  .bloomVideo {
+    min-height: 0;
+    padding: 12px;
+    display: block;
+  }
+  .bloomMeta {
+    padding: 18px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .bloomMeta > .gradientButton {
+    width: 150px;
+    height: 38px;
+    position: static;
+    margin: 0;
+  }
+  .bloomMeta > .detailList { margin: 0; }
+}
+
+/* Final reference lock: keep these after all legacy responsive rules. */
+.offerMedia::before {
+  opacity: 0.76;
+}
+
+.packageCard,
+.tierColumn article,
+.requirements,
+.important {
+  background: linear-gradient(135deg, rgba(48, 58, 84, 0.34), rgba(25, 27, 38, 0.22));
+  border: 1px solid rgba(174, 202, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 50px rgba(2, 8, 24, 0.18);
+  backdrop-filter: blur(28px) saturate(135%);
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+}
+
+.mixGrid .packageCard:first-child {
+  background: linear-gradient(135deg, rgba(55, 64, 94, 0.38), rgba(31, 32, 46, 0.22));
+}
+
+.mixGrid .packageCard:nth-child(2) {
+  background: linear-gradient(135deg, rgba(74, 47, 112, 0.36), rgba(35, 29, 50, 0.22));
+}
+
+.packageCard::after,
+.tierColumn article::after,
+.requirements::before,
+.important::before {
+  content: none;
+}
+
+@media (min-width: 901px) {
+  .blobMedia {
+    --case-edge-space: min(8vw, calc((100vw - min(1280px, calc(100vw - 120px))) / 2));
+  }
+
+  .caseVideo {
+    background: linear-gradient(135deg, rgba(29, 64, 105, 0.5), rgba(39, 42, 70, 0.28));
+    border: 1px solid rgba(107, 177, 255, 0.24);
+    box-shadow:
+      -38px 0 105px rgba(23, 125, 255, 0.34),
+      38px 0 105px rgba(89, 55, 231, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .process a {
+    top: 154px;
+  }
+
+  .requirements {
+    width: min(1100px, 100%);
+    margin-inline: auto;
+    background: linear-gradient(125deg, rgba(40, 58, 104, 0.58), rgba(21, 72, 124, 0.42));
+    box-shadow:
+      -48px 0 100px rgba(40, 105, 255, 0.28),
+      48px 0 100px rgba(97, 59, 230, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .plansShowcase > .blockTitle {
+    width: min(1280px, 100%);
+    margin: 0 auto 50px;
+  }
+
+  .playablePlan {
+    width: min(920px, 100%);
+    min-height: 560px;
+    grid-template-columns: 52px minmax(0, 1fr) 52px;
+  }
+
+  .planStage {
+    min-height: 560px;
+  }
+
+  .planSlide {
+    min-height: 560px;
+    padding: 38px 14px;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .planPhone {
+    width: 230px;
+    height: 480px;
+  }
+
+  .planCopy h4 {
+    font-size: 28px;
+  }
+
+  .planCopy p {
+    font-size: 17px;
+  }
+
+  .planPriceFlag strong {
+    font-size: 52px;
+  }
+
+  .planArrow {
+    width: 48px;
+    height: 48px;
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 900px) {
+  .offerMedia {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .offerMedia::before {
+    opacity: 0.56;
+    filter: blur(8px) saturate(0.9);
+  }
+
+  .pricePair {
+    width: calc(100% - 40px);
+    height: 125px;
+    margin-inline: 20px;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .pricePair > div:first-child {
+    background: linear-gradient(135deg, rgba(36, 44, 70, 0.84), rgba(31, 39, 59, 0.72));
+  }
+
+  .pricePair > div:last-child {
+    background: linear-gradient(135deg, rgba(30, 30, 37, 0.88), rgba(39, 35, 50, 0.7));
+  }
+
+  .playablePlan {
+    width: calc(100% - 40px);
+    min-height: 400px;
+    grid-template-columns: 0 minmax(0, 1fr) 0;
+    border-radius: 24px;
+  }
+
+  .planStage,
+  .planSlide {
+    min-height: 400px;
+  }
+
+  .planSlide {
+    padding: 20px;
+    grid-template-columns: 145px minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    gap: 0 10px;
+  }
+
+  .planPhone {
+    width: 145px;
+    height: 250px;
+    grid-column: 1;
+    grid-row: 3 / 6;
+    align-self: end;
+  }
+
+  .planCopy h4 {
+    font-size: 19px;
+  }
+
+  .planCopy p {
+    margin: 12px 0 18px;
+    font-size: 13px;
+  }
+
+  .planPriceFlag {
+    width: calc(100% + 10px);
+    margin: 0 0 4px -5px;
+    padding: 10px 8px 11px;
+  }
+
+  .planPriceFlag strong {
+    font-size: 28px;
+  }
+
+  .planCopy ul {
+    margin: 8px 0;
+    font-size: 9px;
+  }
+
+  .planCopy .demo {
+    padding: 9px 19px;
+  }
+
+  .planArrow {
+    visibility: hidden;
+  }
+
+  .dots {
+    height: 38px;
+  }
+
+  .bloomMeta {
+    padding: 18px 8px 8px;
+  }
+
+  .caseVideo {
+    background: linear-gradient(145deg, rgba(28, 72, 118, 0.64), rgba(35, 40, 67, 0.38));
+  }
+
+  .bloomVideo .singlePoster::before {
+    inset: -28px;
+    opacity: 0.46;
+  }
+
+  .bloomMeta > .detailList {
+    order: 1;
+  }
+
+  .bloomMeta > .gradientButton {
+    width: 100%;
+    height: 50px;
+    order: 2;
+    font-size: 13px;
+  }
+
+  .requirements {
+    background: linear-gradient(135deg, rgba(37, 55, 104, 0.68), rgba(20, 95, 161, 0.58));
+    box-shadow:
+      -24px 0 65px rgba(49, 91, 255, 0.25),
+      24px 0 65px rgba(110, 48, 222, 0.22);
   }
 }

@@ -3,6 +3,8 @@ import { assetUrl } from '../assetUrl'
 import { AudienceBanner } from './AudienceBanner'
 import { VideoButton } from './VideoPlayer'
 import s from '../App.module.css'
+import adventurePuddleLight from '../../../../exports/2.png'
+import bloomPuddle from '../../../../exports/3.png'
 
 const links = {
   reel: 'https://www.youtube.com/watch?v=qW9hnwUOEow',
@@ -26,8 +28,8 @@ const detailIconClass: Record<DetailIcon, string> = {
 
 function PricePair({ left, right }: { left: [string, string]; right: [string, string] }) {
   return <div className={s.pricePair}>
-    <div><span>{left[0]}</span><strong>{left[1]}</strong></div>
-    <div><span>{right[0]}</span><strong>{right[1]}</strong></div>
+    <div><span>{left[0]}</span><small>starting from</small><strong>{left[1]}</strong></div>
+    <div><span>{right[0]}</span><small>starting from</small><strong>{right[1]}</strong></div>
   </div>
 }
 
@@ -84,7 +86,7 @@ export function Gaming() {
     <AudienceBanner type="gaming" />
     <div className={s.wideMedia}><img src={assetUrl('assets/design/showreel-goblin.png')} alt="3D gaming showreel" /><VideoButton url={links.reel} label="Watch gaming showreel" /></div>
     <div className={s.content}>
-      <VideoOffer title="2D / 3D Cinematic" image={assetUrl('assets/design/video-pocket-champs.png')} video={links.cinematic} prices={[["2D Cinematic:", "$1,800"], ["3D Cinematic:", "$2,600"]]}>
+      <VideoOffer id="gaming-cinematic" title="2D / 3D Cinematic" image={assetUrl('assets/design/video-pocket-champs.png')} video={links.cinematic} prices={[["2D Cinematic:", "$1,800"], ["3D Cinematic:", "$2,600"]]}>
         <h4>Includes:</h4><p>Concepts<br />Resizes<br />Single language + optional<br />2 rounds of corrections<br />Add-ons — per request</p><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
@@ -101,7 +103,7 @@ export function Gaming() {
             <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement.</Detail>
           </DetailList>
         </div>
-        <CaseArt variant="adventure" art={assetUrl('assets/design/case-adventure-art.png')} glow={assetUrl('assets/design/case-adventure-glow.png')} alt="Adventure Bay Farm Games" />
+        <CaseArt variant="adventure" art={assetUrl('assets/design/case-adventure-art.png')} glow={adventurePuddleLight} alt="Adventure Bay Farm Games" />
       </article>
 
       <article className={s.caseVideo} id="adventure-story">
@@ -125,17 +127,19 @@ export function Gaming() {
             <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement. Conclusion of a long-term cooperation agreement.</Detail>
           </DetailList>
         </div>
-        <CaseArt variant="bloom" art={assetUrl('assets/design/case-bloom-art.png')} glow={assetUrl('assets/design/case-bloom-glow.png')} alt="Bloom City Match" />
+        <CaseArt variant="bloom" art={bloomPuddle} glow={assetUrl('assets/design/case-bloom-glow.png')} alt="Bloom City Match" />
       </article>
 
       <article className={`${s.caseVideo} ${s.bloomVideo}`} id="bloom-story">
         <div className={s.singlePoster}><img src={assetUrl('assets/design/bloom-video.png')} alt="Bloom City Match case" /><VideoButton url={links.bloom} label="Watch Bloom City Match case" /></div>
-        <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer"><span className={s.caseCtaDesktop}>Full case study</span><span className={s.caseCtaMobile}>View case study</span></a>
-        <DetailList>
-          <Detail icon="challenge" title="Challenge:">Following Rovio Entertainment’s brief, we needed to create two new product locations, an intro, and implement <Accent>realistic physics-based animations</Accent>.</Detail>
-          <Detail icon="solution" title="Solution:">We built the animation rigs from scratch, developed <Accent>high-quality textures</Accent> and character animations, and delivered the entire scope <Accent>within three weeks</Accent>.</Detail>
-          <Detail icon="impact" title="Impact:">The project generated <Accent>solid results</Accent> and resulted in continued collaboration.</Detail>
-        </DetailList>
+        <div className={s.bloomMeta}>
+          <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer"><span className={s.caseCtaDesktop}>Full case study</span><span className={s.caseCtaMobile}>View case study</span></a>
+          <DetailList>
+            <Detail icon="challenge" title="Challenge:">Following Rovio Entertainment’s brief, we needed to create two new product locations, an intro, and implement <Accent>realistic physics-based animations</Accent>.</Detail>
+            <Detail icon="solution" title="Solution:">We built the animation rigs from scratch, developed <Accent>high-quality textures</Accent> and character animations, and delivered the entire scope <Accent>within three weeks</Accent>.</Detail>
+            <Detail icon="impact" title="Impact:">The project generated <Accent>solid results</Accent> and resulted in continued collaboration.</Detail>
+          </DetailList>
+        </div>
       </article>
     </div>
   </section>
