@@ -14,7 +14,7 @@ const mix = ugc.map((x, i) => ({ ...x, price: ['$3,400', '$6,400', '$9,000', '$1
 
 type CreativeTier = { name: string; price: string; features: string[] }
 
-function CreativeRow({ title, images, tiers, videos }: { title: string; images: string[]; tiers: CreativeTier[]; videos:string[] }) { return <section className={s.creativeRow}><h3>{title}</h3><div className={s.tierColumn}>{tiers.map((tier) => <article key={tier.name}><strong>{tier.name}</strong><span>{tier.features.map((feature) => <span key={feature}>✓ {feature}</span>)}</span><b>{tier.price}</b></article>)}</div><div className={s.creativeImages}>{images.map((src,i) => <span key={src}><img src={src} alt="" /><VideoButton url={videos[i]} label={`Watch ${title} example ${i + 1}`} /></span>)}</div></section> }
+function CreativeRow({ title, images, tiers, videos }: { title: string; images: string[]; tiers: CreativeTier[]; videos:string[] }) { return <section className={s.creativeRow}><h3>{title}</h3><div className={s.tierColumn}>{tiers.map((tier) => <article key={tier.name}><strong>{tier.name}</strong><span>{tier.features.map((feature) => <span key={feature}><i className={s.checkmark} aria-hidden="true">✓</i>{feature}</span>)}</span><b>{tier.price}</b></article>)}</div><div className={s.creativeImages}>{images.map((src,i) => <span key={src}><img src={src} alt="" /><VideoButton url={videos[i]} label={`Watch ${title} example ${i + 1}`} /></span>)}</div></section> }
 
 export function NonGaming() {
   return <section className={s.nonGaming} id="non-gaming"><AudienceBanner type="non-gaming" /><div className={s.content}>

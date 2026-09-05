@@ -43,11 +43,12 @@ function VideoOffer({ id, reverse = false, title, image, video, children, prices
   prices: [[string, string], [string, string]]
 }) {
   return <article className={`${s.videoOffer} ${reverse ? s.reverse : ''}`} id={id}>
-    <div className={s.offerHeading}><div><span className={s.pill}>Plan</span><h3>{title}</h3></div>{id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}</div>
+    <div className={s.offerHeading}><div><span className={s.pill}>Plan</span><h3>{title}</h3></div></div>
     <div className={s.offerLayout}>
       <div className={s.offerText}>{children}</div>
       <div className={s.offerMedia}>
         <div className={s.offerVisual}><img src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
+        {id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}
         <PricePair left={prices[0]} right={prices[1]} />
       </div>
     </div>
@@ -87,11 +88,11 @@ export function Gaming() {
     <div className={s.wideMedia}><img src={assetUrl('assets/design/showreel-goblin.png')} alt="3D gaming showreel" /><VideoButton url={links.reel} label="Watch gaming showreel" /></div>
     <div className={s.content}>
       <VideoOffer id="gaming-cinematic" title="2D / 3D Cinematic" image={assetUrl('assets/design/video-pocket-champs.png')} video={links.cinematic} prices={[["2D Cinematic:", "$1,800"], ["3D Cinematic:", "$2,600"]]}>
-        <h4>Includes:</h4><p>Concepts<br />Resizes<br />Single language + optional<br />2 rounds of corrections<br />Add-ons — per request</p><h4>Delivery time:</h4><p>5 weeks</p>
+        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
       <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
-        <h4>Includes:</h4><p>Concepts<br />Resizes<br />Single language<br />2 rounds of corrections<br />Add-ons — per request</p><h4>Delivery time:</h4><p>5 weeks</p>
+        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
       <article className={s.caseIntro} id="adventure-case">

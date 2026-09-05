@@ -4004,3 +4004,2836 @@
       24px 0 65px rgba(110, 48, 222, 0.22);
   }
 }
+
+/* Authoritative reference lock. Keep this final in the cascade. */
+.page {
+  background: #302e2f;
+}
+
+.gaming,
+.playables,
+.nonGaming,
+.closing {
+  background: #302e2f;
+}
+
+.gaming::after {
+  opacity: 0.27;
+}
+
+.playables::after,
+.nonGaming::after,
+.closing::after {
+  opacity: 0.27;
+}
+
+.offerList {
+  margin: 0;
+  padding-left: 18px;
+  color: #dedbde;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.pricePair > div,
+.pricePair > div:first-child,
+.pricePair > div:last-child {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(18, 16, 20, 0.04);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(22px) saturate(105%);
+  backdrop-filter: blur(22px) saturate(105%);
+}
+
+.pricePair > div::after {
+  content: "";
+  background: var(--frame-1) center / 100% 100% no-repeat;
+  opacity: 0.78;
+}
+
+.packageCard,
+.tierColumn article,
+.levelCard,
+.levelPremium,
+.playablePlan,
+.requirements,
+.important {
+  border: 0;
+  background: rgba(12, 11, 14, 0.035);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  backdrop-filter: blur(20px) saturate(105%);
+}
+
+.mixGrid .packageCard:first-child,
+.mixGrid .packageCard:nth-child(2) {
+  background: rgba(12, 11, 14, 0.035);
+}
+
+.packageCard::after,
+.tierColumn article::after,
+.requirements::before,
+.important::before,
+.playablePlan::before {
+  content: "";
+}
+
+.packageCard::after,
+.tierColumn article::after,
+.playablePlan::before {
+  opacity: 0.9;
+}
+
+.requirements::before {
+  background-image: var(--frame-8);
+  opacity: 0.9;
+}
+
+.important::before {
+  background-image: var(--frame-9);
+  opacity: 0.9;
+}
+
+.playDemoMobile {
+  display: none;
+}
+
+.fastPhone {
+  position: relative;
+}
+
+.fastPhone .playDemoDesktop {
+  width: calc(100% - 42px);
+  height: 56px;
+  position: absolute;
+  z-index: 4;
+  right: 21px;
+  bottom: -8px;
+  left: 21px;
+  padding: 0;
+}
+
+.packageViewport {
+  position: relative;
+  isolation: isolate;
+}
+
+.packageViewport::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -70px -90px;
+  background:
+    radial-gradient(circle at 12% 52%, rgba(25, 117, 224, 0.22), transparent 48%),
+    radial-gradient(circle at 76% 48%, rgba(108, 51, 212, 0.2), transparent 52%);
+  filter: blur(58px);
+  pointer-events: none;
+}
+
+.packageGrid,
+.mobileDots {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1301px) {
+  .content {
+    width: min(1600px, calc(100% - 272px));
+  }
+
+  .header {
+    height: 96px;
+    background: rgba(48, 46, 47, 0.48);
+  }
+
+  .headerInner {
+    width: calc(100% - 120px);
+    max-width: none;
+  }
+
+  .logoCompact {
+    font-size: 36px;
+  }
+
+  .nav {
+    gap: 62px;
+    font-size: 18px;
+  }
+
+  .hero {
+    height: 1580px;
+    padding-top: 347px;
+    background:
+      radial-gradient(ellipse 900px 520px at 0% 0%, rgba(8, 114, 198, 0.18), transparent 74%),
+      radial-gradient(ellipse 880px 520px at 100% 0%, rgba(91, 49, 193, 0.16), transparent 74%),
+      #302e2f;
+  }
+
+  .heroGlowAsset {
+    opacity: 0.24;
+  }
+
+  .heroTitleLogo {
+    width: 400px;
+  }
+
+  .heroCopy p {
+    margin-top: 57px;
+    font-size: 31px;
+    line-height: 1.18;
+  }
+
+  .heroRail {
+    height: 690px;
+    margin-top: 116px;
+  }
+
+  .heroTrack img {
+    height: 583px;
+  }
+
+  .hero > .gradientButton {
+    margin-top: 54px;
+  }
+
+  .about {
+    height: 840px;
+    background:
+      radial-gradient(ellipse 760px 520px at 0% 48%, rgba(0, 113, 198, 0.17), transparent 74%),
+      radial-gradient(ellipse 720px 500px at 100% 52%, rgba(88, 48, 190, 0.13), transparent 74%),
+      #302e2f;
+  }
+
+  .aboutGlowAsset {
+    opacity: 0.32;
+  }
+
+  .aboutInner {
+    width: min(1600px, calc(100% - 272px));
+    padding-top: 265px;
+    grid-template-columns: 600px minmax(0, 1fr);
+    gap: 140px;
+  }
+
+  .aboutCopy .logo {
+    font-size: 100px;
+  }
+
+  .aboutCopy p {
+    max-width: 600px;
+    margin-top: 44px;
+    font-size: 25px;
+  }
+
+  .stats {
+    gap: 90px 55px;
+  }
+
+  .audienceBanner {
+    height: 1230px;
+    padding-top: 265px;
+    background:
+      radial-gradient(ellipse 780px 560px at 4% 48%, rgba(0, 110, 205, 0.14), transparent 74%),
+      radial-gradient(ellipse 800px 570px at 96% 50%, rgba(94, 52, 200, 0.14), transparent 74%),
+      #302e2f;
+  }
+
+  .audienceGlowLayer {
+    filter: blur(10px) saturate(0.75);
+    opacity: 0.24;
+  }
+
+  .audienceGlowLeft,
+  .audienceGlowRight {
+    width: 760px;
+    height: 560px;
+    top: 175px;
+    opacity: 0.65;
+  }
+
+  .audienceGlowLeft {
+    left: -80px;
+  }
+
+  .audienceGlowRight {
+    right: -80px;
+  }
+
+  .audienceBanner h2 {
+    font-size: 126px;
+  }
+
+  .logoRail {
+    margin-top: 265px;
+  }
+
+  .wideMedia {
+    width: min(1392px, calc(100% - 192px));
+    aspect-ratio: 16 / 9;
+    margin-bottom: 300px;
+  }
+
+  .wideMedia::before {
+    inset: -82px -96px -96px;
+    opacity: 0.38;
+  }
+
+  .wideMedia img {
+    border-radius: 2px;
+  }
+
+  .gaming > .content {
+    width: min(1600px, calc(100% - 272px));
+  }
+
+  .videoOffer:not(.reverse) {
+    margin-bottom: 207px;
+  }
+
+  .videoOffer.reverse {
+    margin-bottom: 306px;
+  }
+
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading {
+    width: 964px;
+    margin-bottom: 68px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .videoOffer.reverse .offerHeading {
+    width: 1087px;
+    margin-right: 0;
+    margin-bottom: 96px;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .offerHeading h3 {
+    margin-top: 40px;
+    font-size: 58px;
+  }
+
+  .offerLayout {
+    grid-template-columns: 964px minmax(0, 1fr);
+    gap: 148px;
+    align-items: start;
+  }
+
+  .videoOffer.reverse .offerLayout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 129px;
+  }
+
+  .offerText h4 {
+    margin: 0 0 8px;
+  }
+
+  .offerText h4:not(:first-child) {
+    margin-top: 32px;
+  }
+
+  .offerVisual {
+    height: auto;
+    aspect-ratio: 1.64 / 1;
+  }
+
+  .offerVisual > img {
+    border-radius: 2px;
+  }
+
+  .videoOffer:not(.reverse) .offerVisual > img {
+    object-position: left center;
+  }
+
+  .offerMedia::before {
+    inset: -92px -105px -115px;
+    opacity: 0.11;
+    filter: none;
+  }
+
+  .offerPackageNote {
+    display: block;
+    position: static;
+    margin: 22px 0 0;
+    font-size: 22px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .offerPackageNote strong {
+    margin-left: 6px;
+    font-size: 34px;
+  }
+
+  .pricePair {
+    height: 258px;
+    margin-top: 43px;
+    padding: 0;
+    gap: 29px;
+  }
+
+  .offerPackageNote + .pricePair {
+    margin-top: 34px;
+  }
+
+  .pricePair > div {
+    padding: 35px 40px;
+    border-radius: 18px;
+  }
+
+  .pricePair span {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .pricePair small {
+    margin-top: auto;
+    font-size: 17px;
+  }
+
+  .pricePair strong {
+    margin-top: 4px;
+    font-size: 31px;
+  }
+
+  .caseIntro {
+    width: 100%;
+    min-height: 1000px;
+    margin-top: 0;
+    grid-template-columns: 500px minmax(0, 1fr);
+  }
+
+  .caseIntro h3 {
+    font-size: 52px;
+  }
+
+  .blobMedia {
+    --case-edge-space: calc((100vw - min(1600px, calc(100vw - 272px))) / 2);
+  }
+
+  .blobAdventure .caseArtGlow,
+  .blobBloom .caseArtGlow {
+    opacity: 0.54;
+    filter: saturate(0.82) brightness(0.84);
+  }
+
+  .blobAdventure .caseArtPicture,
+  .blobBloom .caseArtPicture {
+    filter: drop-shadow(0 0 16px rgba(58, 111, 221, 0.24));
+  }
+
+  .caseVideo {
+    width: 100%;
+    min-height: 938px;
+    margin-top: 190px;
+    padding: 40px;
+    gap: 56px;
+    border-radius: 38px;
+    background: rgba(8, 12, 20, 0.18);
+    box-shadow: none;
+    -webkit-backdrop-filter: blur(24px) saturate(105%);
+    backdrop-filter: blur(24px) saturate(105%);
+  }
+
+  .caseVideo::before {
+    background: var(--frame-2) center / 100% 100% no-repeat;
+    opacity: 0.8;
+  }
+
+  .caseVideo:not(.bloomVideo) {
+    margin-bottom: 392px;
+  }
+
+  .splitPosters {
+    height: 856px;
+    gap: 22px;
+  }
+
+  .splitPosters span::before {
+    opacity: 0.42;
+  }
+
+  .bloomIntro {
+    min-height: 876px;
+  }
+
+  .bloomVideo {
+    min-height: 1392px;
+    margin-bottom: 110px;
+    padding: 40px;
+  }
+
+  .bloomVideo .singlePoster::before {
+    opacity: 0.38;
+  }
+
+  .bloomMeta {
+    padding-top: 52px;
+  }
+
+  .audience_playable {
+    height: 1096px;
+    padding-top: 350px;
+  }
+
+  .audience_playable .logoRail {
+    margin-top: 220px;
+  }
+
+  .plansShowcase > .blockTitle {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+
+  .playablePlan {
+    width: 1140px;
+    min-height: 698px;
+    grid-template-columns: 70px minmax(0, 1fr) 70px;
+    border-radius: 38px;
+    background: rgba(10, 10, 14, 0.035);
+  }
+
+  .playablePlan::before {
+    background-image: var(--frame-11);
+    opacity: 0.92;
+  }
+
+  .planStage,
+  .planSlide {
+    min-height: 698px;
+  }
+
+  .planSlide {
+    padding: 50px 32px;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 60px;
+  }
+
+  .planPhone {
+    width: 280px;
+    height: 590px;
+  }
+
+  .playables > .content {
+    padding-bottom: 125px;
+  }
+
+  .planTitleGlow,
+  .planPanelGlow {
+    opacity: 0.62;
+  }
+
+  .fastHead {
+    margin-top: 250px;
+  }
+
+  .fastTrack {
+    margin-top: 45px;
+    padding-left: 88px;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 128px;
+  }
+
+  .fastPhone {
+    height: 590px;
+  }
+
+  .fastTrack .packageGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+  }
+
+  .fastTrack .packageCard {
+    min-height: 590px;
+  }
+
+  .audience_non-gaming {
+    height: 1164px;
+    padding-top: 230px;
+  }
+
+  .audience_non-gaming .logoRail {
+    margin-top: 320px;
+  }
+
+  .ugcHero {
+    height: 816px;
+    margin-bottom: 200px;
+  }
+
+  .ugcHero::before {
+    opacity: 0.34;
+  }
+
+  .nonGaming .blockTitle {
+    margin-bottom: 60px;
+  }
+
+  .nonGaming .packageViewport {
+    margin-bottom: 220px;
+  }
+
+  .nonGaming .packageCard {
+    min-height: 579px;
+  }
+
+  .creativeRow {
+    min-height: 936px;
+    margin-bottom: 268px;
+    grid-template-columns: 464px minmax(0, 1fr);
+    gap: 45px 28px;
+  }
+
+  .creativeImages {
+    gap: 28px;
+  }
+
+  .creativeImages img {
+    height: 834px;
+  }
+
+  .tierColumn {
+    gap: 28px;
+  }
+
+  .tierColumn article {
+    min-height: 403px;
+  }
+
+  .mixPackages {
+    grid-template-columns: 465px minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .nonGaming .mixPackages .packageViewport {
+    margin-bottom: 0;
+  }
+
+  .mixGrid .packageCard {
+    min-height: 594px;
+  }
+
+  .nonGaming > .content {
+    padding-bottom: 200px;
+  }
+
+  .nonGaming > .content > .packageViewport:nth-child(7) {
+    margin-bottom: 185px;
+  }
+
+  .processTitle {
+    margin-top: 366px;
+  }
+
+  .closing {
+    padding-top: 130px;
+  }
+
+  .closingGlowAsset {
+    opacity: 0.24;
+  }
+
+  .closing > .content {
+    width: min(1212px, calc(100% - 272px));
+  }
+
+  .process {
+    min-height: 465px;
+  }
+
+  .requirements {
+    width: 1212px;
+    min-height: 1310px;
+    background: transparent;
+  }
+
+  .requirementRow {
+    padding: 28px 0;
+  }
+
+  .important {
+    width: 1212px;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(12, 11, 14, 0.035);
+  }
+}
+
+@media (max-width: 900px) {
+  .playDemoDesktop {
+    display: none;
+  }
+
+  .playDemoMobile {
+    display: inline-grid;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: 793px;
+    padding-top: 148px;
+  }
+
+  .heroGlowAsset {
+    opacity: 0.24;
+  }
+
+  .heroTitleLogo {
+    width: 270px;
+  }
+
+  .heroCopy p {
+    margin-top: 27px;
+    font-size: 16px;
+  }
+
+  .heroRail {
+    width: 100%;
+    height: 325px;
+    margin: 32px 0 0;
+    padding: 0 20px;
+  }
+
+  .heroTrack {
+    gap: 19px;
+    animation: none;
+    transform: none;
+  }
+
+  .heroTrack img {
+    width: 153px;
+    height: 317px;
+    flex-basis: 153px;
+    display: none;
+  }
+
+  .heroTrack img:nth-child(4),
+  .heroTrack img:nth-child(5) {
+    display: block;
+  }
+
+  .hero > .gradientButton {
+    margin-top: 26px;
+  }
+
+  .about {
+    padding-bottom: 48px;
+  }
+
+  .aboutCopy .logo {
+    font-size: 46px;
+  }
+
+  .aboutCopy p {
+    margin-top: 9px;
+  }
+
+  .audienceBanner,
+  .audience_playable,
+  .audience_non-gaming {
+    height: 600px;
+    min-height: 600px;
+    padding: 72px 0 38px;
+    background:
+      radial-gradient(ellipse 270px 210px at 0% 42%, rgba(0, 112, 205, 0.18), transparent 74%),
+      radial-gradient(ellipse 270px 210px at 100% 45%, rgba(91, 49, 195, 0.17), transparent 74%),
+      #302e2f;
+  }
+
+  .audienceGlowLayer,
+  .audience_playable .audienceGlowLayer {
+    filter: blur(9px) saturate(0.7);
+    opacity: 0.26;
+  }
+
+  .audienceGlowLeft,
+  .audienceGlowRight {
+    opacity: 0.52;
+  }
+
+  .wideMedia {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 156px;
+  }
+
+  .wideMedia::before {
+    inset: -34px -28px -42px;
+    opacity: 0.32;
+  }
+
+  .wideMedia img {
+    border-radius: 0;
+  }
+
+  .videoOffer {
+    position: relative;
+    margin-bottom: 75px;
+  }
+
+  .videoOffer:not(.reverse) {
+    margin-bottom: 109px;
+  }
+
+  .videoOffer.reverse {
+    margin-bottom: 100px;
+  }
+
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading,
+  .videoOffer.reverse .offerHeading {
+    width: auto;
+    margin: 0 0 42px;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  .offerHeading h3 {
+    margin-top: 11px;
+    font-size: 26px;
+  }
+
+  .offerLayout,
+  .videoOffer.reverse .offerLayout {
+    gap: 22px;
+  }
+
+  .offerMedia {
+    width: 100%;
+  }
+
+  .offerMedia::before {
+    inset: -34px -32px -42px;
+    opacity: 0.09;
+    filter: none;
+  }
+
+  .offerVisual {
+    height: auto;
+    aspect-ratio: 1.64 / 1;
+  }
+
+  .offerVisual > img {
+    border-radius: 0;
+  }
+
+  .videoOffer:not(.reverse) .offerVisual > img {
+    object-position: left center;
+  }
+
+  .offerPackageNote {
+    max-width: 92px;
+    position: absolute;
+    z-index: 4;
+    top: -99px;
+    right: 20px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.1;
+    text-align: right;
+  }
+
+  .offerPackageNote strong {
+    display: block;
+    margin: 3px 0 0;
+    font-size: 22px;
+  }
+
+  .pricePair {
+    width: calc(100% - 40px);
+    height: 106px;
+    margin: 40px 20px 0;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .offerPackageNote + .pricePair {
+    margin-top: 40px;
+  }
+
+  .pricePair > div {
+    padding: 17px 18px;
+    border-radius: 12px;
+  }
+
+  .pricePair span {
+    font-size: 13px;
+  }
+
+  .pricePair small {
+    margin-top: auto;
+    font-size: 11px;
+  }
+
+  .pricePair strong {
+    margin-top: 1px;
+    font-size: 20px;
+  }
+
+  .offerText {
+    width: 100%;
+    align-self: stretch;
+    padding: 0 20px;
+  }
+
+  .offerText h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+
+  .offerText h4:not(:first-child) {
+    margin-top: 27px;
+  }
+
+  .offerText p,
+  .offerList {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .offerList {
+    padding-left: 20px;
+  }
+
+  .caseIntro {
+    margin: 70px 0 122px;
+  }
+
+  .caseIntro h3 {
+    font-size: 25px;
+  }
+
+  .caseArtGlow,
+  .blobAdventure .caseArtGlow,
+  .blobBloom .caseArtGlow {
+    opacity: 0.52;
+    filter: saturate(0.78) brightness(0.84);
+  }
+
+  .blobAdventure .caseArtPicture,
+  .blobBloom .caseArtPicture {
+    filter: drop-shadow(0 0 10px rgba(60, 115, 220, 0.22));
+  }
+
+  .detailList {
+    gap: 18px;
+  }
+
+  .detailList p {
+    font-size: 13px;
+    line-height: 1.32;
+  }
+
+  .caseVideo {
+    min-height: 846px;
+    margin: 25px 0 121px;
+    padding: 20px 10px;
+    border-radius: 28px;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: blur(20px) saturate(105%);
+    backdrop-filter: blur(20px) saturate(105%);
+  }
+
+  .caseVideo::before {
+    content: "";
+    background: var(--frame-10) center / 100% 100% no-repeat;
+    opacity: 0.9;
+  }
+
+  .splitPosters {
+    height: 475px;
+  }
+
+  .splitPosters span::before {
+    opacity: 0.34;
+  }
+
+  .bloomIntro {
+    min-height: 678px;
+    margin: 0 0 121px;
+  }
+
+  .bloomVideo {
+    min-height: 654px;
+    margin: 25px 0 105px;
+    padding: 20px;
+  }
+
+  .bloomVideo .singlePoster {
+    aspect-ratio: 16 / 9;
+  }
+
+  .bloomVideo .singlePoster::before {
+    opacity: 0.24;
+  }
+
+  .bloomMeta {
+    padding: 24px 0 0;
+    gap: 24px;
+  }
+
+  .audience_playable {
+    height: 449px;
+    min-height: 449px;
+    padding-top: 68px;
+  }
+
+  .plansShowcase > .blockTitle {
+    margin-bottom: 34px;
+  }
+
+  .playablePlan {
+    width: calc(100% - 40px);
+    min-height: 465px;
+    border-radius: 24px;
+    background: rgba(10, 10, 14, 0.035);
+  }
+
+  .playablePlan::before {
+    background-image: var(--frame-11);
+    opacity: 0.92;
+  }
+
+  .planStage,
+  .planSlide {
+    min-height: 465px;
+  }
+
+  .planSlide {
+    padding: 20px 10px;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 0 10px;
+  }
+
+  .planPhone {
+    width: 150px;
+    height: 320px;
+  }
+
+  .planTitleGlow,
+  .planPanelGlow {
+    opacity: 0.82;
+  }
+
+  .dots {
+    height: 50px;
+  }
+
+  .fastHead {
+    margin-top: 95px;
+  }
+
+  .playDemoMobile {
+    width: 142px;
+    height: 50px;
+    padding: 0;
+    place-items: center;
+    font-size: 13px;
+  }
+
+  .fastTrack {
+    margin-top: 29px;
+  }
+
+  .packageGrid,
+  .fastTrack .packageGrid,
+  .mixGrid .packageGrid {
+    gap: 18px;
+  }
+
+  .packageCard,
+  .mixGrid .packageCard {
+    min-width: 62.5%;
+    background: rgba(12, 11, 14, 0.025);
+  }
+
+  .playables > .content {
+    padding-bottom: 84px;
+  }
+
+  .audience_non-gaming {
+    height: 472px;
+    min-height: 472px;
+  }
+
+  .ugcHero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 102px;
+  }
+
+  .ugcHero img {
+    border-radius: 0;
+  }
+
+  .ugcHero::before {
+    inset: -30px -24px -42px;
+    opacity: 0.24;
+  }
+
+  .nonGaming .packageViewport {
+    margin-bottom: 91px;
+  }
+
+  .creativeRow {
+    margin-bottom: 90px;
+    gap: 40px;
+  }
+
+  .creativeImages > span {
+    flex-basis: 82.5%;
+  }
+
+  .creativeImages > span::before {
+    opacity: 0.3;
+  }
+
+  .nonGaming > .content > .packageViewport:nth-child(7) {
+    margin-bottom: 147px;
+  }
+
+  .nonGaming > .content {
+    padding-bottom: 99px;
+  }
+
+  .processTitle {
+    margin: 134px 0 80px;
+  }
+
+  .closing {
+    padding-bottom: 121px;
+  }
+
+  .closingGlowAsset {
+    opacity: 0.62;
+  }
+
+  .process a {
+    width: 220px;
+    height: 56px;
+    font-size: 14px;
+  }
+
+  .closing .blockTitle {
+    margin-top: 116px;
+  }
+
+  .requirements {
+    padding: 32px 20px;
+    border-radius: 20px;
+    background: transparent;
+  }
+
+  .requirements::before {
+    content: "";
+    background-image: var(--frame-10);
+    opacity: 0.95;
+  }
+
+  .requirementsHead,
+  .requirementRow {
+    grid-template-columns: 84px 84px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .requirementsHead {
+    font-size: 11px;
+  }
+
+  .requirementRow {
+    padding: 14px 0;
+    font-size: 11px;
+    line-height: 1.32;
+  }
+
+  .important {
+    margin-top: 100px;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .important::before {
+    content: none;
+  }
+}
+
+.checkmark {
+  margin-right: 5px;
+  color: #31c4eb;
+  font-style: normal;
+}
+
+.packageCard ul,
+.planCopy ul,
+.tierColumn article > span {
+  color: #d8d5d7;
+}
+
+.offerMedia::before {
+  content: none;
+}
+
+.offerVisual {
+  isolation: isolate;
+}
+
+.offerVisual::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -76px;
+  background: var(--video-glow) center / 100% 100% no-repeat;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+.offerVisual > img {
+  position: static;
+}
+
+.offerVisual > button {
+  position: absolute;
+  z-index: 3;
+}
+
+.offerVisual > .inlineVideo {
+  position: absolute;
+  z-index: 6;
+}
+
+.pricePair {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 48% 150% at 48% 60%, rgba(48, 90, 216, 0.28), transparent 72%),
+    radial-gradient(ellipse 40% 120% at 12% 30%, rgba(98, 62, 245, 0.14), transparent 75%);
+}
+
+.playablePlan {
+  background: linear-gradient(120deg, rgba(39, 65, 126, 0.17), rgba(71, 48, 119, 0.13), rgba(12, 11, 14, 0.035));
+}
+
+@media (min-width: 1301px) {
+  .offerVisual::before {
+    inset: -92px -105px;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 900px) {
+  .audienceGlowLayer,
+  .audience_playable .audienceGlowLayer {
+    filter: blur(18px) saturate(0.7);
+    opacity: 0.34;
+  }
+
+  .offerVisual::before {
+    inset: -32px;
+    opacity: 0.24;
+  }
+
+  .pricePair {
+    background:
+      radial-gradient(ellipse 52% 150% at 58% 58%, rgba(48, 90, 216, 0.22), transparent 76%),
+      radial-gradient(ellipse 42% 120% at 8% 28%, rgba(98, 62, 245, 0.1), transparent 78%);
+  }
+
+  .playablePlan {
+    background: linear-gradient(125deg, rgba(39, 65, 126, 0.2), rgba(71, 48, 119, 0.16), rgba(12, 11, 14, 0.035));
+  }
+}
+
+/* The Figma tablet frame keeps the desktop composition at a tighter scale. */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .content,
+  .gaming > .content,
+  .playables > .content,
+  .nonGaming > .content,
+  .closing > .content {
+    width: calc(100% - 60px);
+    margin-inline: auto;
+  }
+
+  .header {
+    height: 77px;
+    background: rgba(48, 46, 47, 0.5);
+  }
+
+  .headerInner {
+    width: calc(100% - 60px);
+    padding: 0;
+  }
+
+  .headerInner > a .logo,
+  .logoCompact {
+    font-size: 27px;
+  }
+
+  .nav {
+    display: flex;
+    gap: 48px;
+    font-size: 16px;
+  }
+
+  .menuButton,
+  .mobileNavHead {
+    display: none;
+  }
+
+  .hero {
+    height: 1130px;
+    padding-top: 191px;
+    background:
+      radial-gradient(ellipse 430px 300px at 0% 0%, rgba(8, 114, 198, 0.18), transparent 74%),
+      radial-gradient(ellipse 420px 300px at 100% 0%, rgba(91, 49, 193, 0.16), transparent 74%),
+      #302e2f;
+  }
+
+  .heroGlowAsset {
+    width: 1180px;
+    height: 650px;
+    top: -300px;
+    opacity: 0.24;
+  }
+
+  .heroTitleLogo {
+    width: 400px;
+  }
+
+  .heroCopy p {
+    margin-top: 40px;
+    font-size: 20px;
+    line-height: 1.18;
+  }
+
+  .heroRail {
+    width: 100%;
+    height: 430px;
+    margin: 99px 0 0;
+    padding-left: 30px;
+    overflow: hidden;
+  }
+
+  .heroTrack {
+    gap: 38px;
+    animation: none;
+    transform: translateX(-744px);
+  }
+
+  .heroTrack img,
+  .heroTrack img:nth-child(4),
+  .heroTrack img:nth-child(5) {
+    width: 210px;
+    height: 430px;
+    flex-basis: 210px;
+    display: block;
+    border-radius: 15px;
+  }
+
+  .hero > .gradientButton {
+    width: 272px;
+    height: 53px;
+    margin-top: 74px;
+    font-size: 16px;
+  }
+
+  .heroCtaDesktop {
+    display: inline;
+  }
+
+  .heroCtaMobile,
+  .heroLogoMobile {
+    display: none;
+  }
+
+  .about {
+    height: 470px;
+    min-height: 0;
+    padding: 0;
+    background:
+      radial-gradient(ellipse 380px 310px at 0% 48%, rgba(0, 113, 198, 0.17), transparent 74%),
+      radial-gradient(ellipse 360px 300px at 100% 52%, rgba(88, 48, 190, 0.13), transparent 74%),
+      #302e2f;
+  }
+
+  .aboutGlowAsset {
+    width: 620px;
+    height: 500px;
+    left: -310px;
+    top: -10px;
+    opacity: 0.32;
+  }
+
+  .aboutInner {
+    width: calc(100% - 60px);
+    padding: 115px 0 0;
+    display: grid;
+    grid-template-columns: 335px minmax(0, 1fr);
+    gap: 54px;
+  }
+
+  .aboutCopy .logo {
+    font-size: 64px;
+  }
+
+  .aboutCopy p {
+    max-width: 335px;
+    margin-top: 29px;
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .stats {
+    margin: 0;
+    padding-top: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 18px;
+  }
+
+  .stat strong {
+    font-size: 34px;
+  }
+
+  .stat span {
+    margin-top: 7px;
+    font-size: 12px;
+  }
+
+  .tiktok img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .tiktok span {
+    font-size: 11px;
+  }
+
+  .audienceBanner,
+  .audience_playable,
+  .audience_non-gaming {
+    min-height: 0;
+    background:
+      radial-gradient(ellipse 410px 330px at 2% 48%, rgba(0, 110, 205, 0.14), transparent 74%),
+      radial-gradient(ellipse 410px 330px at 98% 50%, rgba(94, 52, 200, 0.14), transparent 74%),
+      #302e2f;
+  }
+
+  .audienceBanner {
+    height: 653px;
+    padding: 145px 0 0;
+  }
+
+  .audienceGlowLayer,
+  .audience_playable .audienceGlowLayer {
+    filter: blur(10px) saturate(0.75);
+    opacity: 0.27;
+  }
+
+  .audienceGlowLeft,
+  .audienceGlowRight {
+    width: 430px;
+    height: 340px;
+    top: 72px;
+    opacity: 0.62;
+  }
+
+  .audienceGlowLeft {
+    left: -95px;
+  }
+
+  .audienceGlowRight {
+    right: -95px;
+  }
+
+  .audienceBanner h2,
+  .audience_playable h2 {
+    max-width: none;
+    font-size: 64px;
+    line-height: 0.96;
+  }
+
+  .logoRail,
+  .audience_playable .logoRail,
+  .audience_non-gaming .logoRail {
+    width: 100%;
+    margin: 96px 0 0;
+    padding: 0 30px;
+    overflow: hidden;
+  }
+
+  .logoTrack,
+  .logoTrackReverse {
+    width: max-content;
+    display: grid;
+    gap: 19px;
+    animation: none;
+    transform: none;
+  }
+
+  .logoGroup,
+  .logoGroup:first-child {
+    width: max-content;
+    display: flex;
+    gap: 38px;
+  }
+
+  .logoGroup:nth-child(n + 3) {
+    display: none;
+  }
+
+  .logoGroup:nth-child(2) {
+    transform: translateX(18px);
+  }
+
+  .logoTrack img {
+    width: 59px;
+    height: 27px;
+    flex: 0 0 59px;
+  }
+
+  .wideMedia {
+    width: 100%;
+    height: 453px;
+    aspect-ratio: auto;
+    margin: 0 auto 197px;
+  }
+
+  .wideMedia::before {
+    inset: -42px -50px -56px;
+    opacity: 0.32;
+  }
+
+  .wideMedia img {
+    border-radius: 0;
+  }
+
+  .playButton {
+    width: 72px;
+    height: 72px;
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    padding: 0 0 0 5px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    gap: 0;
+    border: 4px solid #fff;
+    background: transparent;
+    font-size: 25px;
+  }
+
+  .playButton::before,
+  .playButton::after {
+    content: none;
+  }
+
+  .playButton:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    background: rgba(31, 181, 231, 0.16);
+  }
+
+  .videoOffer {
+    margin: 0;
+  }
+
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading,
+  .videoOffer.reverse .offerHeading {
+    width: 500px;
+    margin: 0 0 44px;
+    padding: 0;
+    display: block;
+    text-align: left;
+  }
+
+  .videoOffer.reverse .offerHeading {
+    width: 507px;
+    margin-right: 0;
+    margin-bottom: 42px;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .offerHeading .pill,
+  .videoOffer:not(.reverse) .offerHeading .pill {
+    margin: 0;
+  }
+
+  .offerHeading h3 {
+    margin-top: 12px;
+    font-size: 28px;
+  }
+
+  .pill {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+
+  .offerLayout,
+  .videoOffer.reverse .offerLayout {
+    display: grid;
+    align-items: start;
+    gap: 28px;
+  }
+
+  .offerLayout {
+    grid-template-columns: 500px minmax(0, 1fr);
+  }
+
+  .videoOffer.reverse .offerLayout {
+    grid-template-columns: 231px minmax(0, 1fr);
+  }
+
+  .offerLayout .offerText,
+  .videoOffer.reverse .offerText {
+    width: auto;
+    padding: 0;
+    display: block;
+    order: initial;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .videoOffer.reverse .offerText {
+    grid-column: 1;
+  }
+
+  .offerLayout .offerMedia,
+  .videoOffer.reverse .offerMedia {
+    width: auto;
+    min-width: 0;
+    order: initial;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .videoOffer.reverse .offerMedia {
+    grid-column: 2;
+  }
+
+  .offerText h4 {
+    margin: 0 0 8px;
+    font-size: 16px;
+  }
+
+  .offerText h4:not(:first-child) {
+    margin-top: 27px;
+  }
+
+  .offerText p,
+  .offerList {
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  .offerList {
+    padding-left: 20px;
+  }
+
+  .offerVisual {
+    height: auto;
+    aspect-ratio: 1.64 / 1;
+  }
+
+  .offerVisual > img {
+    border-radius: 0;
+  }
+
+  .offerVisual::before {
+    inset: -50px -58px;
+    opacity: 0.28;
+  }
+
+  .offerPackageNote {
+    max-width: none;
+    position: static;
+    margin: 16px 0 0;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .offerPackageNote strong {
+    display: inline;
+    margin-left: 4px;
+    font-size: 19px;
+  }
+
+  .pricePair,
+  .offerPackageNote + .pricePair {
+    width: 100%;
+    height: 123px;
+    margin: 23px 0 0;
+    padding: 0;
+    gap: 19px;
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  .offerPackageNote + .pricePair {
+    margin-top: 14px;
+  }
+
+  .pricePair > div {
+    padding: 18px 18px;
+    border-radius: 12px;
+  }
+
+  .pricePair span {
+    font-size: 17px;
+  }
+
+  .pricePair small {
+    margin-top: auto;
+    font-size: 12px;
+  }
+
+  .pricePair strong {
+    margin-top: 2px;
+    font-size: 23px;
+  }
+
+  .videoOffer:not(.reverse) {
+    margin-bottom: 88px;
+  }
+
+  .videoOffer.reverse {
+    margin-bottom: 107px;
+  }
+
+  .caseIntro,
+  .bloomIntro {
+    width: 100%;
+    min-height: 560px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 29px;
+    align-items: center;
+  }
+
+  .caseIntro .caseCopy {
+    display: block;
+  }
+
+  .caseIntro .pill,
+  .caseIntro h3,
+  .caseIntro small,
+  .caseIntro > .detailList,
+  .caseIntro .caseCopy > .detailList {
+    order: initial;
+  }
+
+  .caseIntro h3 {
+    margin: 14px 0 8px;
+    font-size: 33px;
+    text-align: left;
+  }
+
+  .caseIntro small {
+    font-size: 13px;
+  }
+
+  .blobMedia {
+    --case-edge-space: 30px;
+    width: calc(100% + 30px);
+    height: auto;
+    margin: 0 -30px 0 0;
+    order: initial;
+  }
+
+  .detailList,
+  .caseIntro .detailList {
+    width: auto;
+    margin-top: 43px;
+    gap: 22px;
+  }
+
+  .detailList > div {
+    grid-template-columns: 28px 1fr;
+    gap: 9px;
+  }
+
+  .detailIcon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .iconCollaboration,
+  .iconCreative,
+  .iconResult {
+    background-size: 27px auto;
+  }
+
+  .iconChallenge,
+  .iconSolution,
+  .iconImpact {
+    background-size: 26px auto;
+  }
+
+  .detailList p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .blobAdventure .caseArtGlow,
+  .blobBloom .caseArtGlow {
+    opacity: 0.54;
+    filter: saturate(0.82) brightness(0.84);
+  }
+
+  .caseVideo {
+    width: 100%;
+    min-height: 520px;
+    margin: 128px 0 113px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 410px minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+    overflow: visible;
+    border-radius: 28px;
+    background: rgba(8, 12, 20, 0.18);
+    box-shadow: none;
+  }
+
+  .caseVideo::before {
+    background: var(--frame-2) center / 100% 100% no-repeat;
+    opacity: 0.82;
+  }
+
+  .caseVideo > .detailList {
+    margin: 0;
+  }
+
+  .splitPosters {
+    height: 351px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    overflow: visible;
+  }
+
+  .splitPosters span {
+    min-width: 0;
+    flex: initial;
+  }
+
+  .splitPosters img,
+  .singlePoster img {
+    border-radius: 12px;
+  }
+
+  .splitPosters span::before {
+    inset: -30px;
+    opacity: 0.4;
+  }
+
+  .bloomVideo {
+    min-height: 752px;
+    margin: 145px 0 162px;
+    padding: 19px;
+    display: block;
+  }
+
+  .bloomVideo .singlePoster {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 720 / 396;
+  }
+
+  .bloomVideo .singlePoster::before {
+    inset: -42px;
+    opacity: 0.34;
+  }
+
+  .bloomMeta {
+    padding: 32px 0 0;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 67px;
+    align-items: start;
+  }
+
+  .bloomMeta > .gradientButton,
+  .bloomVideo > .gradientButton {
+    width: 270px;
+    height: 52px;
+    position: static;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .bloomMeta > .detailList {
+    margin: 0;
+    gap: 18px;
+  }
+
+  .caseCtaDesktop {
+    display: none;
+  }
+
+  .caseCtaMobile {
+    display: inline;
+  }
+
+  .audience_playable {
+    height: 725px;
+    padding-top: 215px;
+  }
+
+  .audience_playable h2 {
+    max-width: 330px;
+    margin-inline: auto;
+  }
+
+  .audience_playable .logoRail {
+    margin-top: 94px;
+  }
+
+  .plansShowcase > .blockTitle {
+    width: 100%;
+    margin: 0 0 31px;
+    padding: 0;
+  }
+
+  .blockTitle {
+    margin: 0 0 25px;
+    padding: 0;
+    font-size: 29px;
+  }
+
+  .blockTitle small {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  .playablePlan {
+    width: 100%;
+    min-height: 552px;
+    position: relative;
+    display: block;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .playablePlan::before {
+    content: none;
+  }
+
+  .planStage {
+    width: 630px;
+    min-height: 552px;
+    margin-inline: auto;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 38px;
+    background: linear-gradient(120deg, rgba(39, 65, 126, 0.22), rgba(71, 48, 119, 0.16), rgba(12, 11, 14, 0.04));
+    -webkit-backdrop-filter: blur(22px) saturate(110%);
+    backdrop-filter: blur(22px) saturate(110%);
+  }
+
+  .planStage::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--frame-11) center / 100% 100% no-repeat;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .planSlide {
+    min-height: 552px;
+    padding: 34px 38px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .planCopy {
+    display: block;
+  }
+
+  .planPhone {
+    width: 220px;
+    height: 472px;
+    grid-column: auto;
+    grid-row: auto;
+    align-self: center;
+  }
+
+  .planCopy h4 {
+    font-size: 20px;
+  }
+
+  .planCopy p {
+    margin: 18px 0 22px;
+    font-size: 15px;
+    line-height: 1.28;
+  }
+
+  .planPriceFlag {
+    width: calc(100% + 38px);
+    margin: 0 0 12px -19px;
+    padding: 17px 19px 18px;
+  }
+
+  .planPriceFlag small {
+    font-size: 12px;
+  }
+
+  .planPriceFlag strong {
+    font-size: 38px;
+  }
+
+  .planCopy ul {
+    margin: 13px 0 20px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .planCopy .demo {
+    padding: 13px 28px;
+    font-size: 13px;
+  }
+
+  .planArrow {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    margin: 0;
+    transform: translateY(-50%);
+    visibility: visible;
+    font-size: 34px;
+  }
+
+  .planArrow:first-child {
+    left: 0;
+  }
+
+  .planArrow:last-child {
+    right: 0;
+  }
+
+  .dots {
+    height: 78px;
+  }
+
+  .dots button {
+    width: 8px;
+    height: 8px;
+  }
+
+  .fastHead {
+    margin-top: 66px;
+    padding: 0;
+    height: 50px;
+  }
+
+  .fastHead .blockTitle {
+    padding: 0;
+  }
+
+  .playDemoDesktop {
+    display: none;
+  }
+
+  .playDemoMobile {
+    width: 141px;
+    height: 50px;
+    padding: 0;
+    display: inline-grid;
+    place-items: center;
+    font-size: 13px;
+  }
+
+  .fastTrack {
+    margin-top: 26px;
+    padding: 0;
+    display: block;
+  }
+
+  .fastPhone {
+    display: none;
+  }
+
+  .packageGrid,
+  .fastTrack .packageGrid,
+  .mixGrid .packageGrid {
+    padding: 0;
+    display: grid;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .fastTrack .packageGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+  }
+
+  .packageCard,
+  .fastTrack .packageCard,
+  .mixGrid .packageCard {
+    min-width: 0;
+    min-height: 415px;
+    padding: 29px 20px;
+    border-radius: 9px;
+  }
+
+  .packageCard h4,
+  .mixGrid .packageCard h4 {
+    margin-bottom: 29px;
+    font-size: 19px;
+  }
+
+  .packageCard b,
+  .mixGrid .packageCard b {
+    font-size: 15px;
+  }
+
+  .packageCard ul,
+  .mixGrid .packageCard ul {
+    margin: 16px 0;
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .packageCard > strong,
+  .mixGrid .packageCard > strong {
+    font-size: 25px;
+  }
+
+  .packageCard > .pricePrefix,
+  .mixGrid .packageCard > .pricePrefix,
+  .packageCard small,
+  .mixGrid .packageCard small {
+    font-size: 12px;
+  }
+
+  .mobileDots {
+    display: none;
+  }
+
+  .playables > .content {
+    padding-bottom: 62px;
+  }
+
+  .audience_non-gaming {
+    height: 731px;
+    padding-top: 161px;
+  }
+
+  .audience_non-gaming .logoRail {
+    margin-top: 96px;
+  }
+
+  .ugcHero {
+    width: calc(100% + 60px);
+    height: 450px;
+    margin: 0 -30px 166px;
+    aspect-ratio: auto;
+  }
+
+  .ugcHero img {
+    border-radius: 0;
+  }
+
+  .ugcHero::before {
+    inset: -42px -48px -52px;
+    opacity: 0.3;
+  }
+
+  .nonGaming .blockTitle {
+    margin-bottom: 25px;
+  }
+
+  .nonGaming .packageGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 19px;
+  }
+
+  .nonGaming .packageCard {
+    min-height: 415px;
+    padding: 28px 17px;
+  }
+
+  .nonGaming .packageCard h4 {
+    font-size: 17px;
+  }
+
+  .nonGaming .packageCard b,
+  .nonGaming .packageCard ul {
+    font-size: 11px;
+  }
+
+  .nonGaming .packageCard > strong {
+    font-size: 22px;
+  }
+
+  .nonGaming .packageCard small {
+    font-size: 10px;
+  }
+
+  .nonGaming .packageViewport {
+    margin-bottom: 108px;
+  }
+
+  .creativeRow {
+    min-height: 505px;
+    margin-bottom: 107px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-rows: 35px 430px;
+    gap: 40px 19px;
+  }
+
+  .creativeRow h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    order: initial;
+    font-size: 29px;
+  }
+
+  .tierColumn {
+    grid-column: 1;
+    grid-row: 2;
+    order: initial;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tierColumn article {
+    min-height: 0;
+    padding: 21px;
+  }
+
+  .tierColumn strong {
+    font-size: 16px;
+  }
+
+  .tierColumn article > span {
+    margin: 14px 0;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .tierColumn b {
+    font-size: 22px;
+  }
+
+  .creativeImages {
+    grid-column: 2;
+    grid-row: 2;
+    order: initial;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+    overflow: visible;
+  }
+
+  .creativeImages > span {
+    min-width: 0;
+    flex: initial;
+  }
+
+  .creativeImages img {
+    height: 430px;
+  }
+
+  .creativeRow:nth-child(5) .tierColumn {
+    grid-column: 2;
+  }
+
+  .creativeRow:nth-child(5) .creativeImages {
+    grid-column: 1;
+  }
+
+  .nonGaming > .content > .packageViewport:nth-child(7) {
+    margin-bottom: 84px;
+  }
+
+  .mixPackages {
+    min-height: 416px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 19px;
+    align-items: start;
+  }
+
+  .mixPackages > .blockTitle {
+    margin: 5px 0 0;
+  }
+
+  .mixPackages .packageViewport,
+  .nonGaming .mixPackages .packageViewport {
+    margin: 0;
+  }
+
+  .mixGrid .packageGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+  }
+
+  .mixGrid .packageCard {
+    min-height: 416px;
+  }
+
+  .nonGaming > .content {
+    padding-bottom: 96px;
+  }
+
+  .closing {
+    padding: 137px 0 337px;
+  }
+
+  .closingGlowAsset {
+    width: 1180px;
+    height: 680px;
+    top: -160px;
+    opacity: 0.24;
+  }
+
+  .closingTitle .logo {
+    font-size: 32px;
+  }
+
+  .closingTitle h2 {
+    margin-top: 29px;
+    font-size: 40px;
+    line-height: 1.08;
+  }
+
+  .processTitle {
+    width: 630px;
+    margin: 167px auto 70px;
+    padding: 0;
+    font-size: 31px;
+  }
+
+  .process {
+    width: calc(100% + 60px);
+    height: 240px;
+    min-height: 240px;
+    margin: 0 -30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    text-align: center;
+  }
+
+  .process::before {
+    width: auto;
+    height: 1px;
+    left: 0;
+    right: 0;
+    top: 76px;
+    bottom: auto;
+  }
+
+  .process span,
+  .process span:nth-of-type(even) {
+    width: auto;
+    position: relative;
+    left: auto;
+    top: auto;
+    padding: 0;
+    transform: none;
+    font-size: 16px;
+    background: transparent;
+    text-shadow: none;
+  }
+
+  .process span:nth-of-type(even) {
+    padding-top: 100px;
+  }
+
+  .process span::after,
+  .process span:nth-of-type(even)::after {
+    left: 50%;
+    top: 69px;
+  }
+
+  .process a {
+    width: 220px;
+    height: 54px;
+    left: 37.5%;
+    top: 178px;
+    font-size: 15px;
+  }
+
+  .closing .blockTitle {
+    margin-top: 130px;
+  }
+
+  .requirements {
+    width: 100%;
+    min-height: 1115px;
+    padding: 54px 65px;
+    border-radius: 42px;
+    background: transparent;
+  }
+
+  .requirements::before {
+    content: "";
+    background-image: var(--frame-8);
+    opacity: 0.92;
+  }
+
+  .requirementsHead,
+  .requirementRow {
+    grid-template-columns: 130px 1fr 1.4fr;
+    gap: 25px;
+  }
+
+  .requirementsHead {
+    font-size: 14px;
+  }
+
+  .requirementRow {
+    padding: 17px 0;
+    font-size: 13px;
+    line-height: 1.28;
+  }
+
+  .important {
+    width: 100%;
+    min-height: 316px;
+    margin: 64px 0 0;
+    padding: 48px 65px;
+    border-radius: 42px;
+    background: rgba(12, 11, 14, 0.035);
+    -webkit-backdrop-filter: blur(20px) saturate(105%);
+    backdrop-filter: blur(20px) saturate(105%);
+  }
+
+  .important::before {
+    content: "";
+    background-image: var(--frame-9);
+    opacity: 0.9;
+  }
+
+  .important h3 {
+    margin-bottom: 28px;
+    font-size: 20px;
+  }
+
+  .important li {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .packageViewport::before {
+    inset: -55px -45px;
+    background:
+      radial-gradient(circle at 10% 50%, rgba(25, 117, 224, 0.2), transparent 50%),
+      radial-gradient(circle at 82% 48%, rgba(108, 51, 212, 0.18), transparent 54%);
+    filter: blur(42px);
+  }
+}
+
+@media (min-width: 901px) {
+  .creativeRow:nth-child(5) .tierColumn {
+    grid-column: 2;
+  }
+
+  .creativeRow:nth-child(5) .creativeImages {
+    grid-column: 1;
+  }
+}
+
+/* Shared glass and media details, with light behind the transparent surfaces. */
+.videoOffer {
+  position: relative;
+  isolation: isolate;
+}
+
+.videoOffer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -100px -100px;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgba(65, 76, 187, 0.22), transparent 30%),
+    radial-gradient(ellipse at 92% 35%, rgba(28, 101, 213, 0.32), transparent 31%),
+    radial-gradient(ellipse at 30% 90%, rgba(63, 74, 191, 0.22), transparent 33%);
+  filter: blur(45px);
+  pointer-events: none;
+}
+
+.offerVisual::before {
+  opacity: 0.09;
+}
+
+.pricePair {
+  overflow: visible;
+  background: transparent;
+}
+
+.pricePair::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -50px -30px;
+  background: radial-gradient(ellipse at 37% 50%, rgba(48, 90, 216, 0.32), transparent 68%);
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+.pricePair > div,
+.pricePair > div:first-child,
+.pricePair > div:last-child {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent;
+  background: rgba(18, 16, 20, 0.035);
+}
+
+.tierColumn {
+  position: relative;
+  isolation: isolate;
+  align-content: start;
+}
+
+.tierColumn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -80px -65px;
+  background:
+    radial-gradient(ellipse at 70% 60%, rgba(111, 60, 226, 0.3), transparent 65%),
+    radial-gradient(ellipse at 10% 15%, rgba(27, 119, 222, 0.2), transparent 64%);
+  filter: blur(42px);
+  pointer-events: none;
+}
+
+.creativeImages > span {
+  position: relative;
+  isolation: isolate;
+}
+
+.creativeImages > span::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -28px;
+  background: var(--video-glow-vertical) center / 100% 100% no-repeat;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.creativeImages img {
+  box-shadow: 0 -7px 22px rgba(199, 61, 214, 0.18), 0 8px 22px rgba(34, 161, 208, 0.16);
+}
+
+.logoTrack img {
+  mix-blend-mode: screen;
+}
+
+.audienceGlowLayer,
+.audience_playable .audienceGlowLayer {
+  filter: blur(38px) saturate(0.8);
+}
+
+@media (min-width: 768px) {
+  .creativeRow:nth-child(5) {
+    grid-template-columns: minmax(0, 2.08fr) minmax(0, 1fr);
+  }
+
+  .creativeRow:nth-child(5) .tierColumn {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .creativeRow:nth-child(5) .creativeImages {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .detailList p strong {
+    color: #eee;
+  }
+
+  .detailResult p strong {
+    color: #67d56e;
+  }
+}
+
+@media (min-width: 1301px) {
+  .offerText h4 {
+    font-size: 30px;
+  }
+
+  .offerText p,
+  .offerList {
+    font-size: 19px;
+  }
+
+  .playButton {
+    width: 140px;
+    height: 140px;
+    font-size: 52px;
+  }
+
+  .tierColumn {
+    gap: 32px;
+  }
+
+  .tierColumn article {
+    min-height: 276px;
+    padding: 32px 42px;
+  }
+
+  .tierColumn strong {
+    font-size: 32px;
+  }
+
+  .tierColumn article > span {
+    font-size: 17px;
+  }
+
+  .tierColumn b {
+    font-size: 32px;
+  }
+
+  .packageCard h4 {
+    font-size: 30px;
+  }
+
+  .packageCard b {
+    font-size: 21px;
+  }
+
+  .packageCard ul,
+  .packageCard small {
+    font-size: 17px;
+  }
+
+  .packageCard > strong {
+    font-size: 34px;
+  }
+
+  .playablePlan {
+    width: min(1140px, 100%);
+  }
+
+  .requirements,
+  .important {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1301px) and (max-width: 1727px) {
+  .offerLayout {
+    grid-template-columns: minmax(0, 964fr) minmax(0, 344fr);
+    gap: clamp(48px, 7vw, 148px);
+  }
+
+  .videoOffer.reverse .offerLayout {
+    grid-template-columns: minmax(0, 240fr) minmax(0, 1087fr);
+    gap: clamp(48px, 7vw, 129px);
+  }
+
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading,
+  .videoOffer.reverse .offerHeading {
+    max-width: 75%;
+  }
+
+  .aboutInner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8vw;
+  }
+
+  .stats {
+    gap: 70px 28px;
+  }
+
+  .stat strong {
+    font-size: clamp(40px, 3.5vw, 61px);
+  }
+
+  .fastTrack {
+    padding-left: 0;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 45px;
+  }
+
+  .fastTrack .packageGrid {
+    gap: 18px;
+  }
+
+  .packageCard {
+    padding: 28px 20px;
+  }
+
+  .packageCard h4 {
+    font-size: 24px;
+  }
+
+  .packageCard ul {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1300px) {
+  .heroRail {
+    margin-top: 104px;
+  }
+
+  .aboutInner {
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);
+  }
+
+  .offerHeading,
+  .videoOffer:not(.reverse) .offerHeading {
+    width: 66%;
+    margin-bottom: 56px;
+  }
+
+  .videoOffer.reverse .offerHeading {
+    width: 66%;
+    margin-bottom: 43px;
+  }
+
+  .offerLayout {
+    grid-template-columns: minmax(0, 500fr) minmax(0, 232fr);
+  }
+
+  .videoOffer.reverse .offerLayout {
+    grid-template-columns: minmax(0, 231fr) minmax(0, 501fr);
+  }
+
+  .offerText p,
+  .offerList {
+    font-size: 16px;
+  }
+
+  .videoOffer.reverse {
+    margin-bottom: 124px;
+  }
+
+  .caseIntro h3 {
+    width: 415px;
+    max-width: calc(100vw - 60px);
+    position: relative;
+    z-index: 2;
+  }
+
+  .caseIntro {
+    grid-template-columns: minmax(0, 300fr) minmax(0, 431fr);
+  }
+
+  .caseVideo {
+    grid-template-columns: minmax(0, 410fr) minmax(0, 236fr);
+  }
+
+  .bloomVideo {
+    min-height: 752px;
+    margin-top: 105px;
+    padding-bottom: 19px;
+  }
+
+  .bloomMeta {
+    grid-template-columns: minmax(0, 270fr) minmax(0, 353fr);
+    gap: 48px;
+  }
+
+  .bloomMeta > .detailList {
+    gap: 14px;
+  }
+
+  .bloomMeta > .detailList p {
+    font-size: 12px;
+  }
+
+  .bloomMeta > .gradientButton {
+    width: 100%;
+  }
+
+  .playButton {
+    width: 94px;
+    height: 94px;
+    font-size: 36px;
+  }
+
+  .splitPosters .playButton {
+    width: 62px;
+    height: 62px;
+    font-size: 24px;
+  }
+
+  .planStage {
+    width: min(630px, calc(100% - 100px));
+  }
+
+  .planSlide {
+    grid-template-columns: minmax(0, 220fr) minmax(0, 306fr);
+  }
+
+  .planPhone {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .planPriceFlag small {
+    margin-top: 0;
+  }
+
+  .creativeRow,
+  .mixPackages {
+    grid-template-columns: minmax(0, 240fr) minmax(0, 501fr);
+  }
+
+  .tierColumn article {
+    min-height: 174px;
+    padding: 18px 21px;
+  }
+
+  .tierColumn strong {
+    font-size: 18px;
+  }
+
+  .tierColumn article > span {
+    margin: 10px 0;
+  }
+
+  .creativeRow:nth-child(5) {
+    margin-bottom: 174px;
+  }
+
+  .processTitle {
+    max-width: 100%;
+    margin-bottom: 108px;
+  }
+
+  .requirementsHead,
+  .requirementRow {
+    grid-template-columns: minmax(0, 130fr) minmax(0, 150fr) minmax(0, 230fr);
+  }
+}

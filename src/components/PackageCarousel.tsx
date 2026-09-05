@@ -13,7 +13,7 @@ function PackageCard({ item }: { item: PackagePlan }) {
   return <article className={s.packageCard}>
     <h4>{item.title}</h4>
     <b>Includes:</b>
-    <ul>{item.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
+    <ul>{item.features.map((feature) => <li key={feature}><span className={s.checkmark} aria-hidden="true">✓</span>{feature}</li>)}</ul>
     {item.pricePrefix && <span className={s.pricePrefix}>{item.pricePrefix}</span>}
     <strong>{item.price}</strong>
     <small>{item.note}</small>

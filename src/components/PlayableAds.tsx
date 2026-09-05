@@ -49,7 +49,7 @@ function PlanSlide({ plan, className = '', onDemo }: { plan: PlayablePlan; class
       <h4>{plan.title}</h4>
       <p>{plan.description}</p>
       <div className={s.planPriceFlag}><small>Costs start at</small><strong>{plan.price}</strong></div>
-      <ul>{plan.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
+      <ul>{plan.features.map((feature) => <li key={feature}><span className={s.checkmark} aria-hidden="true">✓</span>{feature}</li>)}</ul>
       <button className={s.demo} type="button" onClick={onDemo}>Demo</button>
     </div>
   </article>
@@ -122,8 +122,8 @@ export function PlayableAds() {
         <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={active === index ? s.dotActive : ''} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
       </section>
 
-      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={s.playDemo} type="button" onClick={() => openDemo()}>Play demo</button></div>
-      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div><PackageCarousel items={packages} /></div>
+      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()}>Play demo</button></div>
+      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()}>Play demo</button></div><PackageCarousel items={packages} /></div>
 
     </div>
 
