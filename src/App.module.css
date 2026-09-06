@@ -4005,7 +4005,7 @@
   }
 }
 
-/* Authoritative reference lock. Keep this final in the cascade. */
+/* Responsive geometry. Surface and artwork rules are grouped at the end. */
 .page {
   background: #302e2f;
 }
@@ -6557,7 +6557,8 @@
 
 .audienceGlowLayer,
 .audience_playable .audienceGlowLayer {
-  filter: blur(38px) saturate(0.8);
+  filter: none;
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -6836,4 +6837,567 @@
   .requirementRow {
     grid-template-columns: minmax(0, 130fr) minmax(0, 150fr) minmax(0, 230fr);
   }
+}
+
+/* Figma surface pass: source frame 476:1344, local AQDesign Landing.fig.
+   Light SVGs preserve source paths, transforms, paint opacity and blur.
+   A panel has ONE CSS contour; exported PNG frames include their own padding
+   and must not be stretched inside another rounded panel. */
+.gaming::after,
+.playables::after,
+.nonGaming::after,
+.closing::after { content: none; }
+
+.audienceBanner { background: transparent; overflow: visible; }
+.audienceGlowLayer,
+.audience_playable .audienceGlowLayer { opacity: 1; filter: none; }
+.audienceGlowLeft,
+.audienceGlowRight { opacity: 1; filter: none; }
+.audienceGlowLayer .glowAccent img { object-fit: contain; }
+.audienceTitleGlow,
+.heroGlowAsset,
+.closingGlowAsset {
+  left: 50%;
+  width: 100vw;
+  height: 87.676vw;
+  opacity: 1;
+  filter: none;
+  transform: translateX(-50%);
+}
+.audienceTitleGlow { top: calc(410px - 43.838vw); }
+.audience_playable .audienceTitleGlow { top: calc(430px - 43.838vw); }
+.heroGlowAsset { top: calc(390px - 43.838vw); }
+.closingGlowAsset { top: calc(260px - 43.838vw); }
+.audienceTitleGlow img,
+.heroGlowAsset img,
+.closingGlowAsset img { object-fit: contain; animation: none; }
+
+/* Prevent the following section's opaque background from cutting off the reel halo. */
+.gaming > .audienceBanner { z-index: 0; }
+.wideMedia { overflow: visible; isolation: isolate; }
+.wideMedia::before {
+  z-index: -1;
+  inset: -100px -110px;
+  opacity: 0.9;
+  filter: none;
+}
+
+.videoOffer::before,
+.caseIntro::before,
+.caseVideo::before,
+.playablePlan::before,
+.fastTrack::before,
+.requirements::before,
+.important::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  pointer-events: none;
+  border: 0;
+  border-radius: 0;
+  opacity: 1;
+  filter: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.videoOffer::before {
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 5300;
+  transform: translateY(-41.4153%);
+  background-image: url('./assets/figma-cinematic-light.svg');
+}
+.videoOffer.reverse::before { aspect-ratio: 2560 / 5100; transform: translateY(-36.9409%); background-image: url('./assets/figma-videos-light.svg'); }
+.offerVisual::before { content: none; }
+.pricePair::before { content: none; }
+.pricePair > div,
+.pricePair > div:first-child,
+.pricePair > div:last-child {
+  border: 1px solid rgba(220, 221, 242, 0.32);
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+.pricePair > div::after { content: none; }
+
+.caseIntro { position: relative; isolation: isolate; overflow: visible; }
+.caseIntro::before {
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 5000;
+  transform: translateY(-37.7198%);
+  background-image: url('./assets/figma-adventure-light.svg');
+}
+.bloomIntro::before { aspect-ratio: 2560 / 4800; transform: translateY(-42.0207%); background-image: url('./assets/figma-bloom-light.svg'); }
+.blobMedia { overflow: visible; }
+.blobAdventure .caseArtGlow,
+.blobBloom .caseArtGlow { opacity: 1; filter: none; animation: none; }
+.blobAdventure .caseArtPicture,
+.blobBloom .caseArtPicture {
+  overflow: visible;
+  filter: none;
+}
+.caseVideo,
+.playablePlan,
+.requirements,
+.important {
+  overflow: visible;
+  isolation: isolate;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.caseVideo::after,
+.playablePlan::after,
+.requirements::after,
+.important::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 1px solid rgba(217, 219, 242, 0.24);
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 70px rgba(27, 118, 221, 0.15);
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+  pointer-events: none;
+}
+.caseVideo::before {
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 4800;
+  transform: translateY(-38.9998%);
+  background-image: url('./assets/figma-story-light.svg');
+}
+.bloomVideo::before { aspect-ratio: 2560 / 5300; transform: translateY(-38.1130%); background-image: url('./assets/figma-bloom-story-light.svg'); }
+.bloomVideo::after {
+  border: 0;
+  background: url('./assets/figma-bloom-panel.svg') center / 100% 100% no-repeat;
+  box-shadow: 0 4px 114px rgba(27, 118, 221, 0.15);
+}
+.splitPosters span::before { content: none; }
+.splitPosters img {
+  border-radius: 0;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  object-fit: cover;
+}
+.caseVideo:not(.bloomVideo) { align-items: start; }
+.caseVideo:not(.bloomVideo) .detailList { align-self: start; }
+
+.playablePlan::before {
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 6100;
+  transform: translateY(-55.1314%);
+  background-image: url('./assets/figma-plans-light.svg');
+}
+.playablePlan::after { background: rgba(0, 0, 0, 0.1); }
+.planStage { overflow: hidden; border-radius: inherit; }
+.planPanelGlow,
+.planTitleGlow { display: none; }
+.planCopy .planPriceFlag strong { color: #fff; }
+.planCopy ul,
+.tonePink .planCopy ul,
+.toneBlue .planCopy ul,
+.toneMixed .planCopy ul { color: #d7d3d8; }
+.tonePink .checkmark { color: #cb5dde; }
+.tonePink .demo { background: #c65bda; }
+.tonePink .planPriceFlag {
+  background: linear-gradient(90deg, rgba(200, 82, 213, 0.86), rgba(137, 78, 148, 0.3) 58%, transparent);
+}
+.planPriceFlag::before { content: none; }
+
+.fastTrack { position: relative; isolation: isolate; }
+.fastTrack::before {
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 4600;
+  transform: translateY(-44.1304%);
+  background-image: url('./assets/figma-fast-light.svg');
+}
+.fastPhone {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 288.331 / 592;
+  align-self: start;
+  animation: none;
+}
+.fastPhone .phoneFrame { object-fit: contain; }
+
+.requirements::before {
+  top: 0; bottom: auto; left: -43.16%; right: auto;
+  width: 186.32%; height: auto; aspect-ratio: 2560 / 5250;
+  transform: translateY(-39.2954%);
+  background-image: url('./assets/figma-requirements-light.svg');
+}
+.requirements::after {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(16, 84, 162, 0.4) 50%, rgba(28, 44, 109, 0.48));
+}
+.important::before {
+  top: 0; bottom: auto; left: -43.16%; right: auto;
+  width: 186.32%; height: auto; aspect-ratio: 2560 / 5050;
+  transform: translateY(-36.7720%);
+  background-image: url('./assets/figma-important-light.svg');
+}
+.requirementLine { display: block; }
+.requirementsHead > *, .requirementRow > * { min-width: 0; overflow-wrap: break-word; }
+
+.creativeRow { position: relative; isolation: isolate; }
+.creativeRow::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  top: 0; left: -30%; width: 160%;
+  aspect-ratio: 2560 / 5100;
+  transform: translateY(-42.5294%);
+  background: url('./assets/figma-aigc-light.svg') center / 100% 100% no-repeat;
+}
+.creativeRow:nth-child(5)::before { aspect-ratio: 2560 / 5000; transform: translateY(-37.5999%); background-image: url('./assets/figma-videoai-light.svg'); }
+.nonGaming .packageViewport::before { content: none; }
+.nonGaming > .content > .packageViewport:nth-child(7)::before {
+  content: ""; opacity: 1; filter: none;
+  background: url('./assets/figma-mix-light.svg') center / 100% 100% no-repeat;
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; height: auto; aspect-ratio: 2560 / 5800;
+  transform: translateY(-34.4654%);
+}
+.ugcHero { isolation: isolate; overflow: visible; }
+.ugcHero::before { opacity: 0.85; }
+.ugcHero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0; bottom: auto; left: -30%; right: auto;
+  width: 160%; aspect-ratio: 2560 / 6300;
+  transform: translateY(-38.0794%);
+  background: url('./assets/figma-ugc-light.svg') center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+.packageCard,
+.mixGrid .packageCard:first-child,
+.mixGrid .packageCard:nth-child(2),
+.tierColumn article {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(220, 221, 242, 0.25);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+.packageCard::after,
+.tierColumn article::after { content: none; }
+
+/* All decorative layers share the content stacking context. Otherwise a later
+   panel's oversized halo paints ON TOP of the preceding case illustration. */
+.gaming > .content,
+.playables > .content,
+.nonGaming > .content,
+.closing > .content { isolation: isolate; }
+.videoOffer,
+.caseIntro,
+.caseVideo,
+.playablePlan,
+.fastTrack,
+.requirements,
+.important,
+.creativeRow { isolation: auto; z-index: auto; }
+.blobMedia { isolation: isolate; }
+
+@media (min-width: 1301px) {
+  .audienceBanner h2 { font-size: 128px; line-height: 1.22; letter-spacing: 0; }
+  .audienceGlowLeft { width: 950px; height: 744px; left: calc(50% - 1320px); top: 105px; }
+  .audienceGlowRight { width: 1050px; height: 776px; right: calc(50% - 1370px); top: 85px; }
+  .videoOffer.reverse .offerHeading { text-align: right; }
+  .videoOffer.reverse .offerHeading > div { width: 100%; margin-left: auto; }
+  .caseVideo:not(.bloomVideo) {
+    padding: 130px 7.23%;
+    grid-template-columns: minmax(0, 792fr) minmax(0, 560fr);
+    gap: 20px;
+    border-radius: 64px;
+  }
+  .caseVideo:not(.bloomVideo) .splitPosters { height: auto; aspect-ratio: 791.78 / 683.7; gap: 24px; }
+  .caseVideo:not(.bloomVideo) .detailList { padding-left: 40px; gap: 48px; }
+  .caseVideo:not(.bloomVideo) .detailList p { font-size: 21px; line-height: 1.22; }
+  .caseVideo:not(.bloomVideo) .detailIcon { width: 38px; height: 38px; flex-shrink: 0; }
+  .requirements { min-height: 0; padding: 90px 8.5%; }
+  .requirementsHead, .requirementRow {
+    grid-template-columns: minmax(0, 208fr) minmax(0, 290fr) minmax(0, 416fr);
+    gap: 30px;
+    font-size: 18px;
+  }
+  .requirementRow { padding: 22px 0; line-height: 1.22; }
+}
+@media (min-width: 1900px) {
+  .pill,
+  .offerHeading .pill,
+  .videoOffer:not(.reverse) .offerHeading .pill { display: inline-grid; place-items: center; width: 98px; height: 54px; padding: 0; margin: 0; font-size: 18px; border-radius: 30px; background: rgba(255, 255, 255, 0.12); color: #dedbdf; }
+  .offerHeading > div { display: flex; flex-direction: column; align-items: flex-start; }
+  .videoOffer.reverse .offerHeading > div { align-items: flex-end; }
+  .audienceBanner { height: 1430px; padding-top: 433px; }
+  .audienceBanner .logoRail { margin-top: 213px; }
+  .audienceTitleGlow { top: calc(585px - 43.838vw); }
+  .audienceGlowLeft { width: 810px; height: 633px; left: 0; top: 230px; }
+  .audienceGlowRight { width: 920px; height: 680px; right: -30px; top: 110px; }
+  .wideMedia { width: 1374px; aspect-ratio: 1374 / 782; margin-bottom: 563px; }
+  .offerHeading h3 { font-size: 64px; line-height: 78px; margin-top: 25px; }
+  .offerHeading, .videoOffer:not(.reverse) .offerHeading { width: 1021px; margin-bottom: 48px; }
+  .videoOffer.reverse .offerHeading { width: 1021px; margin-bottom: 76px; }
+  .offerLayout { grid-template-columns: 1021px minmax(0, 1fr); gap: 30px; }
+  .videoOffer.reverse .offerLayout { grid-template-columns: minmax(0, 1fr) 1021px; gap: 30px; }
+  .offerVisual { aspect-ratio: 1021 / 623; }
+  .offerText h4 { font-size: 30px; }
+  .offerText { padding-left: 112px; }
+  .offerText h4 { line-height: 38px; margin: 0 0 17px; }
+  .offerList { line-height: 33px; margin: 0 0 50px; }
+  .offerList, .offerText p { font-size: 20px; }
+  .pricePair { height: 257px; margin-top: 46px; }
+  .pricePair strong { font-size: 48px; line-height: 58px; }
+  .videoOffer:not(.reverse) { margin-bottom: 258px; }
+  .videoOffer.reverse { margin-bottom: 261px; }
+  .offerPackageNote { margin-top: 40px; line-height: 56px; }
+  .offerPackageNote + .pricePair { margin-top: 27px; }
+  .caseIntro { min-height: 1196px; height: 1196px; grid-template-columns: 554px minmax(0, 1fr); }
+  .caseIntro:not(.bloomIntro) .caseCopy { align-self: start; margin-left: 114px; width: 554px; }
+  .caseIntro h3 { font-size: 64px; line-height: 1.22; }
+  .caseIntro:not(.bloomIntro) h3 { width: 921px; }
+  .caseIntro .pill { width: 113px; height: 47px; }
+  .caseIntro h3 { margin-top: 25px; }
+  .caseCopy small { font-size: 20px; }
+  .caseCopy .detailList p { font-size: 21px; line-height: 1.25; }
+  .caseIntro .blobMedia { position: absolute; margin: 0; align-self: start; }
+  .caseIntro .blobAdventure { left: 673.49px; top: 25.53px; width: 1182.67px; height: 934.76px; }
+  .caseIntro .blobBloom { left: 726.83px; top: -26.18px; width: 1074.6px; height: 787.79px; }
+  .caseCopy .detailList { margin-top: 124px; }
+  .caseVideo:not(.bloomVideo) { min-height: 944px; margin-bottom: 401px; }
+  .bloomIntro { min-height: 1013px; height: 1013px; }
+  .bloomIntro .caseCopy { align-self: start; }
+  .bloomIntro h3 { width: 789px; white-space: nowrap; }
+  .bloomVideo { width: calc(100% + 8px); min-height: 1437px; margin-left: -4px; padding: 42.146px; border-radius: 63.22px; }
+  .bloomVideo .singlePoster { aspect-ratio: 1523.707 / 834.908; }
+  .bloomVideo .singlePoster img { border-radius: 39px; }
+  .bloomVideo .singlePoster .playButton { width: 150px; height: 157px; border-width: 8px; font-size: 60px; }
+  .bloomMeta { grid-template-columns: 628px minmax(0, 1fr); gap: 179.707px; padding: 63.22px 0 0; }
+  .bloomMeta > .gradientButton { width: 628px; height: 109.58px; font-size: 26px; }
+  .bloomMeta > .detailList { gap: 46.36px; }
+  .bloomMeta > .detailList > div { grid-template-columns: 42.146px minmax(0, 1fr); gap: 25.288px; }
+  .bloomMeta > .detailList p { font-size: 22px; line-height: 26px; }
+  .bloomMeta > .detailList p strong { margin-bottom: 4.215px; }
+  .bloomMeta .detailIcon { width: 42.146px; height: 42.146px; }
+  .audience_playable { padding-top: 530px; height: 1344px; }
+  .audience_playable .audienceTitleGlow { top: calc(600px - 43.838vw); }
+  .audience_playable .logoRail { margin-top: 220px; }
+  .blockTitle { font-size: 64px; line-height: 78px; }
+  .plansShowcase > .blockTitle { margin-bottom: 74px; }
+  .plansShowcase .dots { height: 44px; }
+  .playablePlan { width: 1600px; min-height: 773px; border-radius: 64px; }
+  .planStage, .planSlide { min-height: 773px; }
+  .planSlide { grid-template-columns: 340px minmax(0, 1fr); padding: 60px 65px; gap: 90px; }
+  .planPhone { width: 315px; height: auto; aspect-ratio: 288.331 / 592; }
+  .planCopy h4 { font-size: 40px; }
+  .planCopy p, .planCopy ul { font-size: 22px; }
+  .planPriceFlag strong { font-size: 56px; }
+  .fastHead { margin-top: 207px; }
+  .fastTrack { margin-top: 65px; }
+  .audience_non-gaming { padding-top: 364px; height: 1453px; }
+  .audience_non-gaming h2 small { display: block; line-height: 77px; margin-bottom: 18px; }
+  .audience_non-gaming .audienceTitleGlow { top: calc(530px - 43.838vw); }
+  .audience_non-gaming .logoRail { margin-top: 213px; }
+  .ugcHero { height: 887px; margin-bottom: 357px; }
+  .nonGaming .blockTitle { margin-bottom: 63px; position: relative; }
+  .nonGaming .blockTitle small { position: absolute; top: 100%; right: 0; line-height: 24px; font-size: 20px; }
+  .nonGaming .packageCard { min-height: 773px; }
+  .nonGaming .packageGrid { gap: 43px; }
+  .nonGaming .packageCard { padding: 63px 41px 62px; }
+  .nonGaming .packageCard h4 { font-size: 32px; line-height: 39px; margin-bottom: 70px; }
+  .nonGaming .packageCard b { font-size: 32px; line-height: 38px; }
+  .nonGaming .packageCard ul { font-size: 22px; line-height: 26px; margin: 22px 0; }
+  .nonGaming .packageCard li { display: flex; align-items: baseline; }
+  .nonGaming .packageCard li + li { margin-top: 20px; }
+  .nonGaming .packageCard .checkmark,
+  .tierColumn .checkmark { display: inline-block; flex: 0 0 26px; width: 26px; margin-right: 15px; font-weight: 800; font-size: 28px; }
+  .nonGaming .packageCard > strong { font-size: 48px; line-height: 59px; }
+  .nonGaming .packageCard small { font-size: 22px; line-height: 26px; margin-top: 8px; }
+  .nonGaming .packageViewport { margin-bottom: 312px; }
+  .creativeRow { margin-bottom: 166px; min-height: 1045px; grid-template-columns: 437px minmax(0, 1fr); gap: 89px 144px; }
+  .creativeRow h3 { font-size: 64px; line-height: 78px; }
+  .creativeRow:nth-child(5) { margin-bottom: 333px; grid-template-columns: minmax(0, 1fr) 437px; }
+  .creativeImages { gap: 37px; }
+  .creativeImages img { height: 878px; box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.5); }
+  .creativeImages .playButton { width: 180px; height: 180px; font-size: 64px; border-width: 9px; }
+  .tierColumn { gap: 36px; }
+  .tierColumn article { min-height: 329px; padding: 36px 47px; border-radius: 30px; }
+  .tierColumn strong { font-size: 30px; line-height: 36px; }
+  .tierColumn article > span { font-size: 22px; line-height: 33px; margin: 23px 0 28px; }
+  .tierColumn article > span > span + span { margin-top: 7px; }
+  .tierColumn b { font-size: 40px; line-height: 49px; }
+  .mixGrid .packageCard { min-height: 803px; }
+  .mixPackages { grid-template-columns: 437px minmax(0, 1fr); gap: 144px; }
+  .mixPackages > .blockTitle { width: 555px; white-space: nowrap; }
+  .mixGrid .packageGrid { gap: 30px; }
+  .mixGrid .packageCard h4 { font-size: 40px; line-height: 51px; }
+  .mixGrid .packageCard b { font-size: 35px; line-height: 43px; }
+  .mixGrid .packageCard li + li { margin-top: 18px; }
+  .mixGrid .packageCard small { min-height: 41px; font-size: 28px; line-height: 41px; }
+  .nonGaming > .content > .packageViewport:nth-child(7) { margin-bottom: 238px; }
+  .nonGaming > .content > .packageViewport:nth-child(7) .packageCard { min-height: 811px; }
+  .closing { padding-top: 152px; }
+  .closingTitle .logo { width: 264px; }
+  .closingTitle .logo img { width: 100%; height: auto; }
+  .closingTitle h2 { font-size: 92px; line-height: 1.22; margin-top: 41px; }
+  .processTitle { width: 546px; margin-left: -108px; font-size: 64px; line-height: 1.22; margin-top: 227px; margin-bottom: 276px; }
+  .closing .blockTitle { margin-top: 125px; margin-bottom: 97px; margin-left: -108px; }
+  .closing > .content { width: 1374px; }
+  .requirementsHead, .requirementRow {
+    grid-template-columns: minmax(0, 209fr) minmax(0, 313fr) minmax(0, 522fr);
+    gap: 46px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .requirements { padding: 54px 116px 76px; }
+  .requirementsHead { font-weight: 700; }
+  .requirementRow { padding: 20.5px 0; }
+  .important { min-height: 446px; margin-top: 80px; padding: 70px 116px; }
+  .important h3 { font-size: 30px; line-height: 38px; margin: 0 0 28px; }
+  .important ul { margin: 0; padding-left: 20px; }
+  .important li { font-size: 22px; line-height: 33px; margin: 0; }
+  .fastTrack { grid-template-columns: 288px minmax(0, 1fr); padding-left: 147px; gap: 150px; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .audienceTitleGlow { top: calc(260px - 43.838vw); }
+  .audience_playable .audienceTitleGlow { top: calc(255px - 43.838vw); }
+  .heroGlowAsset { top: calc(240px - 43.838vw); }
+  .closingGlowAsset { top: calc(200px - 43.838vw); }
+  .audienceGlowLeft { width: 510px; height: 398px; left: -220px; top: 75px; }
+  .audienceGlowRight { width: 530px; height: 392px; right: -240px; top: 80px; }
+  .videoOffer.reverse .offerHeading { text-align: right; }
+  .caseVideo:not(.bloomVideo) { padding: 65px 7%; grid-template-columns: minmax(0, 792fr) minmax(0, 560fr); gap: 20px; }
+  .caseVideo:not(.bloomVideo) .splitPosters { height: auto; aspect-ratio: 791.78 / 683.7; }
+  .caseVideo:not(.bloomVideo) .detailList p { font-size: 12px; line-height: 1.25; }
+  .requirements { padding: 55px 9%; }
+}
+@media (max-width: 767px) {
+  .audienceTitleGlow,
+  .heroGlowAsset,
+  .closingGlowAsset { width: 900px; height: 789px; }
+  .audienceTitleGlow { top: -230px; }
+  .audience_playable .audienceTitleGlow { top: -235px; }
+  .heroGlowAsset { top: -175px; }
+  .closingGlowAsset { top: -230px; }
+  .audienceGlowLeft { width: 400px; height: 313px; left: -255px; top: 90px; }
+  .audienceGlowRight { width: 420px; height: 310px; right: -275px; top: 90px; }
+  .wideMedia::before { inset: -40px; opacity: 0.8; }
+  .caseVideo:not(.bloomVideo) .detailList { padding: 0; }
+  .requirements::before { inset: -40% -65%; }
+  .requirementRow { line-height: 1.25; }
+}
+
+/* The Figma logos include their original square transparent bounds. */
+.logoTrack img { height: 120px; filter: none; mix-blend-mode: normal; }
+.tierColumn::before { content: none; }
+.creativeImages > span::before {
+  inset: -11.396% -20.291%;
+  background: url('./assets/figma-portrait-light.svg') center / 100% 100% no-repeat;
+  opacity: 1;
+  filter: none;
+}
+@media (min-width: 1900px) {
+  .headerInner { width: 1600px; }
+  .header .logoCompact { font-size: 42px; }
+  .header .nav { font-size: 20px; }
+  .hero { padding-top: 307px; }
+  .heroTitleLogo { width: 410px; }
+  .heroCopy p { margin-top: 50px; font-size: 26px; line-height: 33px; }
+  .heroRail { margin-top: 169px; }
+  .hero > .gradientButton { width: 380px; height: 88px; font-size: 26px; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .logoTrack img { height: 59px; }
+  .logoGroup, .logoGroup:first-child { width: 100%; gap: 0; justify-content: space-between; }
+  .logoGroup:nth-child(2) { width: calc(100% - 36px); }
+  .logoGroup:first-child img:nth-child(n + 12),
+  .logoGroup:nth-child(2) img:nth-child(-n + 11) { display: none; }
+}
+@media (max-width: 767px) {
+  .logoTrack img { height: auto; aspect-ratio: 1; }
+  .logoGroup:first-child img:nth-child(n + 11) { display: none; }
+  .creativeImages { padding: 32px 20px; margin: -32px -20px; scroll-padding-inline: 20px; }
+}
+
+/* Expanded source-light export bounds: 1800 px; source scale is unchanged. */
+
+@media (min-width: 1900px) {
+  .about { background: transparent; }
+  .aboutGlowAsset { display: none; }
+  .aboutInner { width: 1374px; padding-top: 298px; grid-template-columns: 491px 669px; gap: 212px; }
+  .aboutCopy { padding-top: 28px; }
+  .aboutCopy .logo { font-size: 103px; }
+  .aboutCopy p { max-width: 491px; margin-top: 56px; font-size: 26px; line-height: 34px; font-weight: 400; color: #e8e4e8; }
+  .stats { padding-top: 0; grid-template-columns: 209.016px 194.317px 201.667px; grid-template-rows: 186px auto; gap: 65px 32px; }
+  .stat strong { font-size: 64px; line-height: 78px; }
+  .stat span { max-width: 201.667px; margin-top: 5px; font-size: 22px; line-height: 27px; }
+  .tiktok { margin-top: -35px; }
+  .tiktok img { width: 110px; height: 112px; }
+  .tiktok span { margin-top: 23px; }
+  .process { width: 1594px; margin-left: -180px; }
+  .process::before {
+    left: calc(180px - (100vw - 1374px) / 2); right: auto;
+    width: 100vw; height: 1px; top: 50px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.55) 25%, rgba(255,255,255,.55) 75%, transparent);
+  }
+  .process span, .process span:nth-of-type(even) {
+    align-self: start; height: 76px; padding-top: 0; top: -56px;
+    font-size: 32px; line-height: 38px;
+  }
+  .process span:nth-of-type(even) { top: 92px; }
+  .process span::after { width: 21px; height: 21px; top: 96px; }
+  .process span:nth-of-type(even)::after { top: -52px; }
+  .process a { left: 37.5%; top: 207px; width: 360px; height: 87px; font-size: 26px; }
+}
+
+.about, .gaming, .playables, .nonGaming, .closing { background: transparent; }
+.aboutGlowAsset { display: none; }
+.aboutCopy { position: relative; isolation: isolate; --about-light-scale: 1; --about-light-y: 0px; }
+.aboutCopy::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  width: calc(1800px * var(--about-light-scale)); height: calc(1500px * var(--about-light-scale));
+  left: calc(-893px * var(--about-light-scale)); top: calc(-606px * var(--about-light-scale) + var(--about-light-y));
+  background: url('./assets/figma-about-copy.svg') center / 100% 100% no-repeat;
+}
+.processTitle { position: relative; isolation: isolate; }
+.processTitle::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  width: 12.8125em; height: 10.15625em; left: -2.890625em; top: -3.375em;
+  background: url('./assets/figma-process-title.svg') center / 100% 100% no-repeat;
+}
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .aboutInner { padding-top: 249px; grid-template-columns: minmax(0, 660fr) minmax(0, 714fr); gap: 4.80324vw; }
+  .aboutCopy { padding-top: 28px; }
+  .aboutCopy .logo { font-size: 103px; }
+  .aboutCopy p { max-width: 660px; margin-top: 56px; font-size: 32px; line-height: 38.617px; font-weight: 400; color: #e8e4e8; }
+  .stats { padding-top: 0; grid-template-columns: minmax(0, 217.398fr) minmax(0, 202.553fr) minmax(0, 209.902fr); grid-template-rows: 144px auto; gap: 72.334px 2.43056vw; }
+  .stat strong { font-size: clamp(48px, 3.704vw, 64px); line-height: 78px; }
+  .stat span { margin-top: 5px; font-size: clamp(14px, 1.04167vw, 18px); line-height: 22px; }
+  .tiktok { margin-top: -35px; }
+  .tiktok img { width: 110px; height: 112px; }
+  .tiktok span { margin-top: 23px; }
+  .closingTitle .logo { width: 264px; }
+  .closingTitle .logo img { width: 100%; height: auto; }
+  .closingTitle h2 { font-size: 92px; line-height: 112px; margin-top: 45px; }
+  .processTitle { font-size: 50px; line-height: 61px; width: 546px; margin: 255.21px 0 164px -122px; }
+  .process { width: calc(100vw - 199.531px); min-height: 350px; margin-left: calc(50% - 50vw + 96.765px); }
+  .process::before { left: -96.765px; right: auto; width: 100vw; height: 1px; top: 106px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.55) 25%, rgba(255,255,255,.55) 75%, transparent); }
+  .process span, .process span:nth-of-type(even) { align-self: start; height: 76px; padding-top: 0; top: 0; font-size: 32px; line-height: 38px; }
+  .process span:nth-of-type(even) { top: 148px; }
+  .process span::after { width: 21px; height: 21px; top: 96px; }
+  .process span:nth-of-type(even)::after { top: -52px; }
+  .process a { left: 37.5%; top: 261px; width: 360px; height: 87px; font-size: 26px; }
+  .closing > .content > .blockTitle { font-size: 50px; line-height: 61px; margin-left: -120px; }
+}
+@media (min-width: 1301px) {
+  .aboutCopy { --about-light-y: 28px; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .aboutCopy { --about-light-scale: .55; }
+}
+@media (max-width: 767px) {
+  .aboutCopy { --about-light-scale: .45; }
 }

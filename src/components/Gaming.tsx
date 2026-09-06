@@ -2,9 +2,8 @@ import type { ReactNode } from 'react'
 import { assetUrl } from '../assetUrl'
 import { AudienceBanner } from './AudienceBanner'
 import { VideoButton } from './VideoPlayer'
+import { CaseArtwork } from './CaseArtwork'
 import s from '../App.module.css'
-import adventurePuddleLight from '../../../../exports/2.png'
-import bloomPuddle from '../../../../exports/3.png'
 
 const links = {
   reel: 'https://www.youtube.com/watch?v=qW9hnwUOEow',
@@ -75,10 +74,9 @@ function Accent({ children }: { children: ReactNode }) {
   return <em className={s.detailAccent}>{children}</em>
 }
 
-function CaseArt({ art, glow, alt, variant }: { art: string; glow: string; alt: string; variant: 'adventure' | 'bloom' }) {
+function CaseArt({ alt, variant }: { alt: string; variant: 'adventure' | 'bloom' }) {
   return <div className={`${s.blobMedia} ${variant === 'adventure' ? s.blobAdventure : s.blobBloom}`}>
-    <img className={s.caseArtGlow} src={glow} alt="" aria-hidden="true" />
-    <img className={s.caseArtPicture} src={art} alt={alt} />
+    <CaseArtwork variant={variant} label={alt} />
   </div>
 }
 
@@ -104,7 +102,7 @@ export function Gaming() {
             <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement.</Detail>
           </DetailList>
         </div>
-        <CaseArt variant="adventure" art={assetUrl('assets/design/case-adventure-art.png')} glow={adventurePuddleLight} alt="Adventure Bay Farm Games" />
+        <CaseArt variant="adventure" alt="Adventure Bay Farm Games" />
       </article>
 
       <article className={s.caseVideo} id="adventure-story">
@@ -128,7 +126,7 @@ export function Gaming() {
             <Detail icon="result" title="Result" result>Delivering <Accent>high-quality creatives</Accent> on time. Impeccable client feedback upon completion of the package. Renewal of the service agreement. Conclusion of a long-term cooperation agreement.</Detail>
           </DetailList>
         </div>
-        <CaseArt variant="bloom" art={bloomPuddle} glow={assetUrl('assets/design/case-bloom-glow.png')} alt="Bloom City Match" />
+        <CaseArt variant="bloom" alt="Bloom City Match" />
       </article>
 
       <article className={`${s.caseVideo} ${s.bloomVideo}`} id="bloom-story">
