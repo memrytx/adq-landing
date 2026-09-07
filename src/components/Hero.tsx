@@ -5,7 +5,7 @@ import { assetUrl } from '../assetUrl'
 import s from '../App.module.css'
 import adQuantumLogo from '../assets/exported/title_2.png'
 
-const cards = ['hero-baby.png', 'hero-chat.png', 'hero-game.png', 'hero-runner.png', 'hero-angry-birds.png', 'hero-princess.png', 'hero-baby.png', 'hero-chat.png'].map((name) => assetUrl(`assets/design/${name}`))
+const cards = ['hero-baby.png', 'hero-chat.png', 'hero-game.png', 'hero-runner.png', 'hero-angry-birds.png', 'hero-princess.png'].map((name) => assetUrl(`assets/design/${name}`))
 
 export function Hero() {
   const railRef = useHeroCarousel(cards.length)

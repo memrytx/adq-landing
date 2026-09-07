@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type TouchEvent } from 'react'
 import { playables } from '../data/playables'
 import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
 import { assetUrl } from '../assetUrl'
@@ -61,6 +61,9 @@ export function PlayableAds() {
   const [direction, setDirection] = useState<1 | -1>(1)
   const [animating, setAnimating] = useState(false)
   const [open, setOpen] = useState(false)
+  const [touching, setTouching] = useState(false)
+  const gesture = useRef<{ x: number; y: number; axis: 'x' | 'y' | null } | null>(null)
+  const suppressClickUntil = useRef(0)
   const plan = planSlides[active]
   const item = playableById(plan.playableId)
 
@@ -76,6 +79,41 @@ export function PlayableAds() {
     const next = (active + step + planSlides.length) % planSlides.length
     goTo(next, step > 0 ? 1 : -1)
   }, [active, goTo])
+
+  const cancelGesture = () => {
+    gesture.current = null
+    setTouching(false)
+  }
+
+  const startGesture = (event: TouchEvent<HTMLDivElement>) => {
+    if (animating || event.touches.length !== 1) { cancelGesture(); return }
+    const touch = event.touches[0]
+    gesture.current = { x: touch.clientX, y: touch.clientY, axis: null }
+    setTouching(true)
+  }
+
+  const trackGesture = (event: TouchEvent<HTMLDivElement>) => {
+    if (event.touches.length !== 1) { cancelGesture(); return }
+    const start = gesture.current
+    if (!start || start.axis) return
+    const dx = Math.abs(event.touches[0].clientX - start.x)
+    const dy = Math.abs(event.touches[0].clientY - start.y)
+    if (Math.max(dx, dy) > 8) start.axis = dx > dy * 1.25 ? 'x' : 'y'
+  }
+
+  const endGesture = (event: TouchEvent<HTMLDivElement>) => {
+    const start = gesture.current
+    const touch = event.changedTouches[0]
+    if (start && touch && !event.touches.length) {
+      const dx = touch.clientX - start.x
+      const dy = touch.clientY - start.y
+      if (start.axis !== 'y' && Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+        suppressClickUntil.current = performance.now() + 500
+        move(dx < 0 ? 1 : -1)
+      }
+    }
+    cancelGesture()
+  }
 
   const openDemo = (index = active) => {
     setPrevious(null)
@@ -99,10 +137,10 @@ export function PlayableAds() {
   }, [animating])
 
   useEffect(() => {
-    if (open || animating) return
+    if (open || animating || touching) return
     const timer = window.setTimeout(() => move(1), 5200)
     return () => window.clearTimeout(timer)
-  }, [animating, move, open])
+  }, [animating, move, open, touching])
 
   return <section className={s.playables} id="playable-ads">
     <AudienceBanner type="playable" />
@@ -113,7 +151,16 @@ export function PlayableAds() {
         <h3 className={s.blockTitle}>Plans</h3>
         <div className={s.playablePlan} id="playable-plans">
           <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
-          <div className={s.planStage}>
+          <div className={s.planStage}
+            onTouchStart={startGesture} onTouchMove={trackGesture}
+            onTouchEnd={endGesture} onTouchCancel={cancelGesture}
+            onClickCapture={(event) => {
+              // A swipe beginning on Demo must not also launch a playable.
+              if (performance.now() < suppressClickUntil.current) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+            }}>
             {previous !== null && <PlanSlide plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
             <PlanSlide plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
           </div>
