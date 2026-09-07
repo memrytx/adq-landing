@@ -25,10 +25,18 @@ Source: `exports/refs/AQDesign Landing.fig`, desktop frame `476:1344`.
 - `figma-about-copy.svg` and `figma-process-title.svg` attach the original
   About / getting-started light paths to their content anchors. The About grid
   and process timeline use separate 2560 and 1728 layouts from the source frames.
-- `figma-bloom-panel.svg` preserves the translucent blue fill and single
-  gradient stroke of `476:2612`. It replaces the generic CSS border and fill;
-  it is not layered inside another frame. The Bloom story image, CTA and copy
+- `figma-bloom-panel.svg` and `figma-bloom-contour.svg` preserve the translucent
+  blue fill and gradient stroke colors of `476:2612`. CSS owns the rounded
+  geometry and masks the one contour, so different aspect ratios cannot create
+  overlapping SVG/CSS corners. The Bloom story image, CTA and copy
   use the original desktop dimensions and spacing.
+- `figma-plans-light.svg` includes 1200 source pixels of horizontal padding
+  on each side; its CSS dimensions compensate for that padding without changing
+  the light's source scale. This prevents clipping on wide desktop viewports.
+- `figma-important-mobile-light.svg` uses the mobile frame `566:2793` light
+  paths around y=15480–16031. Mobile IMPORTANT has no panel border or fill.
+- Phone screens use source bounds `689:2897` inside frame `689:2898`:
+  left 4.5224%, top 1.9435%, width 91.2235%, height 96.6321%.
 
 Panels use one contour and a translucent backdrop. Do not place a baked PNG
 frame inside that contour: the old frame exports include their own inset border

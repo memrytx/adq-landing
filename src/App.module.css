@@ -6875,6 +6875,9 @@
 /* Prevent the following section's opaque background from cutting off the reel halo. */
 .gaming > .audienceBanner { z-index: 0; }
 .wideMedia { overflow: visible; isolation: isolate; }
+.wideMedia > img,
+.wideMedia > .inlineVideo { border-radius: 8.554px; }
+.wideMedia > .inlineVideo { overflow: hidden; }
 .wideMedia::before {
   z-index: -1;
   inset: -100px -110px;
@@ -6977,6 +6980,19 @@
   background: url('./assets/figma-bloom-panel.svg') center / 100% 100% no-repeat;
   box-shadow: 0 4px 114px rgba(27, 118, 221, 0.15);
 }
+.bloomContour {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 3px;
+  background: url('./assets/figma-bloom-contour.svg') center / 100% 100% no-repeat;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 .splitPosters span::before { content: none; }
 .splitPosters img {
   border-radius: 0;
@@ -6987,8 +7003,8 @@
 .caseVideo:not(.bloomVideo) .detailList { align-self: start; }
 
 .playablePlan::before {
-  top: 0; bottom: auto; left: -30%; right: auto;
-  width: 160%; height: auto; aspect-ratio: 2560 / 6100;
+  top: 0; bottom: auto; left: -105%; right: auto;
+  width: 310%; height: auto; aspect-ratio: 4960 / 6100;
   transform: translateY(-55.1314%);
   background-image: url('./assets/figma-plans-light.svg');
 }
@@ -7023,6 +7039,14 @@
   animation: none;
 }
 .fastPhone .phoneFrame { object-fit: contain; }
+.planPhone .phoneScreen,
+.fastPhone .phoneScreen {
+  /* Figma's screen bounds inside the 288.331 × 592 phone frame. */
+  inset: 1.9435% auto auto 4.5224%;
+  width: 91.2235%;
+  height: 96.6321%;
+  border-radius: 12.1% / 5.57%;
+}
 
 .requirements::before {
   top: 0; bottom: auto; left: -43.16%; right: auto;
@@ -7400,4 +7424,36 @@
 }
 @media (max-width: 767px) {
   .aboutCopy { --about-light-scale: .45; }
+}
+
+/* The price ribbon touches the phone; the copy keeps its own readable inset. */
+.planSlide { --flag-reach: 36px; }
+.planPriceFlag {
+  width: calc(100% + var(--flag-reach));
+  margin-left: calc(-1 * var(--flag-reach));
+  padding-left: var(--flag-reach);
+}
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .planSlide { --flag-reach: 65px; }
+}
+@media (min-width: 1900px) {
+  .planSlide { --flag-reach: 102.5px; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .planSlide { --flag-reach: 28px; }
+}
+@media (max-width: 767px) {
+  .planSlide { --flag-reach: 10px; }
+  .important { min-height: 0; padding: 0; border: 0; border-radius: 0; }
+  .important::after { content: none; }
+  .important::before {
+    content: "";
+    left: calc(50% - 380px); top: -279.72px;
+    width: 760px; height: 850px; aspect-ratio: auto;
+    transform: none;
+    background: url('./assets/figma-important-mobile-light.svg') center / 100% 100% no-repeat;
+  }
+  .important h3 { margin: 0 0 29px; font-size: 20px; line-height: 24px; }
+  .important ul { margin: 0; padding-left: 15px; }
+  .important li { margin: 0; font-size: 14px; line-height: 21px; }
 }

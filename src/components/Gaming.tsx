@@ -130,6 +130,7 @@ export function Gaming() {
       </article>
 
       <article className={`${s.caseVideo} ${s.bloomVideo}`} id="bloom-story">
+        <span className={s.bloomContour} aria-hidden="true" />
         <div className={s.singlePoster}><img src={assetUrl('assets/design/bloom-video.png')} alt="Bloom City Match case" /><VideoButton url={links.bloom} label="Watch Bloom City Match case" /></div>
         <div className={s.bloomMeta}>
           <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer"><span className={s.caseCtaDesktop}>Full case study</span><span className={s.caseCtaMobile}>View case study</span></a>
