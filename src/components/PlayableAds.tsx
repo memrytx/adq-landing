@@ -6,7 +6,7 @@ import { AudienceBanner } from './AudienceBanner'
 import { GlowAccent } from './GlowAccent'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import s from '../App.module.css'
-import phoneFrame from '../../../../exports/frames/playable-phone-frame.png'
+import phoneFrame from '../assets/exported/frames/playable-phone-frame.png'
 
 type PlanTone = 'blue' | 'pink' | 'mixed'
 type PlayablePlan = {

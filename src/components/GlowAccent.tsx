@@ -1,8 +1,8 @@
-import lensesA from '../../../../exports/im1.png'
-import lensesB from '../../../../exports/im2.png'
+import lensesA from '../assets/exported/im1.png'
+import lensesB from '../assets/exported/im2.png'
 import s from '../App.module.css'
-import bridgeLight from '../../../../exports/im3.png'
-import sweepLight from '../../../../exports/im4.png'
+import bridgeLight from '../assets/exported/im3.png'
+import sweepLight from '../assets/exported/im4.png'
 
 export type GlowAsset = 'lenses-a' | 'lenses-b' | 'bridge' | 'sweep'
 

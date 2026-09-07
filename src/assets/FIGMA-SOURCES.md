@@ -2,6 +2,11 @@
 
 Source: `exports/refs/AQDesign Landing.fig`, desktop frame `476:1344`.
 
+The source path above is provenance only, not a build dependency. Required raster
+exports are copied byte-for-byte into `src/assets/exported/` (including `frames/`).
+Application imports must resolve within this repository; the external reference
+folder is not required by CI or the deployed site.
+
 - `figma-*-light.svg` contains the original decorative paths, affine transforms,
   gradient stops, opacity and blur from the local Figma document. The exports
   use disjoint vertical ranges so adjacent sections do not paint a light twice.

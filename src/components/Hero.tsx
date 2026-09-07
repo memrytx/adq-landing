@@ -2,7 +2,7 @@ import { Logo } from './Logo'
 import { GlowAccent } from './GlowAccent'
 import { assetUrl } from '../assetUrl'
 import s from '../App.module.css'
-import adQuantumLogo from '../../../../exports/title_2.png'
+import adQuantumLogo from '../assets/exported/title_2.png'
 
 const cards = ['hero-baby.png', 'hero-chat.png', 'hero-game.png', 'hero-runner.png', 'hero-angry-birds.png', 'hero-princess.png', 'hero-baby.png', 'hero-chat.png'].map((name) => assetUrl(`assets/design/${name}`))
 
