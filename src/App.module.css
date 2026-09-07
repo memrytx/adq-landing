@@ -4707,11 +4707,6 @@
     width: 153px;
     height: 317px;
     flex-basis: 153px;
-    display: none;
-  }
-
-  .heroTrack img:nth-child(4),
-  .heroTrack img:nth-child(5) {
     display: block;
   }
 
@@ -5324,7 +5319,7 @@
   .heroTrack {
     gap: 38px;
     animation: none;
-    transform: translateX(-744px);
+    transform: none;
   }
 
   .heroTrack img,
@@ -7456,4 +7451,121 @@
   .important h3 { margin: 0 0 29px; font-size: 20px; line-height: 24px; }
   .important ul { margin: 0; padding-left: 15px; }
   .important li { margin: 0; font-size: 14px; line-height: 21px; }
+}
+
+/* Touch devices use native scrolling, with automatic motion managed by Hero. */
+@media (max-width: 1300px) {
+  .heroRail {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    scroll-behavior: auto;
+  }
+
+  .heroRail::-webkit-scrollbar { display: none; }
+  .heroTrack { animation: none; transform: none; will-change: auto; }
+  .heroTrack img { display: block; user-select: none; }
+}
+
+/* Text is foreground content, including where adjacent section lights overlap. */
+.page :is(h1, h2, h3, h4, h5, h6),
+.page .plansShowcase > .blockTitle { position: relative; z-index: 4; }
+.page .audienceBanner { z-index: 4; }
+
+/* The old raster halo exposed its opaque magenta center below short media. */
+.ugcHero::before {
+  z-index: -1;
+  inset: -12px;
+  background: linear-gradient(180deg, #2993ed, #a53cd4);
+  filter: blur(28px);
+  opacity: 0.55;
+  border-radius: inherit;
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .ugcHero { height: auto; aspect-ratio: 16 / 9; }
+  .ugcHero > img { position: absolute; inset: 0; }
+}
+
+/* Keep the mobile reference's price, benefits and CTA together beside the phone. */
+@media (max-width: 767px) {
+  .planStage { display: grid; min-height: 0; }
+  .planSlide {
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    min-height: 465px;
+    grid-template-columns: minmax(0, 150fr) minmax(0, 140fr);
+    grid-template-rows: auto auto 35px auto auto auto minmax(0, 1fr);
+    align-items: start;
+  }
+  .planPhone {
+    width: 100%; height: auto;
+    aspect-ratio: 288.331 / 592;
+    grid-row: 3 / 8;
+    align-self: start;
+  }
+  .planCopy p { max-width: none; }
+  .planPriceFlag { grid-row: 4; margin-bottom: 0; }
+  .planPriceFlag small { margin-top: 0; font-size: 12px; }
+  .planCopy ul { grid-row: 5; margin: 18px 0; font-size: 12px; line-height: 1.5; }
+  .planCopy .demo { grid-row: 6; font-size: 14px; padding: 12px 24px; }
+}
+
+/* Same seamless publisher marquee on touch layouts as on desktop. */
+@media (max-width: 1300px) {
+  .audienceBanner .logoRail { width: 100%; margin-inline: 0; padding-inline: 0; }
+  .logoTrack,
+  .logoTrackReverse {
+    --logo-gap: 26px;
+    --logo-quarter-offset: 6.5px;
+    display: flex;
+    width: max-content;
+    gap: var(--logo-gap);
+    animation: logoMarquee 70s linear infinite;
+  }
+  .logoTrackReverse { animation-name: logoMarqueeReverse; }
+  .logoGroup,
+  .logoGroup:first-child,
+  .logoGroup:nth-child(2),
+  .logoGroup:nth-child(n + 3) {
+    display: flex;
+    flex: 0 0 auto;
+    width: max-content;
+    gap: var(--logo-gap);
+    transform: none;
+  }
+  .logoGroup img,
+  .logoGroup:first-child img:nth-child(n),
+  .logoGroup:nth-child(2) img:nth-child(n) {
+    display: block;
+    width: 70px; height: 70px; flex: 0 0 70px;
+  }
+}
+@media (hover: none) {
+  .logoTrack:hover { animation-play-state: running; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logoTrack, .logoTrackReverse { animation: none; }
+}
+
+/* A top-layer viewer avoids narrow, clipped third-party controls on phones. */
+.mobileVideoDialog {
+  width: calc(100vw - 24px);
+  height: min(80svh, calc((100vw - 24px) * 9 / 16 + 48px));
+  max-width: none; max-height: calc(100svh - 24px);
+  padding: 48px 0 0;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: #080808;
+  overflow: hidden;
+}
+.mobileVideoDialog[data-portrait="true"] { height: calc(100svh - 24px); }
+.mobileVideoDialog::backdrop { background: rgba(0, 0, 0, 0.88); }
+.mobileVideoDialog iframe { display: block; width: 100%; height: 100%; border: 0; }
+.mobileVideoClose {
+  position: absolute; top: 4px; right: 4px;
+  width: 40px; height: 40px;
+  color: white; background: #242226; border-radius: 50%;
+  font-size: 28px; cursor: pointer;
 }
