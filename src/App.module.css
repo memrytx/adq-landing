@@ -1085,10 +1085,12 @@
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
-.packageCard:hover {
-  transform: translateY(-7px);
-  border-color: rgba(72, 199, 239, 0.42);
-  box-shadow: 0 18px 70px rgba(66, 83, 255, 0.23);
+@media (hover: hover) and (pointer: fine) {
+  .packageCard:hover {
+    transform: translateY(-7px);
+    border-color: rgba(72, 199, 239, 0.42);
+    box-shadow: 0 18px 70px rgba(66, 83, 255, 0.23);
+  }
 }
 .packageCard h4 {
   margin: 0 0 38px;
