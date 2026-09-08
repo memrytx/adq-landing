@@ -7555,7 +7555,8 @@
 /* One top-layer video viewer on desktop and mobile, outside clipped cards. */
 .videoOverlayDialog {
   width: min(1180px, calc(100vw - 32px), calc((100svh - 96px) * 16 / 9));
-  height: auto;
+  height: fit-content;
+  margin: auto;
   max-width: none; max-height: calc(100svh - 24px);
   padding: 48px 0 0;
   border: 1px solid #555;
@@ -7567,7 +7568,12 @@
 .videoOverlayDialog[data-portrait="true"] {
   width: min(560px, calc(100vw - 32px), calc((100svh - 96px) * 9 / 16));
 }
-.videoOverlayDialog::backdrop { background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(6px); }
+.videoOverlayDialog::backdrop {
+  position: fixed;
+  inset: -2px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+}
 .videoOverlayDialog iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; }
 .videoOverlayDialog[data-portrait="true"] iframe { aspect-ratio: 9 / 16; }
 .videoOverlayClose {

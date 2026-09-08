@@ -101,7 +101,7 @@ export function PlayableAds() {
     setDragPosition(null)
     gesture.current = {
       x: touch.clientX, y: touch.clientY, origin: active, position: active,
-      distance: Math.max(80, event.currentTarget.getBoundingClientRect().width / 3), axis: null,
+      distance: 2 * Math.max(80, event.currentTarget.getBoundingClientRect().width / 3), axis: null,
     }
     setTouching(true)
   }
