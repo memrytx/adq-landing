@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type TouchEvent } from 'react'
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react'
 import { playables } from '../data/playables'
 import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
 import { assetUrl } from '../assetUrl'
@@ -41,9 +41,9 @@ function playableById(id: string) {
   return playables.find((playable) => playable.id === id) ?? playables[0]
 }
 
-function PlanSlide({ plan, className = '', onDemo }: { plan: PlayablePlan; className?: string; onDemo: () => void }) {
+function PlanSlide({ plan, className = '', style, onDemo }: { plan: PlayablePlan; className?: string; style?: CSSProperties; onDemo: () => void }) {
   const item = playableById(plan.playableId)
-  return <article className={`${s.planSlide} ${toneClass(plan.tone)} ${className}`}>
+  return <article className={`${s.planSlide} ${toneClass(plan.tone)} ${className}`} style={style}>
     <div className={s.planPhone}><img key={plan.playableId} className={`${s.phoneScreen} ${plan.preview ? s.phoneScreenCentered : ''}`} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
     <div className={s.planCopy}>
       <h4>{plan.title}</h4>
@@ -62,18 +62,20 @@ export function PlayableAds() {
   const [animating, setAnimating] = useState(false)
   const [open, setOpen] = useState(false)
   const [touching, setTouching] = useState(false)
-  const gesture = useRef<{ x: number; y: number; axis: 'x' | 'y' | null } | null>(null)
+  const [dragPosition, setDragPosition] = useState<number | null>(null)
+  const gesture = useRef<{ x: number; y: number; origin: number; position: number; distance: number; axis: 'x' | 'y' | null } | null>(null)
   const suppressClickUntil = useRef(0)
+  const indicatedIndex = ((Math.round(dragPosition ?? active) % planSlides.length) + planSlides.length) % planSlides.length
   const plan = planSlides[active]
   const item = playableById(plan.playableId)
 
   const goTo = useCallback((next: number, nextDirection: 1 | -1) => {
-    if (animating || next === active) return
+    if (animating || touching || dragPosition !== null || next === active) return
     setPrevious(active)
     setDirection(nextDirection)
     setActive(next)
     setAnimating(true)
-  }, [active, animating])
+  }, [active, animating, touching, dragPosition])
 
   const move = useCallback((step: number) => {
     const next = (active + step + planSlides.length) % planSlides.length
@@ -81,39 +83,57 @@ export function PlayableAds() {
   }, [active, goTo])
 
   const cancelGesture = () => {
+    if (gesture.current?.axis === 'x') {
+      const nearest = Math.round(gesture.current.position)
+      setActive(((nearest % planSlides.length) + planSlides.length) % planSlides.length)
+      setDragPosition(nearest)
+      suppressClickUntil.current = performance.now() + 500
+    }
     gesture.current = null
     setTouching(false)
   }
 
   const startGesture = (event: TouchEvent<HTMLDivElement>) => {
-    if (animating || event.touches.length !== 1) { cancelGesture(); return }
+    if (event.touches.length !== 1) { cancelGesture(); return }
     const touch = event.touches[0]
-    gesture.current = { x: touch.clientX, y: touch.clientY, axis: null }
+    setPrevious(null)
+    setAnimating(false)
+    setDragPosition(null)
+    gesture.current = {
+      x: touch.clientX, y: touch.clientY, origin: active, position: active,
+      distance: Math.max(80, event.currentTarget.getBoundingClientRect().width / 3), axis: null,
+    }
     setTouching(true)
   }
 
   const trackGesture = (event: TouchEvent<HTMLDivElement>) => {
     if (event.touches.length !== 1) { cancelGesture(); return }
     const start = gesture.current
-    if (!start || start.axis) return
-    const dx = Math.abs(event.touches[0].clientX - start.x)
-    const dy = Math.abs(event.touches[0].clientY - start.y)
-    if (Math.max(dx, dy) > 8) start.axis = dx > dy * 1.25 ? 'x' : 'y'
+    if (!start || start.axis === 'y') return
+    const dx = event.touches[0].clientX - start.x
+    const dy = event.touches[0].clientY - start.y
+    if (!start.axis && Math.max(Math.abs(dx), Math.abs(dy)) > 8)
+      start.axis = Math.abs(dx) > Math.abs(dy) * 1.25 ? 'x' : 'y'
+    if (start.axis === 'x') {
+      start.position = start.origin - dx / start.distance
+      setDragPosition(start.position)
+      suppressClickUntil.current = performance.now() + 500
+    }
   }
 
   const endGesture = (event: TouchEvent<HTMLDivElement>) => {
     const start = gesture.current
     const touch = event.changedTouches[0]
-    if (start && touch && !event.touches.length) {
-      const dx = touch.clientX - start.x
-      const dy = touch.clientY - start.y
-      if (start.axis !== 'y' && Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy) * 1.25) {
-        suppressClickUntil.current = performance.now() + 500
-        move(dx < 0 ? 1 : -1)
-      }
-    }
+    if (start?.axis === 'x' && touch)
+      start.position = start.origin - (touch.clientX - start.x) / start.distance
     cancelGesture()
   }
+
+  useEffect(() => {
+    if (touching || dragPosition === null) return
+    const timer = window.setTimeout(() => setDragPosition(null), 180)
+    return () => window.clearTimeout(timer)
+  }, [touching, dragPosition])
 
   const openDemo = (index = active) => {
     setPrevious(null)
@@ -137,10 +157,10 @@ export function PlayableAds() {
   }, [animating])
 
   useEffect(() => {
-    if (open || animating || touching) return
+    if (open || animating || touching || dragPosition !== null) return
     const timer = window.setTimeout(() => move(1), 5200)
     return () => window.clearTimeout(timer)
-  }, [animating, move, open, touching])
+  }, [animating, move, open, touching, dragPosition])
 
   return <section className={s.playables} id="playable-ads">
     <AudienceBanner type="playable" />
@@ -149,9 +169,7 @@ export function PlayableAds() {
         <GlowAccent asset="sweep" className={s.planTitleGlow} parallax={false} />
         <GlowAccent asset="sweep" className={s.planPanelGlow} reverse parallax={false} />
         <h3 className={s.blockTitle}>Plans</h3>
-        <div className={s.playablePlan} id="playable-plans">
-          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
-          <div className={s.planStage}
+        <div className={s.playablePlan} id="playable-plans"
             onTouchStart={startGesture} onTouchMove={trackGesture}
             onTouchEnd={endGesture} onTouchCancel={cancelGesture}
             onClickCapture={(event) => {
@@ -161,12 +179,20 @@ export function PlayableAds() {
                 event.stopPropagation()
               }
             }}>
+          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
+          <div className={s.planStage}>
+            {dragPosition !== null ? planSlides.map((slide, index) => {
+              const offset = ((index - dragPosition + 2.5) % planSlides.length + planSlides.length) % planSlides.length - 2.5
+              return <PlanSlide key={slide.title} plan={slide} onDemo={() => openDemo(index)}
+                style={{ transform: `translateX(${offset * 100}%)`, transition: touching ? 'none' : 'transform 180ms ease-out', visibility: Math.abs(offset) < 1.5 ? 'visible' : 'hidden' }} />
+            }) : <>
             {previous !== null && <PlanSlide key={planSlides[previous].title} plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
             <PlanSlide key={plan.title} plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
+            </>}
           </div>
           <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan">›</button>
         </div>
-        <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={active === index ? s.dotActive : ''} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
+        <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={indicatedIndex === index ? s.dotActive : ''} aria-current={indicatedIndex === index ? 'true' : undefined} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
       </section>
 
       <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()}>Play demo</button></div>

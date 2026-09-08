@@ -7660,3 +7660,6 @@
     aspect-ratio: 250 / 520;
   }
 }
+
+/* Horizontal gestures can begin anywhere on the playable panel. */
+.playablePlan { touch-action: pan-y pinch-zoom; }
