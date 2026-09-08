@@ -40,7 +40,7 @@ export function VideoButton({ url, label = 'Watch video' }: { url: string; label
   }
 
   return <>
-    <button ref={trigger} className={s.playButton} type="button" onClick={show} aria-label={label}>
+    <button ref={trigger} className={`${s.playButton} ${s.watchVideoButton}`} type="button" onClick={show} aria-label={label}>
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="5" /><path d="M39 28 73 50 39 72Z" fill="currentColor" /></svg>
     </button>
     {open && <VideoOverlay src={url} label={label} portrait={portrait} onClose={close} />}

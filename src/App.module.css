@@ -7601,7 +7601,7 @@
 .videoOverlayDialog:fullscreen .localVideo { flex: 1; }
 .videoOverlayDialog:fullscreen .localVideo video { flex: 1; min-height: 0; height: 0; aspect-ratio: auto; }
 
-/* One white circle/triangle icon, without the former mobile gradient label. */
+/* Desktop video play icon. */
 .page .playButton {
   width: clamp(60px, 8vw, 108px); height: clamp(60px, 8vw, 108px);
   left: 50%; top: 50%; bottom: auto; padding: 0;
@@ -7612,6 +7612,29 @@
 .page .playButton::before, .page .playButton::after { content: none; }
 .page .playButton:hover { transform: translate(-50%, -50%) scale(1.05); background: rgba(0, 0, 0, 0.12); }
 .page .splitPosters .playButton { width: clamp(48px, 6vw, 90px); height: clamp(48px, 6vw, 90px); }
+
+@media (max-width: 767px) {
+  .page .watchVideoButton,
+  .page .splitPosters .watchVideoButton {
+    width: min(142.5px, 86%);
+    height: auto;
+    aspect-ratio: 285 / 85;
+    top: auto;
+    right: auto;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: url('/assets/watch_button.png') center / contain no-repeat;
+  }
+
+  .page .watchVideoButton svg { display: none; }
+
+  .page .watchVideoButton:hover {
+    transform: translateX(-50%) scale(1.05);
+    background: url('/assets/watch_button.png') center / contain no-repeat;
+  }
+}
 
 /* Bind the halo to the actual video box, not the padded raster export. */
 .wideMedia::before {
