@@ -7626,3 +7626,12 @@
 /* The sword artwork's content is left of its canvas center; center the content,
    retaining full-bleed paper rather than adding letterbox bands. */
 .planPhone .phoneScreenCentered { object-fit: cover; object-position: 40% 50%; }
+
+@media (max-width: 767px) {
+  .fastTrack .packageCard {
+    flex: 0 0 55.5vw;
+    min-width: 0;
+    min-height: 460px;
+    aspect-ratio: 250 / 520;
+  }
+}
