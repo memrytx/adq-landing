@@ -3,16 +3,8 @@ import { assetUrl } from '../assetUrl'
 import { AudienceBanner } from './AudienceBanner'
 import { VideoButton } from './VideoPlayer'
 import { CaseArtwork } from './CaseArtwork'
+import { videos as links } from '../data/videos'
 import s from '../App.module.css'
-
-const links = {
-  reel: 'https://www.youtube.com/watch?v=qW9hnwUOEow',
-  cinematic: 'https://www.youtube.com/watch?v=NOmh2Am8XmM',
-  videos: 'https://drive.google.com/file/d/1oM3mcLqTJGwFXPOM6qxchoNtGyy7T4SA/view?usp=sharing',
-  runner: 'https://drive.google.com/file/d/1hpkj-CH8z8R57Fe00peGffSxIOBtHXdL/view?usp=sharing',
-  ground: 'https://drive.google.com/file/d/1DUyQMZNHiyJcAo2tfSUE8qapZwbLBRzE/view?usp=sharing',
-  bloom: 'https://drive.google.com/file/d/1gj5CdYCA79oqIJ0ix0VoQQe0NL-cWEC0/view?usp=sharing',
-}
 
 type DetailIcon = 'collaboration' | 'creative' | 'result' | 'challenge' | 'solution' | 'impact'
 

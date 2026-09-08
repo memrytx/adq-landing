@@ -2,6 +2,7 @@ import { AudienceBanner } from './AudienceBanner'
 import { assetUrl } from '../assetUrl'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import { VideoButton } from './VideoPlayer'
+import { videos } from '../data/videos'
 import s from '../App.module.css'
 
 const ugc: PackagePlan[] = [
@@ -18,10 +19,10 @@ function CreativeRow({ title, images, tiers, videos }: { title: string; images: 
 
 export function NonGaming() {
   return <section className={s.nonGaming} id="non-gaming"><AudienceBanner type="non-gaming" /><div className={s.content}>
-    <div className={s.ugcHero}><img src={assetUrl('assets/design/ugc-burger.png')} alt="UGC creative" /><VideoButton url="https://www.youtube.com/watch?v=_NeBAHdmlLA" label="Watch UGC creative" /></div>
+    <div className={s.ugcHero}><img src={assetUrl('assets/design/ugc-burger.png')} alt="UGC creative" /><VideoButton url={videos.ugc} label="Watch UGC creative" /></div>
     <h3 className={s.blockTitle}>UGC Net New Packages</h3><PackageCarousel items={ugc} />
-    <CreativeRow title="AIGC creatives" images={[assetUrl('assets/design/ai-princess.png'), assetUrl('assets/design/ai-chat.png')]} videos={['https://drive.google.com/file/d/10qxnSKEwPQcQ_WGpdIvL8m6122DVSsFz/view','https://drive.google.com/file/d/1I133-EQl5WF2PwMqyKnuEG4EzyqOqpd2/view']} tiers={[{ name: '100 creatives', price: '$2,500', features: ['10 avatars', '10 variations', '10 working days'] }, { name: '200 creatives', price: '$4,500', features: ['20 avatars', '10 variations', '15 working days'] }]} />
-    <CreativeRow title="Video AI" images={[assetUrl('assets/design/ai-baby.png'), assetUrl('assets/design/ai-family.png')]} videos={['https://drive.google.com/file/d/1BvMhRpw3nVEFsrXzZtEE0t6MGfGs8IRM/view?usp=sharing','https://drive.google.com/file/d/1tXfPMPDhgvITeGOIiqXjhP6gmZV2k9N5/view?usp=sharing']} tiers={[{ name: '50 creatives', price: '$2,500', features: ['5 AI main body', '10 variations', '15 working days'] }, { name: '100 creatives', price: '$6,500', features: ['10 AI main body', '10 variations', '20 working days'] }]} />
+    <CreativeRow title="AIGC creatives" images={[assetUrl('assets/design/ai-princess.png'), assetUrl('assets/design/ai-chat.png')]} videos={[videos.princess, videos.chat]} tiers={[{ name: '100 creatives', price: '$2,500', features: ['10 avatars', '10 variations', '10 working days'] }, { name: '200 creatives', price: '$4,500', features: ['20 avatars', '10 variations', '15 working days'] }]} />
+    <CreativeRow title="Video AI" images={[assetUrl('assets/design/ai-baby.png'), assetUrl('assets/design/ai-family.png')]} videos={[videos.baby, videos.family]} tiers={[{ name: '50 creatives', price: '$2,500', features: ['5 AI main body', '10 variations', '15 working days'] }, { name: '100 creatives', price: '$6,500', features: ['10 AI main body', '10 variations', '20 working days'] }]} />
     <h3 className={s.blockTitle}>Mix type UGC/AI/2D/3D <small>Create your own pack</small></h3><PackageCarousel items={mix} />
     <section className={s.mixPackages} id="mix-packages">
       <h3 className={s.blockTitle}>Mix Packages</h3>

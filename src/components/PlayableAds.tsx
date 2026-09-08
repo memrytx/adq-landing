@@ -44,7 +44,7 @@ function playableById(id: string) {
 function PlanSlide({ plan, className = '', onDemo }: { plan: PlayablePlan; className?: string; onDemo: () => void }) {
   const item = playableById(plan.playableId)
   return <article className={`${s.planSlide} ${toneClass(plan.tone)} ${className}`}>
-    <div className={s.planPhone}><img className={s.phoneScreen} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
+    <div className={s.planPhone}><img key={plan.playableId} className={`${s.phoneScreen} ${plan.preview ? s.phoneScreenCentered : ''}`} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
     <div className={s.planCopy}>
       <h4>{plan.title}</h4>
       <p>{plan.description}</p>
@@ -161,8 +161,8 @@ export function PlayableAds() {
                 event.stopPropagation()
               }
             }}>
-            {previous !== null && <PlanSlide plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
-            <PlanSlide plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
+            {previous !== null && <PlanSlide key={planSlides[previous].title} plan={planSlides[previous]} onDemo={() => openDemo(previous)} className={direction === 1 ? s.slideExitLeft : s.slideExitRight} />}
+            <PlanSlide key={plan.title} plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
           </div>
           <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan">›</button>
         </div>

@@ -29,3 +29,21 @@ Push the `main` branch and select **GitHub Actions** in **Settings → Pages →
 The workflow publishes the production build to:
 
 https://memrytx.github.io/adq-landing/
+
+## Local video files
+
+All 11 videos are included in `public/assets/videos/` (about 235 MB total).
+They are H.264/AAC MP4 files with fast-start metadata and retain the original
+Full HD dimensions. Commit these files along with the code: Vite copies them
+to `dist/assets/videos/`, and no external video embed is used at runtime.
+Videos are only loaded when the viewer opens, not on initial page load.
+
+`src/data/videos.ts` maps the files to the page. Original YouTube/Drive links
+are recorded in `scripts/video-sources.json`. To encode replacement originals
+with matching filenames, install ffmpeg/ffprobe and run:
+
+```bash
+python scripts/prepare-videos.py PATH_TO_ORIGINALS
+```
+
+The encoding script intentionally does not overwrite existing MP4 files.
