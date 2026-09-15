@@ -9,7 +9,8 @@ const cards = ['hero-baby.png', 'hero-chat.png', 'hero-game.png', 'hero-runner.p
 
 export function Hero() {
   const railRef = useHeroCarousel(cards.length)
-  const loop = [...cards, ...cards]
+  // Extra copies keep wide screens filled throughout the entire marquee cycle.
+  const loop = Array.from({ length: 4 }, () => cards).flat()
   return <section className={s.hero} id="top">
     <GlowAccent asset="bridge" className={s.heroGlowAsset} parallax={false} />
     <div className={s.heroCopy}>

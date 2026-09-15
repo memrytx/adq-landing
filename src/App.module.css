@@ -8053,3 +8053,27 @@
   background: radial-gradient(ellipse at center, rgba(50,89,210,.32), rgba(97,52,207,.20) 35%, transparent 70%);
 }
 .page .tierColumn, .page .tierColumn article { isolation: auto; z-index: auto; }
+
+/* Four identical groups: advance by one group, including its trailing gap. */
+@keyframes heroMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-25% - var(--rail-gap) / 4)); }
+}
+@media (min-width: 1301px) {
+  .page .hero::before {
+    content: ''; position: absolute; z-index: -1; pointer-events: none;
+    top: -180px; left: 0; width: 100%; height: 850px;
+    background:
+      radial-gradient(ellipse 32% 48% at 12% 24%, rgba(38,116,228,.65), rgba(88,55,191,.30) 52%, transparent 100%),
+      radial-gradient(ellipse 32% 48% at 88% 24%, rgba(38,116,228,.65), rgba(88,55,191,.30) 52%, transparent 100%);
+  }
+}
+@media (min-width: 1301px) {
+  .page .hero::before { display: block; opacity: 1; filter: none; border-radius: 0; animation: none; }
+}
+@media (min-width: 1301px) {
+  .page .hero { background: transparent; }
+}
+@media (min-width: 1301px) {
+  .page .heroGlowAsset { display: none; }
+}
