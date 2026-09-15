@@ -71,7 +71,7 @@
 }
 .header {
   height: 72px;
-  position: absolute;
+  position: fixed;
   z-index: 50;
   inset: 0 0 auto;
   background: rgba(45, 43, 44, 0.28);
@@ -1045,7 +1045,7 @@
 .fastPhone {
   height: 700px;
 }
-.fastPhone img {
+.fastPhone > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1949,7 +1949,7 @@
   justify-self: center;
 }
 .planPhone img,
-.fastPhone img {
+.fastPhone > img {
   position: absolute;
   display: block;
 }
@@ -7669,3 +7669,387 @@
 
 /* Horizontal gestures can begin anywhere on the playable panel. */
 .playablePlan { touch-action: pan-y pinch-zoom; }
+
+/* Keep the frosted header above the page at every viewport width.
+   Blur the background layer so the mobile menu remains viewport-fixed. */
+.page .header { background: transparent; isolation: isolate; }
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(48, 46, 47, 0.5);
+  -webkit-backdrop-filter: blur(24px) saturate(110%);
+  backdrop-filter: blur(24px) saturate(110%);
+  pointer-events: none;
+}
+
+/* Scale the wordmark and two-line tagline together, as in the reference. */
+.heroCopy { width: min(740px, calc(100% - 40px)); margin-inline: auto; container-type: inline-size; }
+.heroCopy .heroTitleLogo { width: 81%; height: auto; object-fit: contain; }
+.heroCopy p { max-width: 100%; font-size: 5.1cqw; line-height: 1.3; margin-top: 9cqw; }
+
+/* Supplied vector icons replace the raster sprite sheets. */
+.detailIcon { background-size: contain; background-position: center; }
+.iconCollaboration { background-image: url('./assets/exported/icon_2.svg'); }
+.iconCreative { background-image: url('./assets/exported/icon_1.svg'); }
+.iconResult { background-image: url('./assets/exported/icon_3.svg'); }
+.iconChallenge { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
+.iconSolution { background-image: url('./assets/exported/at-icons_brain.svg'); }
+.iconImpact { background-image: url('./assets/exported/mage_goals-fill.svg'); }
+.checkmark, .check {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.1em;
+  color: transparent;
+  background: url('./assets/exported/galka.svg') center / contain no-repeat;
+}
+/* Decorative light stays behind readable content, including adjacent sections. */
+.page main { position: relative; isolation: isolate; }
+.page main > section,
+.page .audienceBanner { isolation: auto; z-index: auto; }
+.page .glowAccent,
+.page .audienceGlowLayer { z-index: -1; pointer-events: none; }
+.page :is(h1, h2, h3, h4, h5, h6, p, ul, ol, .detailList, .pricePair, .tierColumn, .packageViewport, .process, .requirementsHead, .requirementRow, .closingTitle, .stats, .logoRail) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Exact exported controls; keep the existing button actions and focus behavior. */
+.page .playDemo {
+  padding: 0;
+  width: 225px;
+  height: auto;
+  aspect-ratio: 225 / 72;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.playDemo img { display: block; width: 100%; height: auto; }
+.page .planArrow { padding: 0; background: transparent; border: 0; box-shadow: none; }
+.planArrow img { width: 100%; height: 100%; object-fit: contain; }
+.planArrow[aria-label="Previous playable plan"] img { transform: rotate(180deg); }
+.page img.pill { display: inline-block; height: auto; padding: 0; background: none; border: 0; border-radius: 0; object-fit: contain; }
+.page img.caseTag { width: clamp(52px, 6.54vw, 113px); }
+.page img.planTag { width: clamp(48px, 5.68vw, 98px); }
+
+/* Reference check colors, with one shared SVG silhouette. */
+.page .checkmark, .page .check {
+  color: #2dabe7;
+  background: currentColor;
+  -webkit-mask: url('./assets/exported/galka.svg') center / contain no-repeat;
+  mask: url('./assets/exported/galka.svg') center / contain no-repeat;
+}
+.page .tonePink .checkmark { color: #cb5be6; }
+
+/* Put publisher rows immediately below the heading, ahead of the media gap. */
+.page .audienceBanner .logoRail { margin-top: clamp(32px, 4vw, 80px); }
+.logoMobile { display: none; }
+@media (max-width: 767px) {
+  .page .playDemo { width: 125px; }
+  .page .audienceBanner .logoRail { margin-top: 30px; }
+  .logoDesktop { display: none; }
+  .logoMobile { display: grid; gap: 16px; }
+  .logoMobile .logoTrack { animation: logoMarquee 70s linear infinite; }
+  .logoMobile .logoTrackReverse { animation-name: logoMarqueeReverse; }
+  .page [data-glow-asset="lenses-a"],
+  .page [data-glow-asset="lenses-b"] { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logoMobile .logoTrack { animation: none; }
+}
+/* Keep both exported Plan tags at the same responsive scale. */
+.page .videoOffer .offerHeading img.pill.planTag { width: clamp(48px, 5.68vw, 98px); height: auto; }
+/* Result keeps its reference green badge, using the shared check shape. */
+.page .iconResult { position: relative; border-radius: 50%; background: #67d577; }
+.page .iconResult::after {
+  content: '';
+  position: absolute;
+  inset: 17%;
+  background: #302e2f;
+  -webkit-mask: url('./assets/exported/galka.svg') center / contain no-repeat;
+  mask: url('./assets/exported/galka.svg') center / contain no-repeat;
+}
+/* Reference sizing: enlarge the SVG mark without changing list typography. */
+.page .checkmark, .page .check { transform: scale(1.3); transform-origin: center; margin-right: 0.45em; }
+.page .iconResult::after { inset: 7.1%; }
+
+/* Preserve the individual logo sizes instead of stretching every mark to a square. */
+.page .logoGroup img:nth-child(n) {
+  width: calc(var(--company-logo-width) * var(--company-logo-scale, 1));
+  height: calc(var(--company-logo-height) * var(--company-logo-scale, 1));
+  flex: 0 0 auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+@media (max-width: 1300px) { .logoRail { --company-logo-scale: 0.7; } }
+@media (max-width: 767px) { .logoRail { --company-logo-scale: 0.58; } }
+
+/* One frame around the slide; navigation sits outside it on non-touch layouts. */
+@media (min-width: 768px) {
+  .page .playablePlan { width: calc(100% - 144px); margin-inline: auto; display: block; }
+  .page .planStage { width: 100%; }
+  .page .planArrow { position: absolute; top: 50%; margin: 0; width: 60px; height: 60px; transform: translateY(-50%); }
+  .page .planArrow:first-child { left: -72px; right: auto; }
+  .page .planArrow:last-child { right: -72px; left: auto; }
+}
+@media (max-width: 1300px) {
+  .page .playablePlan::after { content: none; }
+  .page .planStage { border: 1px solid rgba(217, 219, 242, 0.24); border-radius: 38px; }
+  .page .planStage::before { content: none; }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .page .playablePlan { width: calc(100% - 112px); }
+  .page .planArrow { width: 44px; height: 44px; }
+  .page .planArrow:first-child { left: -56px; }
+  .page .planArrow:last-child { right: -56px; }
+}
+
+/* Reference CTA: no inherited focus-like black ring, centered on the phone. */
+.page .fastPhone .playDemoDesktop {
+  width: 192px; height: auto; aspect-ratio: 225 / 72;
+  left: 50%; right: auto; bottom: -8px; transform: translateX(-50%);
+  border: 0; box-shadow: none; outline: none; filter: none;
+}
+.page .playDemo:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+@media (min-width: 1900px) { .page .fastPhone .playDemoDesktop { width: 225px; } }
+
+/* A broader halo around the video pricing area, below its content. */
+.page .videoOffer.reverse .pricePair::before {
+  content: ''; position: absolute; z-index: -1; pointer-events: none;
+  inset: -180px -12% -100px;
+  background: radial-gradient(ellipse at 40% 35%, rgba(64, 68, 220, 0.48), rgba(27, 120, 218, 0.24) 42%, transparent 72%);
+  filter: blur(45px);
+}
+
+/* Shared package-card rhythm from the laptop and desktop reference frames. */
+.page .packageCard { padding: 40px; min-height: 593px; }
+.page .packageCard h4 { font-size: 36px; line-height: 1.22; margin: 0 0 40px; }
+.page .packageCard b { font-size: 32px; line-height: 1.2; }
+.page .packageCard ul { font-size: 18px; line-height: 1.5; margin: 16px 0 40px; }
+.page .packageCard li { display: flex; align-items: baseline; gap: 5px; }
+.page .packageCard li + li { margin-top: 11px; }
+.page .packageCard > strong { font-size: 36px; line-height: 1.22; }
+.page .packageCard small { font-size: 20px; line-height: 1.5; margin-top: 0; }
+@media (min-width: 1301px) and (max-width: 1600px) {
+  .page .packageCard { padding: 28px; min-height: 550px; }
+  .page .packageCard h4 { font-size: 28px; margin-bottom: 32px; }
+  .page .packageCard b { font-size: 24px; }
+  .page .packageCard ul { font-size: 16px; }
+  .page .packageCard > strong { font-size: 32px; }
+  .page .packageCard small { font-size: 16px; }
+}
+@media (min-width: 1900px) {
+  .page .packageCard { padding: 63px 42px; min-height: 773px; }
+  .page .packageCard h4 { font-size: 32px; margin-bottom: 70px; }
+  .page .packageCard ul { font-size: 22px; margin-top: 22px; }
+  .page .packageCard li + li { margin-top: 14px; }
+  .page .packageCard > strong { font-size: 48px; }
+  .page .packageCard small { font-size: 22px; }
+  .page .fastTrack .packageCard { padding: 40px; min-height: 593px; }
+  .page .fastTrack .packageCard h4 { font-size: 36px; margin-bottom: 40px; }
+  .page .fastTrack .packageCard ul { font-size: 18px; }
+  .page .fastTrack .packageCard > strong { font-size: 36px; }
+  .page .fastTrack .packageCard small { font-size: 20px; }
+}
+@media (max-width: 1300px) {
+  .page .packageCard { padding: 24px; min-height: 480px; }
+  .page .packageCard h4 { font-size: 22px; margin-bottom: 28px; }
+  .page .packageCard b { font-size: 18px; }
+  .page .packageCard ul { font-size: 14px; margin: 16px 0 32px; }
+  .page .packageCard li + li { margin-top: 8px; }
+  .page .packageCard > strong { font-size: 30px; }
+  .page .packageCard small { font-size: 14px; }
+}
+@media (max-width: 767px) {
+  .page .packageCard { padding: 24px 20px; min-height: 440px; }
+  .page .packageCard h4 { font-size: 20px; margin-bottom: 26px; }
+  .page .packageCard b { font-size: 16px; }
+  .page .packageCard ul { font-size: 13px; }
+  .page .packageCard > strong { font-size: 28px; }
+  .page .packageCard small { font-size: 12px; }
+  .page .watchVideoButton, .page .splitPosters .watchVideoButton {
+    width: min(185.25px, calc(100% - 24px)); left: 12px; right: auto;
+    transform: none; transform-origin: left bottom;
+  }
+  .page .watchVideoButton:hover { transform: scale(1.05); }
+}
+.page .fastPhone .playDemoDesktop { height: 64px; display: grid; place-items: center; }
+.page .fastPhone .playDemoDesktop img { position: static; width: 100%; height: 100%; object-fit: contain; border: 0; border-radius: 0; animation: none; }
+.page .packageCard small { min-height: 1.5em; }
+@media (min-width: 1900px) { .page .fastPhone .playDemoDesktop { height: 72px; } }
+@media (max-width: 1300px) { .page .fastPhone .playDemoDesktop { display: none; } }
+.page .offerPackageNote { position: relative; z-index: 3; }
+/* Responsive copies retain title artwork while cutting its decoded memory cost. */
+.glowAccent picture { display: block; width: 100%; height: 100%; }
+.briefButtonImage { display: none; }
+
+/* Light is attached to the information it emphasizes, not a full-page bitmap. */
+.page .creativeRow::before,
+.page .creativeRow:nth-child(5)::before,
+.page .ugcHero::after,
+.page .nonGaming > .content > .packageViewport:nth-child(7)::before { content: none; }
+.page .tierColumn { isolation: isolate; }
+.page .tierColumn article { position: relative; isolation: isolate; overflow: visible; }
+.page .tierColumn article::before {
+  content: ''; position: absolute; z-index: -1; pointer-events: none;
+  inset: -40px -32px;
+  background: radial-gradient(ellipse at 22% 25%, rgba(35, 117, 225, .48), rgba(89, 57, 196, .25) 38%, transparent 70%);
+}
+.page .tierColumn article:nth-child(2)::before {
+  background: radial-gradient(ellipse at 78% 75%, rgba(35, 117, 225, .48), rgba(89, 57, 196, .25) 38%, transparent 70%);
+}
+.page .packageViewport { isolation: isolate; }
+.page .packageViewport::before,
+.page .nonGaming > .content > .packageViewport:nth-child(7)::before {
+  content: ''; position: absolute; z-index: -1; pointer-events: none;
+  inset: -45px -40px; width: auto; height: auto; aspect-ratio: auto;
+  transform: none; filter: none; opacity: 1;
+  background: radial-gradient(ellipse at 20% 35%, rgba(38, 105, 219, .32), transparent 48%), radial-gradient(ellipse at 82% 65%, rgba(97, 52, 207, .32), transparent 48%);
+}
+/* Adjacent package cards now own their light. */
+.page .fastTrack::before { content: none; }
+.page .dots { gap: 8px; }
+.page .dots button { width: 12px; height: 12px; flex: 0 0 12px; padding: 0; }
+
+@media (max-width: 767px) {
+  /* No vertical scroll range inside the sideways video galleries. */
+  .page .creativeImages {
+    overflow-x: auto; overflow-y: hidden; height: auto; max-height: none;
+    align-items: flex-start; padding-block: 0; touch-action: pan-x pan-y;
+    overscroll-behavior-x: contain; overscroll-behavior-y: auto;
+  }
+  .page .creativeImages > span { display: block; height: auto; min-height: 0; }
+  .page .creativeImages img { display: block; }
+  .page .dots { gap: 7px; }
+  .page .dots button { width: 9px; height: 9px; flex-basis: 9px; }
+
+  /* The mobile reference uses lines between steps, with the CTA under the brief. */
+  .page .process {
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; height: auto; min-height: 0; margin: 0; padding: 0 0 60px;
+    gap: 0; background: none;
+  }
+  .page .process::before, .page .process::after,
+  .page .process > span::before, .page .process > span::after { content: none; }
+  .page .process > span:nth-of-type(n) {
+    position: static; inset: auto; transform: none; align-self: auto;
+    width: 100%; height: auto; margin: 0; padding: 0;
+    font-size: 20px; line-height: 24px; text-align: center;
+  }
+  .page .process > i {
+    display: block; position: static; transform: none;
+    width: 1px; height: 60px; flex: 0 0 60px; margin: 20px auto;
+    background: rgba(255,255,255,.5);
+  }
+  .page .process > a {
+    position: relative; inset: auto; transform: none;
+    display: block; width: 219px; height: 56px; margin: 8px auto 0;
+    padding: 0; border: 0; border-radius: 0; background: none;
+    box-shadow: none; font-size: 0; isolation: isolate;
+  }
+  .page .process > a:hover { transform: none; }
+  .page .process .briefButtonImage { display: block; width: 219px; height: 56px; }
+  .page .process > a::before {
+    content: ''; position: absolute; z-index: -1; pointer-events: none;
+    inset: -140px -80px;
+    background: radial-gradient(ellipse, rgba(28, 119, 219, .55), rgba(32, 98, 172, .25) 45%, transparent 72%);
+  }
+  /* Avoid enormous offscreen filter surfaces and raster frames on small devices. */
+  .page .videoOffer::before, .page .caseIntro::before, .page .caseVideo::before,
+  .page .playablePlan::before, .page .requirements::before, .page .important::before {
+    width: auto; height: auto; aspect-ratio: auto; inset: -40px -20px;
+    transform: none; filter: none;
+    background: radial-gradient(ellipse at 25% 35%, rgba(35, 110, 213, .26), transparent 65%), radial-gradient(ellipse at 78% 65%, rgba(95, 49, 191, .22), transparent 65%);
+  }
+  .page .closing > .content { background: none; }
+  .page .packageCard, .page .tierColumn article { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .page .caseVideo::after, .page .playablePlan::after,
+  .page .requirements::after, .page .important::after { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .page .glowAccent { will-change: auto; }
+}
+@media (max-width: 767px) {
+  .page {
+    --light-1: url('./assets/exported/mobile/light_1.webp') !important;
+    --light-2: url('./assets/exported/mobile/light_2.webp') !important;
+    --video-glow: url('./assets/exported/mobile/video-glow.webp') !important;
+    --video-glow-vertical: url('./assets/exported/mobile/video-glow_2.webp') !important;
+  }
+}
+/* Centered ellipses fade fully before their bounds, without rectangular edges. */
+.page .tierColumn article::before {
+  inset: -60px -40px;
+  transform: translate(-10%, -12%);
+  background: radial-gradient(ellipse at center, rgba(35, 117, 225, .48), rgba(89, 57, 196, .22) 35%, transparent 70%);
+}
+.page .tierColumn article:nth-child(2)::before {
+  transform: translate(10%, 12%);
+  background: radial-gradient(ellipse at center, rgba(35, 117, 225, .48), rgba(89, 57, 196, .22) 35%, transparent 70%);
+}
+@media (max-width: 767px) {
+  /* The old portrait halo extended 54px below the gallery, creating a second scroll axis. */
+  .page .creativeImages > span::before { content: none; }
+  .page .process > span { text-shadow: none; }
+}
+
+/* Layer contract: decorative light is always behind ALL content, including
+   neighbouring blocks. Keep light out of foreground stacking contexts. */
+.mobileCaseArtwork { display: none; }
+.page .offerMedia { isolation: auto; }
+.page .offerMedia::before, .page .offerVisual::before { z-index: -1; pointer-events: none; }
+.page img.pill { border-radius: 999px; background-color: rgba(190, 207, 237, .15); -webkit-backdrop-filter: blur(16px) saturate(115%); backdrop-filter: blur(16px) saturate(115%); }
+@media (max-width: 767px) {
+  .page .header { height: 80px; }
+  .page .watchVideoButton, .page .splitPosters .watchVideoButton { width: min(163.02px, calc(100% - 24px)); }
+  .page .videoOffer::before, .page .caseIntro::before, .page .caseVideo::before,
+  .page .playablePlan::before, .page .requirements::before, .page .important::before {
+    background: radial-gradient(ellipse at center, rgba(35,110,213,.30), rgba(95,49,191,.14) 35%, transparent 70%);
+    z-index: -2; pointer-events: none;
+  }
+  .page .offerMedia::before, .page .offerVisual::before { content: none; }
+  .page .videoOffer .pricePair::before {
+    content: ''; position: absolute; inset: -90px -40px; z-index: -1;
+    pointer-events: none; filter: none;
+    background: radial-gradient(ellipse at center, rgba(44,101,216,.44), rgba(84,51,187,.18) 38%, transparent 70%);
+  }
+  .page .videoOffer .pricePair { isolation: auto; z-index: auto; }
+  .page .videoOffer .pricePair > div { position: relative; z-index: 1; }
+  .page .offerPackageNote { position: absolute; inset: auto 20px calc(100% + 18px) auto; width: 62px; margin: 0; text-align: right; font-size: 10px; line-height: 1.2; }
+  .page .offerPackageNote strong { display: block; margin: 4px 0 0; font-size: 19px; }
+  .page .reverse .offerHeading { padding-right: 85px; }
+  .page .reverse .offerHeading h3 { font-size: clamp(23px, 6.2vw, 32px); }
+  .page .blobMedia .caseArtPicture { display: none; }
+  .page .blobMedia { width: 100vw; height: auto; aspect-ratio: auto; margin-inline: calc((100% - 100vw) / 2); overflow: visible; isolation: auto; }
+  .page .blobMedia::before, .page .blobMedia::after { content: none; }
+  .page .mobileCaseArtwork { display: block; position: relative; width: 100%; }
+  .page .mobileCaseImage { display: block; position: relative; width: 100%; height: auto; max-width: none; object-fit: contain; border-radius: 0; transform: none; filter: none; }
+  .page .mobileCaseLight { position: absolute; width: 100%; height: auto; max-width: none; left: 0; top: 50%; transform: translateY(-50%); z-index: -1; pointer-events: none; filter: none; }
+  .page .caseIntro::before { content: none; }
+  .page .caseVideo:not(.bloomVideo) { height: auto; min-height: 0; padding: 49px 10px 28px; }
+  .page .splitPosters { display: flex; width: 100%; height: auto; aspect-ratio: auto; gap: 16px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; touch-action: pan-x pan-y; }
+  .page .splitPosters > span { flex: 0 0 100%; width: 100%; min-width: 0; height: auto; scroll-snap-align: start; }
+  .page .splitPosters img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+  .page .detailAccent { font-weight: 700; }
+}
+/* Use live translucent glass rather than a baked raster background. */
+.page .pill:is(.planTag, .caseTag) {
+  display: inline-grid; place-items: center; padding: 0; margin: 0;
+  width: clamp(48px, 5.68vw, 98px); height: auto; aspect-ratio: 98 / 54;
+  font-size: clamp(11px, 1.04vw, 18px); font-weight: 400;
+  border: 0; border-radius: 999px; color: #eeeaf0;
+  background: rgba(181,199,227,.18);
+  -webkit-backdrop-filter: blur(16px) saturate(115%); backdrop-filter: blur(16px) saturate(115%);
+}
+.page .pill.caseTag { width: clamp(52px, 6.54vw, 113px); aspect-ratio: 113 / 47; }
+@media (max-width: 767px) {
+  .page .splitPosters { padding: 0; }
+}
+/* Package glows also fade before the boundary and share the page light layer. */
+.page .packageViewport { isolation: auto; z-index: auto; overflow: visible; }
+.page .packageViewport::before,
+.page .nonGaming > .content > .packageViewport:nth-child(7)::before {
+  background: radial-gradient(ellipse at center, rgba(50,89,210,.32), rgba(97,52,207,.20) 35%, transparent 70%);
+}
+.page .tierColumn, .page .tierColumn article { isolation: auto; z-index: auto; }

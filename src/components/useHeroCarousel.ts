@@ -20,6 +20,7 @@ export function useHeroCarousel(cardCount: number) {
     let pointing = false
     let focused = false
     let frame = 0
+    let inView = true
 
     const writePosition = () => {
       rail.scrollLeft = position
@@ -59,7 +60,7 @@ export function useHeroCarousel(cardCount: number) {
     const tick = (time: number) => {
       const elapsed = Math.min(time - previousTime, 50)
       previousTime = time
-      if (cycle && !reducedMotion.matches && !document.hidden &&
+      if (cycle && inView && !reducedMotion.matches && !document.hidden &&
           !touching && !pointing && !focused && time >= resumeAt) {
         position = (position + elapsed * 0.03) % cycle
         writePosition()
@@ -67,6 +68,8 @@ export function useHeroCarousel(cardCount: number) {
       frame = requestAnimationFrame(tick)
     }
 
+    const visibility = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting })
+    visibility.observe(rail)
     const observer = new ResizeObserver(measure)
     observer.observe(rail)
     narrow.addEventListener('change', measure)
@@ -86,6 +89,7 @@ export function useHeroCarousel(cardCount: number) {
     return () => {
       cancelAnimationFrame(frame)
       observer.disconnect()
+      visibility.disconnect()
       narrow.removeEventListener('change', measure)
       rail.removeEventListener('scroll', onScroll)
       rail.removeEventListener('pointerdown', onPointerDown)

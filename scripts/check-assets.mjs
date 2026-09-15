@@ -39,6 +39,9 @@ for (const file of walk(path.join(root, 'src')).filter(file => /\.(tsx?|css)$/.t
   for (const match of source.matchAll(/url\(\s*['"]?(\.[^)'"\s]+)['"]?\s*\)/g)) {
     check(path.resolve(path.dirname(file), match[1]), `${label}: ${match[1]}`);
   }
+  for (const match of source.matchAll(/url\(\s*['"]?(\/assets\/[^)'"\s]+)['"]?\s*\)/g)) {
+    check(path.join(root, 'public', match[1]), `${label}: ${match[1]}`);
+  }
   for (const match of source.matchAll(/assetUrl\(\s*['"]([^'"]+)['"]\s*\)/g)) {
     check(path.resolve(root, 'public', match[1].split(/[?#]/)[0]), `${label}: ${match[1]}`);
   }
@@ -51,5 +54,23 @@ for (const [, id] of playables.matchAll(/\bplayable\('([^']+)'/g)) {
   for (const name of [`playables/${id}.html`, `assets/playable-previews/${id}.png`, `assets/playable-icons/${id}.png`]) check(path.join(root, 'public', name), name);
 }
 check(path.join(root, 'public/playable.html'), 'playable launcher');
+for (const variant of ['adventure', 'bloom']) {
+  for (const suffix of ['', '_light']) {
+    const name = `case-${variant}-art_mobile${suffix}.png`;
+    check(path.join(root, 'public/assets/design', name), name);
+  }
+}
+const logoSizes = JSON.parse(fs.readFileSync(path.join(root, 'src/assets/exported/company-logo-sizes.json'), 'utf8'));
+for (const folder of ['ForGamingCompanies', 'ForNoneGamingApps', 'PlayableAds']) {
+  const directory = path.join(root, 'src/assets/exported', folder);
+  const names = fs.existsSync(directory) ? fs.readdirSync(directory).filter(name => name.endsWith('.png')) : [];
+  if (!names.length) errors.push(`${folder}: company logo collection is empty`);
+  for (const name of names) {
+    check(path.join(directory, name), `${folder}/${name}`);
+    if (!logoSizes[`${folder}/${name}`]?.every(value => Number.isFinite(value) && value > 0)) {
+      errors.push(`${folder}/${name}: missing or invalid logo dimensions`);
+    }
+  }
+}
 if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
 else console.log(`Asset check passed: ${checked} local references, including filename case and repository boundaries.`);

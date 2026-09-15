@@ -6,6 +6,8 @@ import { AudienceBanner } from './AudienceBanner'
 import { GlowAccent } from './GlowAccent'
 import { PackageCarousel, type PackagePlan } from './PackageCarousel'
 import s from '../App.module.css'
+import playDemoButton from '../assets/exported/play_demo_button.png'
+import swiperArrow from '../assets/exported/A_swiper.png'
 import phoneFrame from '../assets/exported/frames/playable-phone-frame.png'
 
 type PlanTone = 'blue' | 'pink' | 'mixed'
@@ -49,7 +51,7 @@ function PlanSlide({ plan, className = '', style, onDemo }: { plan: PlayablePlan
       <h4>{plan.title}</h4>
       <p>{plan.description}</p>
       <div className={s.planPriceFlag}><small>Costs start at</small><strong>{plan.price}</strong></div>
-      <ul>{plan.features.map((feature) => <li key={feature}><span className={s.checkmark} aria-hidden="true">✓</span>{feature}</li>)}</ul>
+      <ul>{plan.features.map((feature) => <li key={feature}><span className={s.checkmark} aria-hidden="true" />{feature}</li>)}</ul>
       <button className={s.demo} type="button" onClick={onDemo}>Demo</button>
     </div>
   </article>
@@ -179,7 +181,7 @@ export function PlayableAds() {
                 event.stopPropagation()
               }
             }}>
-          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan">‹</button>
+          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan"><img src={swiperArrow} alt="" /></button>
           <div className={s.planStage}>
             {dragPosition !== null ? planSlides.map((slide, index) => {
               const offset = ((index - dragPosition + 2.5) % planSlides.length + planSlides.length) % planSlides.length - 2.5
@@ -190,13 +192,13 @@ export function PlayableAds() {
             <PlanSlide key={plan.title} plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
             </>}
           </div>
-          <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan">›</button>
+          <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan"><img src={swiperArrow} alt="" /></button>
         </div>
         <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={indicatedIndex === index ? s.dotActive : ''} aria-current={indicatedIndex === index ? 'true' : undefined} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
       </section>
 
-      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()}>Play demo</button></div>
-      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()}>Play demo</button></div><PackageCarousel items={packages} /></div>
+      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><img src={playDemoButton} alt="" /></button></div>
+      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><img src={playDemoButton} alt="" /></button></div><PackageCarousel items={packages} /></div>
 
     </div>
 

@@ -26,6 +26,8 @@ import frameEleven from './assets/exported/frames/frame_11.png'
 
 export default function App() {
   useEffect(() => {
+    // Static lights on touch devices avoid repainting large layers while scrolling.
+    if (window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return
     const root = document.documentElement
     let frame = 0
 

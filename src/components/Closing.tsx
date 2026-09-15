@@ -1,3 +1,4 @@
+import briefButton from '../assets/exported/A_ButtonNormal.png'
 import { Logo } from './Logo'
 import { GlowAccent } from './GlowAccent'
 import s from '../App.module.css'
@@ -22,7 +23,7 @@ const form='https://docs.google.com/forms/d/e/1FAIpQLSdYg-UXaKzZgiHlbRNLTvO6iCa0
 
 export function Closing(){return <section className={s.closing} id="contact">
   <GlowAccent asset="bridge" className={s.closingGlowAsset} parallax={false} /><div className={s.closingTitle}><Logo/><h2>BUILD YOUR WINNING<br/>CREATIVES WITH US</h2></div>
-  <div className={s.content}><h3 className={s.processTitle}>How to get started</h3><div className={s.process} id="getting-started"><span>Choose Your<br/>Package</span><i/><span>Complete<br/>the Brief</span><a href={form} target="_blank" rel="noreferrer">LETS GO!</a><i/><span>Sign<br/>the contract</span><i/><span>Share<br/>Your Assets</span></div>
+  <div className={s.content}><h3 className={s.processTitle}>How to get started</h3><div className={s.process} id="getting-started"><span>Choose Your<br/>Package</span><i/><span>Complete<br/>the Brief</span><a href={form} target="_blank" rel="noreferrer" aria-label="Complete the brief"><img className={s.briefButtonImage} src={briefButton} alt="LETS GO!" />LETS GO!</a><i/><span>Sign<br/>the contract</span><i/><span>Share<br/>Your Assets</span></div>
   <h3 className={s.blockTitle}>Required Assets</h3><div className={s.requirements}><div className={s.requirementsHead}><span/><span>Preferable</span><span>Helpful To Have</span></div>{rows.map(row=><div className={s.requirementRow} key={row[0]}><strong>{row[0]}</strong><span>{row[1]}</span><span>{row[2].split('; ').map((line, index)=><span className={s.requirementLine} key={index}>{line}</span>)}</span></div>)}</div>
   <aside className={s.important}><h3>IMPORTANT</h3><ul><li>Asset names in English</li><li>Before production starts, it would be helpful to receive as many project assets as possible — ideally 80–100% of the game’s or application’s assets</li><li>All characters should include their rig and animations</li><li>All models and characters must have materials</li><li>If your files are already organized, please keep the existing folder structure</li><li>Folder structure example</li></ul></aside></div>
 </section>}
