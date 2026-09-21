@@ -23,11 +23,11 @@ type PlayablePlan = {
 
 const planSlides: PlayablePlan[] = [
   { title: 'BASIC', description: 'Simple animations, no complex mechanics — just using the assets provided by the client', price: '$700', features: ['Up to 2 clicks', 'Delivered within 5 business days'], playableId: 'ism-97-04', tone: 'blue', preview: assetUrl('assets/design/plan-phone.png') },
+  { title: 'ENHANCED', description: 'Includes several animations, multiple storyline variations, and visual effects', price: '$1,500', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'iop-7', tone: 'pink' },
+  { title: 'ADVANCED', description: 'Complex animations and effects, with multiple storyline variations', price: '$2,000', features: ['Up to 3 clicks', 'Delivered within 10 business days'], playableId: 'iop-17', tone: 'pink' },
+  { title: 'INTERACTIVE', description: 'Extensive animations and a game-like scenario that requires careful balancing', price: '$2,500', features: ['Up to 8 clicks', 'Delivered within 10 business days'], playableId: 'anb-42-10', tone: 'blue', preview: assetUrl('assets/playable-previews/ab2-preview.png') },
+  { title: 'PREMIUM', description: 'Complex 3D physics, extensive game logic to manage collision handling, and visual effects', price: '$3,000', features: ['Up to 8 clicks', 'Delivered within 10 business days'], playableId: 'anbm-03-57', tone: 'mixed' },
   { title: 'VISUAL CREATION', description: 'We will create graphics for your playable ad using AI tools, ensuring they align with the product and the creative concept', price: '$900', features: ['Provides sales-driving AI graphics', 'Delivered within 10 working days'], playableId: 'fitness-01', tone: 'visual' },
-  { title: 'ENHANCED', description: 'Includes several animations, multiple storyline variations, and visual effects', price: '$1,500', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'iop-434-25', tone: 'pink' },
-  { title: 'ADVANCED', description: 'Complex animations and effects, with multiple storyline variations', price: '$2,000', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'anb-25-20t', tone: 'pink' },
-  { title: 'INTERACTIVE', description: 'Extensive animations and a game-like scenario that requires careful balancing', price: '$2,500', features: ['Up to 6 clicks', 'Delivered within 10 business days'], playableId: 'anbm-03-57', tone: 'blue' },
-  { title: 'PREMIUM 3D', description: 'Complex 3D physics, extensive game logic to manage collision handling, and visual effects', price: '$2,500', features: ['Up to 8 clicks', 'Delivered within 10 business days'], playableId: 'ac-20-15', tone: 'mixed' },
 ]
 
 const packages: PackagePlan[] = [
