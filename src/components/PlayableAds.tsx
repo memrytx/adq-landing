@@ -10,7 +10,7 @@ import playDemoButton from '../assets/exported/play_demo_button.png'
 import swiperArrow from '../assets/exported/A_swiper.png'
 import phoneFrame from '../assets/exported/frames/playable-phone-frame.png'
 
-type PlanTone = 'blue' | 'pink' | 'mixed'
+type PlanTone = 'blue' | 'pink' | 'mixed' | 'visual'
 type PlayablePlan = {
   title: string
   description: string
@@ -23,6 +23,7 @@ type PlayablePlan = {
 
 const planSlides: PlayablePlan[] = [
   { title: 'BASIC', description: 'Simple animations, no complex mechanics — just using the assets provided by the client', price: '$700', features: ['Up to 2 clicks', 'Delivered within 5 business days'], playableId: 'ism-97-04', tone: 'blue', preview: assetUrl('assets/design/plan-phone.png') },
+  { title: 'VISUAL CREATION', description: 'We will create graphics for your playable ad using AI tools, ensuring they align with the product and the creative concept', price: '$900', features: ['Provides sales-driving AI graphics', 'Delivered within 10 working days'], playableId: 'fitness-01', tone: 'visual' },
   { title: 'ENHANCED', description: 'Includes several animations, multiple storyline variations, and visual effects', price: '$1,500', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'iop-434-25', tone: 'pink' },
   { title: 'ADVANCED', description: 'Complex animations and effects, with multiple storyline variations', price: '$2,000', features: ['Up to 3 clicks', 'Delivered within 5 business days'], playableId: 'anb-25-20t', tone: 'pink' },
   { title: 'INTERACTIVE', description: 'Extensive animations and a game-like scenario that requires careful balancing', price: '$2,500', features: ['Up to 6 clicks', 'Delivered within 10 business days'], playableId: 'anbm-03-57', tone: 'blue' },
@@ -36,6 +37,7 @@ const packages: PackagePlan[] = [
 ]
 
 function toneClass(tone: PlanTone) {
+  if (tone === 'visual') return s.toneVisual
   return tone === 'pink' ? s.tonePink : tone === 'mixed' ? s.toneMixed : s.toneBlue
 }
 
@@ -184,7 +186,8 @@ export function PlayableAds() {
           <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan"><img src={swiperArrow} alt="" /></button>
           <div className={s.planStage}>
             {dragPosition !== null ? planSlides.map((slide, index) => {
-              const offset = ((index - dragPosition + 2.5) % planSlides.length + planSlides.length) % planSlides.length - 2.5
+              const half = planSlides.length / 2
+              const offset = ((index - dragPosition + half) % planSlides.length + planSlides.length) % planSlides.length - half
               return <PlanSlide key={slide.title} plan={slide} onDemo={() => openDemo(index)}
                 style={{ transform: `translateX(${offset * 100}%)`, transition: touching ? 'none' : 'transform 180ms ease-out', visibility: Math.abs(offset) < 1.5 ? 'visible' : 'hidden' }} />
             }) : <>

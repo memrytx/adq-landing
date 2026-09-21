@@ -16,5 +16,6 @@ export const playables: Playable[] = [
   playable('anb-31-3','Angry Birds 2','Rovio','100M+'),
   playable('ism-40-4','Idle Sword Master','Pixel Spirits','500K+'),
   playable('ypo-153-13','Yandex Travel','Yandex','5M+'),
+  { id: 'fitness-01', title: 'Your Personal Yoga Plan', studio: '', installs: '', file: assetUrl('playables/fitness-01.html'), preview: assetUrl('assets/playable-previews/fitness-01.png'), icon: '' },
 ]
 export const publisherIcons = playables.slice(0,10)
