@@ -8123,7 +8123,7 @@
    baked edge; the separate, soft halo remains outside the poster. */
 .page .wideMedia > img { clip-path: inset(4px 3px round 8px); }
 @media (min-width: 768px) {
-  .page .audienceBanner .logoRail { margin-top: clamp(56px, 5.5vw, 112px); }
+  .page .audienceBanner .logoRail { margin-top: clamp(84px, 8.25vw, 168px); }
   .page .content, .page .gaming > .content, .page .playables > .content,
   .page .nonGaming > .content {
     width: min(1600px, calc(100% - clamp(80px, 16vw, 320px)));
@@ -8268,7 +8268,7 @@
   .page .packageCard small { font-size: 14px; }
   .page .tierColumn article > span { font-size: 12px; line-height: 1.4; }
   .page .requirementRow { font-size: 12px; line-height: 1.25; }
-  .page .process > i { position: relative; z-index: 1; width: 2px; background: #fff; }
+  .page .process > i { position: relative; z-index: 1; width: 1px; background: #fff; }
   .page .process > a { isolation: auto; }
   .page .tierColumn article { height: auto; min-height: 200px; }
   .page .playablePlan::before { inset: -100px -60px; }
@@ -8345,5 +8345,53 @@
       -webkit-backdrop-filter: blur(24px) saturate(110%);
       backdrop-filter: blur(24px) saturate(110%);
     }
+  }
+}
+
+/* October review: consistent media widths, clean glass edges and typography. */
+.page .tiktok img { transform: scale(.75); transform-origin: left center; }
+.page .planCopy p { font-weight: 400; }
+@media (min-width: 1301px) {
+  /* 112px icon - 35px offset + 6px gap = 78px number + 5px gap. */
+  .page .tiktok span { margin-top: 6px; }
+}
+@media (max-width: 767px) {
+  .page .tiktok span { margin-top: 4px; }
+}
+.page .bloomMeta > .gradientButton > span { font-size: 1.2em; font-weight: 800; }
+.page .tierColumn article::after {
+  background: rgba(30, 29, 33, .16);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: none;
+}
+@media (min-width: 768px) {
+  .page .creativeRow { grid-template-columns: minmax(0, 1fr) minmax(0, 2.08fr); }
+  .page .creativeRow:nth-child(5) { grid-template-columns: minmax(0, 2.08fr) minmax(0, 1fr); }
+  .page .creativeImages > span::before { opacity: .8; }
+  .page .closing .processTitle,
+  .page .closing > .content > .blockTitle { margin-left: 0; padding-left: 0; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: 79.1px; }
+}
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: 274.4px; }
+}
+@media (min-width: 1900px) {
+  .page .creativeRow { grid-template-columns: 437px minmax(0, 1fr); }
+  .page .creativeRow:nth-child(5) { grid-template-columns: minmax(0, 1fr) 437px; }
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: 280.7px; }
+}
+@media (max-width: 767px) {
+  .page .process > span:nth-of-type(n) { font-size: 16.8px; line-height: 20.4px; }
+  .page .bloomMeta > .gradientButton > .caseCtaMobile { font-size: 1.08em; font-weight: 700; }
+  .page .tierColumn strong { font-size: 14.4px; line-height: 1.25; }
+  /* The transparent phone frame has a small inset inside its image bounds. */
+  .page .planCopy h4,
+  .page .planCopy p { margin-left: 3px; }
+  /* Remove the blue heading-to-art glow from both cases; retain the purple
+     heading light and each separate artwork halo. */
+  .page .caseIntro::before {
+    background: radial-gradient(ellipse 30% 25% at 42% 25%, rgba(100, 65, 190, .38), transparent 100%);
   }
 }
