@@ -40,8 +40,10 @@ function VideoOffer({ id, reverse = false, title, image, video, children, prices
       <div className={s.offerText}>{children}</div>
       <div className={s.offerMedia}>
         <div className={s.offerVisual}><MediaImage loading="lazy" decoding="async" src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
-        {id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}
-        <PricePair left={prices[0]} right={prices[1]} />
+        <div className={s.offerPricing}>
+          <PricePair left={prices[0]} right={prices[1]} />
+          {id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}
+        </div>
       </div>
     </div>
   </article>
