@@ -28,7 +28,7 @@ const logosByAudience: Record<AudienceType, CompanyLogo[]> = {
 }
 
 function LogoTrack({ logos, reverse = false }: { logos: CompanyLogo[]; reverse?: boolean }) {
-  return <div className={`${s.logoTrack} ${reverse ? s.logoTrackReverse : ''}`}>{Array.from({ length: 4 }, (_, group) => <div className={s.logoGroup} key={group}>{logos.map(({ src, width, height }) => <img src={src} alt="" key={`${group}-${src}`} style={{ '--company-logo-width': `${width}px`, '--company-logo-height': `${height}px` } as CSSProperties} />)}</div>)}</div>
+  return <div className={`${s.logoTrack} ${reverse ? s.logoTrackReverse : ''}`}>{Array.from({ length: 4 }, (_, group) => <div className={s.logoGroup} key={group}>{logos.map(({ src, width, height }) => <img loading="lazy" decoding="async" src={src} alt="" key={`${group}-${src}`} style={{ '--company-logo-width': `${width}px`, '--company-logo-height': `${height}px` } as CSSProperties} />)}</div>)}</div>
 }
 
 function LogoRail({ type }: { type: AudienceType }) {

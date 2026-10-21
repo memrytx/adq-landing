@@ -1,3 +1,4 @@
+import { MediaImage } from './MediaImage'
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type TouchEvent } from 'react'
 import { playables } from '../data/playables'
 import { openPlayableDirectly, shouldOpenPlayableDirectly } from '../playableLaunch'
@@ -48,7 +49,7 @@ function playableById(id: string) {
 function PlanSlide({ plan, className = '', style, onDemo }: { plan: PlayablePlan; className?: string; style?: CSSProperties; onDemo: () => void }) {
   const item = playableById(plan.playableId)
   return <article className={`${s.planSlide} ${toneClass(plan.tone)} ${className}`} style={style}>
-    <div className={s.planPhone}><img key={plan.playableId} className={`${s.phoneScreen} ${plan.preview ? s.phoneScreenCentered : ''}`} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
+    <div className={s.planPhone}><MediaImage sizes="(max-width: 767px) 45vw, 315px" key={plan.playableId} className={`${s.phoneScreen} ${plan.preview ? s.phoneScreenCentered : ''}`} src={plan.preview ?? item.preview} alt={`${item.title} playable`} /><MediaImage className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /></div>
     <div className={s.planCopy}>
       <h4>{plan.title}</h4>
       <p>{plan.description}</p>
@@ -60,6 +61,13 @@ function PlanSlide({ plan, className = '', style, onDemo }: { plan: PlayablePlan
 }
 
 export function PlayableAds() {
+  const showcaseRef = useRef<HTMLElement>(null)
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting))
+    if (showcaseRef.current) observer.observe(showcaseRef.current)
+    return () => observer.disconnect()
+  }, [])
   const [active, setActive] = useState(0)
   const [previous, setPrevious] = useState<number | null>(null)
   const [direction, setDirection] = useState<1 | -1>(1)
@@ -161,15 +169,15 @@ export function PlayableAds() {
   }, [animating])
 
   useEffect(() => {
-    if (open || animating || touching || dragPosition !== null) return
+    if (!inView || open || animating || touching || dragPosition !== null) return
     const timer = window.setTimeout(() => move(1), 5200)
     return () => window.clearTimeout(timer)
-  }, [animating, move, open, touching, dragPosition])
+  }, [inView, animating, move, open, touching, dragPosition])
 
   return <section className={s.playables} id="playable-ads">
     <AudienceBanner type="playable" />
     <div className={s.content}>
-      <section className={s.plansShowcase}>
+      <section ref={showcaseRef} className={s.plansShowcase}>
         <GlowAccent asset="sweep" className={s.planTitleGlow} parallax={false} />
         <GlowAccent asset="sweep" className={s.planPanelGlow} reverse parallax={false} />
         <h3 className={s.blockTitle}>Plans</h3>
@@ -183,7 +191,7 @@ export function PlayableAds() {
                 event.stopPropagation()
               }
             }}>
-          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan"><img src={swiperArrow} alt="" /></button>
+          <button className={s.planArrow} type="button" onClick={() => move(-1)} aria-label="Previous playable plan"><MediaImage src={swiperArrow} alt="" /></button>
           <div className={s.planStage}>
             {dragPosition !== null ? planSlides.map((slide, index) => {
               const half = planSlides.length / 2
@@ -195,13 +203,13 @@ export function PlayableAds() {
             <PlanSlide key={plan.title} plan={plan} onDemo={() => openDemo(active)} className={previous !== null ? direction === 1 ? s.slideEnterRight : s.slideEnterLeft : ''} />
             </>}
           </div>
-          <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan"><img src={swiperArrow} alt="" /></button>
+          <button className={s.planArrow} type="button" onClick={() => move(1)} aria-label="Next playable plan"><MediaImage src={swiperArrow} alt="" /></button>
         </div>
         <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={indicatedIndex === index ? s.dotActive : ''} aria-current={indicatedIndex === index ? 'true' : undefined} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
       </section>
 
-      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><img src={playDemoButton} alt="" /></button></div>
-      <div className={s.fastTrack}><div className={s.fastPhone}><img className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><img className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><img src={playDemoButton} alt="" /></button></div><PackageCarousel items={packages} /></div>
+      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><MediaImage src={playDemoButton} alt="" /></button></div>
+      <div className={s.fastTrack}><div className={s.fastPhone}><MediaImage className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><MediaImage className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><MediaImage src={playDemoButton} alt="" /></button></div><PackageCarousel items={packages} /></div>
 
     </div>
 

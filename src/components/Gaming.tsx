@@ -1,3 +1,4 @@
+import { MediaImage } from './MediaImage'
 import type { ReactNode } from 'react'
 import { assetUrl } from '../assetUrl'
 import { AudienceBanner } from './AudienceBanner'
@@ -38,7 +39,7 @@ function VideoOffer({ id, reverse = false, title, image, video, children, prices
     <div className={s.offerLayout}>
       <div className={s.offerText}>{children}</div>
       <div className={s.offerMedia}>
-        <div className={s.offerVisual}><img loading="lazy" decoding="async" src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
+        <div className={s.offerVisual}><MediaImage loading="lazy" decoding="async" src={image} alt="" /><VideoButton url={video} label={`Watch ${title}`} /></div>
         {id === 'gaming-videos' && <span className={s.offerPackageNote}>package starts at <strong>3 ads</strong></span>}
         <PricePair left={prices[0]} right={prices[1]} />
       </div>
@@ -70,8 +71,8 @@ function CaseArt({ alt, variant }: { alt: string; variant: 'adventure' | 'bloom'
   return <div className={`${s.blobMedia} ${variant === 'adventure' ? s.blobAdventure : s.blobBloom}`}>
     <CaseArtwork variant={variant} label={alt} />
     <div className={s.mobileCaseArtwork}>
-      <img className={s.mobileCaseLight} src={assetUrl(`assets/design/case-${variant}-art_mobile_light.png`)} alt="" loading="lazy" decoding="async" />
-      <img className={s.mobileCaseImage} src={assetUrl(`assets/design/case-${variant}-art_mobile.png`)} alt={alt} loading="lazy" decoding="async" />
+      <MediaImage className={s.mobileCaseLight} src={assetUrl(`assets/design/case-${variant}-art_mobile_light.png`)} alt="" loading="lazy" decoding="async" />
+      <MediaImage className={s.mobileCaseImage} src={assetUrl(`assets/design/case-${variant}-art_mobile.png`)} alt={alt} loading="lazy" decoding="async" />
     </div>
   </div>
 }
@@ -79,7 +80,7 @@ function CaseArt({ alt, variant }: { alt: string; variant: 'adventure' | 'bloom'
 export function Gaming() {
   return <section className={s.gaming} id="gaming">
     <AudienceBanner type="gaming" />
-    <div className={s.wideMedia}><img loading="lazy" decoding="async" src={assetUrl('assets/design/showreel-goblin.png')} alt="3D gaming showreel" /><VideoButton url={links.reel} label="Watch gaming showreel" /></div>
+    <div className={s.wideMedia}><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/showreel-goblin.png')} alt="3D gaming showreel" /><VideoButton url={links.reel} label="Watch gaming showreel" /></div>
     <div className={s.content}>
       <VideoOffer id="gaming-cinematic" title="2D / 3D Cinematic" image={assetUrl('assets/design/video-pocket-champs.png')} video={links.cinematic} prices={[["2D Cinematic:", "$1,800"], ["3D Cinematic:", "$2,600"]]}>
         <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
@@ -103,8 +104,8 @@ export function Gaming() {
 
       <article className={s.caseVideo} id="adventure-story">
         <div className={s.splitPosters}>
-          <span><img loading="lazy" decoding="async" src={assetUrl('assets/design/case-runner.png')} alt="" /><VideoButton url={links.runner} label="Watch Adventure Bay runner video" /></span>
-          <span><img loading="lazy" decoding="async" src={assetUrl('assets/design/case-ground.png')} alt="" /><VideoButton url={links.ground} label="Watch Adventure Bay ground video" /></span>
+          <span><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/case-runner.png')} alt="" /><VideoButton url={links.runner} label="Watch Adventure Bay runner video" /></span>
+          <span><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/case-ground.png')} alt="" /><VideoButton url={links.ground} label="Watch Adventure Bay ground video" /></span>
         </div>
         <DetailList>
           <Detail icon="challenge" title="Challenge:">Production launched during the <Accent>holiday season</Accent> (Christmas &amp; New Year), a period notorious for slower workflows.</Detail>
@@ -127,7 +128,7 @@ export function Gaming() {
 
       <article className={`${s.caseVideo} ${s.bloomVideo}`} id="bloom-story">
         <span className={s.bloomContour} aria-hidden="true" />
-        <div className={s.singlePoster}><img loading="lazy" decoding="async" src={assetUrl('assets/design/bloom-video.png')} alt="Bloom City Match case" /><VideoButton url={links.bloom} label="Watch Bloom City Match case" /></div>
+        <div className={s.singlePoster}><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/bloom-video.png')} alt="Bloom City Match case" /><VideoButton url={links.bloom} label="Watch Bloom City Match case" /></div>
         <div className={s.bloomMeta}>
           <a className={s.gradientButton} href="https://adquantum.design/cases/bloom-city-match/" target="_blank" rel="noreferrer"><span className={s.caseCtaDesktop}>Full case study</span><span className={s.caseCtaMobile}>View case study</span></a>
           <DetailList>

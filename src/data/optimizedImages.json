@@ -1,0 +1,345 @@
+{
+  "assets/design/showreel-goblin.png": {
+    "src": "assets/optimized/design/showreel-goblin.webp",
+    "width": 1920,
+    "height": 1063,
+    "small": "assets/optimized/design/showreel-goblin-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/video-pocket-champs.png": {
+    "src": "assets/optimized/design/video-pocket-champs.webp",
+    "width": 1920,
+    "height": 1076,
+    "small": "assets/optimized/design/video-pocket-champs-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/video-tower.png": {
+    "src": "assets/optimized/design/video-tower.webp",
+    "width": 993,
+    "height": 558,
+    "small": "assets/optimized/design/video-tower-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/case-runner.png": {
+    "src": "assets/optimized/design/case-runner.webp",
+    "width": 392,
+    "height": 695,
+    "small": "assets/optimized/design/case-runner-640.webp",
+    "smallWidth": 392
+  },
+  "assets/design/case-ground.png": {
+    "src": "assets/optimized/design/case-ground.webp",
+    "width": 397,
+    "height": 707,
+    "small": "assets/optimized/design/case-ground-640.webp",
+    "smallWidth": 397
+  },
+  "assets/design/bloom-video.png": {
+    "src": "assets/optimized/design/bloom-video.webp",
+    "width": 1237,
+    "height": 692,
+    "small": "assets/optimized/design/bloom-video-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/ugc-burger.png": {
+    "src": "assets/optimized/design/ugc-burger.webp",
+    "width": 1247,
+    "height": 698,
+    "small": "assets/optimized/design/ugc-burger-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/ai-princess.png": {
+    "src": "assets/optimized/design/ai-princess.webp",
+    "width": 236,
+    "height": 420,
+    "small": "assets/optimized/design/ai-princess-640.webp",
+    "smallWidth": 236
+  },
+  "assets/design/ai-chat.png": {
+    "src": "assets/optimized/design/ai-chat.webp",
+    "width": 235,
+    "height": 421,
+    "small": "assets/optimized/design/ai-chat-640.webp",
+    "smallWidth": 235
+  },
+  "assets/design/ai-baby.png": {
+    "src": "assets/optimized/design/ai-baby.webp",
+    "width": 704,
+    "height": 1264,
+    "small": "assets/optimized/design/ai-baby-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/ai-family.png": {
+    "src": "assets/optimized/design/ai-family.webp",
+    "width": 366,
+    "height": 654,
+    "small": "assets/optimized/design/ai-family-640.webp",
+    "smallWidth": 366
+  },
+  "assets/design/plan-phone.png": {
+    "src": "assets/optimized/design/plan-phone.webp",
+    "width": 1000,
+    "height": 1568,
+    "small": "assets/optimized/design/plan-phone-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/hero-game.png": {
+    "src": "assets/optimized/design/hero-game.webp",
+    "width": 276,
+    "height": 605,
+    "small": "assets/optimized/design/hero-game-640.webp",
+    "smallWidth": 276
+  },
+  "assets/design/hero-baby.png": {
+    "src": "assets/optimized/design/hero-baby.webp",
+    "width": 704,
+    "height": 1264,
+    "small": "assets/optimized/design/hero-baby-640.webp",
+    "smallWidth": 640
+  },
+  "assets/design/hero-chat.png": {
+    "src": "assets/optimized/design/hero-chat.webp",
+    "width": 235,
+    "height": 421,
+    "small": "assets/optimized/design/hero-chat-640.webp",
+    "smallWidth": 235
+  },
+  "assets/design/hero-runner.png": {
+    "src": "assets/optimized/design/hero-runner.webp",
+    "width": 392,
+    "height": 695,
+    "small": "assets/optimized/design/hero-runner-640.webp",
+    "smallWidth": 392
+  },
+  "assets/design/hero-angry-birds.png": {
+    "src": "assets/optimized/design/hero-angry-birds.webp",
+    "width": 197,
+    "height": 433,
+    "small": "assets/optimized/design/hero-angry-birds-640.webp",
+    "smallWidth": 197
+  },
+  "assets/design/hero-princess.png": {
+    "src": "assets/optimized/design/hero-princess.webp",
+    "width": 236,
+    "height": 420,
+    "small": "assets/optimized/design/hero-princess-640.webp",
+    "smallWidth": 236
+  },
+  "assets/design/case-adventure-art_mobile.png": {
+    "src": "assets/optimized/design/case-adventure-art_mobile.webp",
+    "width": 360,
+    "height": 353,
+    "small": "assets/optimized/design/case-adventure-art_mobile-640.webp",
+    "smallWidth": 360
+  },
+  "assets/design/case-adventure-art_mobile_light.png": {
+    "src": "assets/optimized/design/case-adventure-art_mobile_light.webp",
+    "width": 360,
+    "height": 513,
+    "small": "assets/optimized/design/case-adventure-art_mobile_light-640.webp",
+    "smallWidth": 360
+  },
+  "assets/design/case-bloom-art_mobile.png": {
+    "src": "assets/optimized/design/case-bloom-art_mobile.webp",
+    "width": 360,
+    "height": 337,
+    "small": "assets/optimized/design/case-bloom-art_mobile-640.webp",
+    "smallWidth": 360
+  },
+  "assets/design/case-bloom-art_mobile_light.png": {
+    "src": "assets/optimized/design/case-bloom-art_mobile_light.webp",
+    "width": 360,
+    "height": 491,
+    "small": "assets/optimized/design/case-bloom-art_mobile_light-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ab2-preview.png": {
+    "src": "assets/optimized/playable-previews/ab2-preview.webp",
+    "width": 293,
+    "height": 634,
+    "small": "assets/optimized/playable-previews/ab2-preview-640.webp",
+    "smallWidth": 293
+  },
+  "assets/playable-previews/ac-15-19.png": {
+    "src": "assets/optimized/playable-previews/ac-15-19.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-15-19-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-2-f2.png": {
+    "src": "assets/optimized/playable-previews/ac-2-f2.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-2-f2-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-20-15.png": {
+    "src": "assets/optimized/playable-previews/ac-20-15.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-20-15-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-4-f1-no-auto-another-camera.png": {
+    "src": "assets/optimized/playable-previews/ac-4-f1-no-auto-another-camera.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-4-f1-no-auto-another-camera-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-4-f1-no-auto.png": {
+    "src": "assets/optimized/playable-previews/ac-4-f1-no-auto.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-4-f1-no-auto-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-8-16.png": {
+    "src": "assets/optimized/playable-previews/ac-8-16.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-8-16-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ac-9-17.png": {
+    "src": "assets/optimized/playable-previews/ac-9-17.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ac-9-17-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/anb-25-20t.png": {
+    "src": "assets/optimized/playable-previews/anb-25-20t.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/anb-25-20t-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/anb-31-3.png": {
+    "src": "assets/optimized/playable-previews/anb-31-3.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/anb-31-3-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/anb-42-10.png": {
+    "src": "assets/optimized/playable-previews/anb-42-10.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/anb-42-10-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/anbm-02-27.png": {
+    "src": "assets/optimized/playable-previews/anbm-02-27.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/anbm-02-27-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/anbm-03-57.png": {
+    "src": "assets/optimized/playable-previews/anbm-03-57.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/anbm-03-57-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/fitness-01.png": {
+    "src": "assets/optimized/playable-previews/fitness-01.webp",
+    "width": 360,
+    "height": 740,
+    "small": "assets/optimized/playable-previews/fitness-01-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/iop-17-preview.png": {
+    "src": "assets/optimized/playable-previews/iop-17-preview.webp",
+    "width": 198,
+    "height": 433,
+    "small": "assets/optimized/playable-previews/iop-17-preview-640.webp",
+    "smallWidth": 198
+  },
+  "assets/playable-previews/iop-434-25.png": {
+    "src": "assets/optimized/playable-previews/iop-434-25.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/iop-434-25-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/iop-7-preview.png": {
+    "src": "assets/optimized/playable-previews/iop-7-preview.webp",
+    "width": 212,
+    "height": 460,
+    "small": "assets/optimized/playable-previews/iop-7-preview-640.webp",
+    "smallWidth": 212
+  },
+  "assets/playable-previews/ism-35-3.png": {
+    "src": "assets/optimized/playable-previews/ism-35-3.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ism-35-3-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ism-36-9.png": {
+    "src": "assets/optimized/playable-previews/ism-36-9.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ism-36-9-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ism-40-4.png": {
+    "src": "assets/optimized/playable-previews/ism-40-4.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ism-40-4-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ism-93-3.png": {
+    "src": "assets/optimized/playable-previews/ism-93-3.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ism-93-3-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ism-97-04.png": {
+    "src": "assets/optimized/playable-previews/ism-97-04.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ism-97-04-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ivg-131-4.png": {
+    "src": "assets/optimized/playable-previews/ivg-131-4.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ivg-131-4-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/jum-1-45.png": {
+    "src": "assets/optimized/playable-previews/jum-1-45.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/jum-1-45-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/jum-3-6.png": {
+    "src": "assets/optimized/playable-previews/jum-3-6.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/jum-3-6-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/lim-404-23.png": {
+    "src": "assets/optimized/playable-previews/lim-404-23.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/lim-404-23-640.webp",
+    "smallWidth": 360
+  },
+  "assets/playable-previews/ypo-153-13.png": {
+    "src": "assets/optimized/playable-previews/ypo-153-13.webp",
+    "width": 360,
+    "height": 640,
+    "small": "assets/optimized/playable-previews/ypo-153-13-640.webp",
+    "smallWidth": 360
+  }
+}

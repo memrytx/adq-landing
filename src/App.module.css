@@ -4206,7 +4206,7 @@
   }
 
   .about {
-    height: 840px;
+    height: calc(840px - var(--desktop-gap-trim, 0px));
     background:
       radial-gradient(ellipse 760px 520px at 0% 48%, rgba(0, 113, 198, 0.17), transparent 74%),
       radial-gradient(ellipse 720px 500px at 100% 52%, rgba(88, 48, 190, 0.13), transparent 74%),
@@ -4239,7 +4239,7 @@
   }
 
   .audienceBanner {
-    height: 1230px;
+    height: calc(1230px - var(--desktop-gaming-gap-trim, 0px));
     padding-top: 265px;
     background:
       radial-gradient(ellipse 780px 560px at 4% 48%, rgba(0, 110, 205, 0.14), transparent 74%),
@@ -4483,7 +4483,7 @@
   }
 
   .audience_playable {
-    height: 1096px;
+    height: calc(1096px - var(--desktop-gap-trim, 0px));
     padding-top: 350px;
   }
 
@@ -4559,7 +4559,7 @@
   }
 
   .audience_non-gaming {
-    height: 1164px;
+    height: calc(1164px - var(--desktop-gap-trim, 0px));
     padding-top: 230px;
   }
 
@@ -4625,7 +4625,7 @@
   }
 
   .nonGaming > .content {
-    padding-bottom: 200px;
+    padding-bottom: calc(200px - var(--desktop-gap-trim, 0px));
   }
 
   .nonGaming > .content > .packageViewport:nth-child(7) {
@@ -7160,7 +7160,7 @@
   .videoOffer:not(.reverse) .offerHeading .pill { display: inline-grid; place-items: center; width: 98px; height: 54px; padding: 0; margin: 0; font-size: 18px; border-radius: 30px; background: rgba(255, 255, 255, 0.12); color: #dedbdf; }
   .offerHeading > div { display: flex; flex-direction: column; align-items: flex-start; }
   .videoOffer.reverse .offerHeading > div { align-items: flex-end; }
-  .audienceBanner { height: 1430px; padding-top: 433px; }
+  .audienceBanner { height: calc(1430px - var(--desktop-gaming-gap-trim, 0px)); padding-top: 433px; }
   .audienceBanner .logoRail { margin-top: 213px; }
   .audienceTitleGlow { top: calc(585px - 43.838vw); }
   .audienceGlowLeft { width: 810px; height: 633px; left: 0; top: 230px; }
@@ -7210,7 +7210,7 @@
   .bloomMeta > .detailList p { font-size: 22px; line-height: 26px; }
   .bloomMeta > .detailList p strong { margin-bottom: 4.215px; }
   .bloomMeta .detailIcon { width: 42.146px; height: 42.146px; }
-  .audience_playable { padding-top: 530px; height: 1344px; }
+  .audience_playable { padding-top: 530px; height: calc(1344px - var(--desktop-gap-trim, 0px)); }
   .audience_playable .audienceTitleGlow { top: calc(600px - 43.838vw); }
   .audience_playable .logoRail { margin-top: 220px; }
   .blockTitle { font-size: 64px; line-height: 78px; }
@@ -7225,7 +7225,7 @@
   .planPriceFlag strong { font-size: 56px; }
   .fastHead { margin-top: 207px; }
   .fastTrack { margin-top: 65px; }
-  .audience_non-gaming { padding-top: 364px; height: 1453px; }
+  .audience_non-gaming { padding-top: 364px; height: calc(1453px - var(--desktop-gap-trim, 0px)); }
   .audience_non-gaming h2 small { display: block; line-height: 77px; margin-bottom: 18px; }
   .audience_non-gaming .audienceTitleGlow { top: calc(530px - 43.838vw); }
   .audience_non-gaming .logoRail { margin-top: 213px; }
@@ -7983,10 +7983,10 @@
 }
 @media (max-width: 767px) {
   .page {
-    --light-1: url('./assets/exported/mobile/light_1.webp') !important;
-    --light-2: url('./assets/exported/mobile/light_2.webp') !important;
-    --video-glow: url('./assets/exported/mobile/video-glow.webp') !important;
-    --video-glow-vertical: url('./assets/exported/mobile/video-glow_2.webp') !important;
+    --light-1: url('./assets/exported/optimized-mobile/light_1.webp') !important;
+    --light-2: url('./assets/exported/optimized-mobile/light_2.webp') !important;
+    --video-glow: url('./assets/exported/optimized-mobile/video-glow.webp') !important;
+    --video-glow-vertical: url('./assets/exported/optimized-mobile/video-glow_2.webp') !important;
   }
 }
 /* Centered ellipses fade fully before their bounds, without rectangular edges. */
@@ -8115,7 +8115,7 @@
 .page .creativeImages > span { isolation: auto; z-index: auto; }
 .page .creativeImages > span::before {
   content: ''; position: absolute; inset: -48px; z-index: -1;
-  background: url('./assets/vertical_glow.png') center / 100% 100% no-repeat;
+  background: url('./assets/vertical_glow.webp') center / 100% 100% no-repeat;
   opacity: 1; filter: blur(18px); pointer-events: none;
 }
 .page .creativeImages img { box-shadow: none; }
@@ -8375,12 +8375,12 @@
   .page .caseVideo:not(.bloomVideo) { margin-bottom: 79.1px; }
 }
 @media (min-width: 1301px) and (max-width: 1899px) {
-  .page .caseVideo:not(.bloomVideo) { margin-bottom: 274.4px; }
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: calc(274.4px - var(--desktop-gap-trim, 0px)); }
 }
 @media (min-width: 1900px) {
   .page .creativeRow { grid-template-columns: 437px minmax(0, 1fr); }
   .page .creativeRow:nth-child(5) { grid-template-columns: minmax(0, 1fr) 437px; }
-  .page .caseVideo:not(.bloomVideo) { margin-bottom: 280.7px; }
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: calc(280.7px - var(--desktop-gap-trim, 0px)); }
 }
 @media (max-width: 767px) {
   .page .process > span:nth-of-type(n) { font-size: 16.8px; line-height: 20.4px; }
@@ -8394,4 +8394,15 @@
   .page .caseIntro::before {
     background: radial-gradient(ellipse 30% 25% at 42% 25%, rgba(100, 65, 190, .38), transparent 100%);
   }
+}
+
+/* Remove the seven desktop spacer bands marked in the October review.
+   The gaming-logo band is taller (about 8% of the screenshot width);
+   the other six bands are about 6%. Keep the light anchored to its content. */
+@media (min-width: 1301px) {
+  .page {
+    --desktop-gap-trim: clamp(76px, 5.86vw, 150px);
+    --desktop-gaming-gap-trim: clamp(104px, 8.1vw, 208px);
+  }
+  .page .bloomVideo { margin-bottom: calc(110px - var(--desktop-gap-trim)); }
 }

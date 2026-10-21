@@ -1,10 +1,10 @@
-import mobileBridge from '../assets/exported/mobile/im3.webp'
-import mobileSweep from '../assets/exported/mobile/im4.webp'
-import lensesA from '../assets/exported/im1.png'
-import lensesB from '../assets/exported/im2.png'
+import mobileBridge from '../assets/exported/optimized-mobile/im3.webp'
+import mobileSweep from '../assets/exported/optimized-mobile/im4.webp'
+import lensesA from '../assets/exported/im1.webp'
+import lensesB from '../assets/exported/im2.webp'
 import s from '../App.module.css'
-import bridgeLight from '../assets/exported/im3.png'
-import sweepLight from '../assets/exported/im4.png'
+import bridgeLight from '../assets/exported/im3.webp'
+import sweepLight from '../assets/exported/im4.webp'
 
 export type GlowAsset = 'lenses-a' | 'lenses-b' | 'bridge' | 'sweep'
 

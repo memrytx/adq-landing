@@ -61,6 +61,13 @@ for (const variant of ['adventure', 'bloom']) {
   }
 }
 const logoSizes = JSON.parse(fs.readFileSync(path.join(root, 'src/assets/exported/company-logo-sizes.json'), 'utf8'));
+const optimizedImages = JSON.parse(fs.readFileSync(path.join(root, 'src/data/optimizedImages.json'), 'utf8'));
+for (const [source, image] of Object.entries(optimizedImages)) {
+  for (const file of [source, image.src, image.small]) check(path.join(root, 'public', file), file);
+  if (![image.width, image.height, image.smallWidth].every(value => Number.isFinite(value) && value > 0)) {
+    errors.push(`${source}: invalid responsive image dimensions`);
+  }
+}
 for (const folder of ['ForGamingCompanies', 'ForNoneGamingApps', 'PlayableAds']) {
   const directory = path.join(root, 'src/assets/exported', folder);
   const names = fs.existsSync(directory) ? fs.readdirSync(directory).filter(name => name.endsWith('.png')) : [];

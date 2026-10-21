@@ -1,11 +1,25 @@
-import { useId } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { caseArtwork } from '../assets/caseArtwork'
 import s from '../App.module.css'
 
 export function CaseArtwork({ variant, label }: { variant: keyof typeof caseArtwork; label: string }) {
   const id = useId().replace(/:/g, '')
   const art = caseArtwork[variant]
-  return <svg className={s.caseArtPicture} viewBox={art.viewBox} role="img" aria-label={label}>
+  const ref = useRef<SVGSVGElement>(null)
+  const [loadImage, setLoadImage] = useState(false)
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 768px)')
+    let near = false
+    const load = () => { if (near && desktop.matches) setLoadImage(true) }
+    const observer = new IntersectionObserver(([entry]) => {
+      near = entry.isIntersecting
+      load()
+    }, { rootMargin: '600px' })
+    if (ref.current) observer.observe(ref.current)
+    desktop.addEventListener('change', load)
+    return () => { observer.disconnect(); desktop.removeEventListener('change', load) }
+  }, [])
+  return <svg ref={ref} className={s.caseArtPicture} viewBox={art.viewBox} role="img" aria-label={label}>
     <defs>
       <clipPath id={`${id}-clip`}><path d={art.path} /></clipPath>
       <linearGradient id={`${id}-edge`} x1="0" y1="0.5" x2="1" y2="0.5" gradientTransform={`matrix(${art.gradient.join(' ')})`}>
@@ -24,7 +38,7 @@ export function CaseArtwork({ variant, label }: { variant: keyof typeof caseArtw
     <path d={art.glow.path} transform={`matrix(${art.glow.transform.join(' ')})`} fill={`url(#${id}-light)`} filter={`url(#${id}-blur)`} />
     <g transform={`matrix(${art.transform.join(' ')})`}>
       <g clipPath={`url(#${id}-clip)`}>
-        <image href={art.image} width="1" height="1" preserveAspectRatio="none" transform={`matrix(${art.imageTransform.join(' ')})`} />
+        <image href={loadImage ? art.image : undefined} width="1" height="1" preserveAspectRatio="none" transform={`matrix(${art.imageTransform.join(' ')})`} />
       </g>
       <path d={art.path} fill="none" stroke={`url(#${id}-edge)`} strokeWidth="3" />
     </g>
