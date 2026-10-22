@@ -8527,3 +8527,87 @@
   box-shadow: none;
   pointer-events: none;
 }
+
+/* Reference corrections: lighter outlines and compact case details. */
+.page .videoOffer .pricePair > div,
+.page .videoOffer .pricePair > div:first-child,
+.page .videoOffer .pricePair > div:last-child {
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+.page .videoOffer .pricePair > div::after {
+  z-index: 2;
+  width: auto;
+  height: auto;
+  transform: none;
+  background: linear-gradient(135deg, rgba(255,255,255,.12), transparent 38%, transparent 62%, rgba(255,255,255,.12));
+}
+.page .videoOffer .offerText { column-gap: 20px; }
+.page .videoOffer .offerList { list-style: none; padding-left: 12px; }
+.page .videoOffer .offerList li { position: relative; padding-left: 0; }
+.page .videoOffer .offerList li::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+  left: -12px;
+  top: .7em;
+}
+.page .bloomMeta .iconChallenge { background-image: url('./assets/exported/mage_goals-fill.svg'); }
+.page .bloomMeta .iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
+@media (min-width: 768px) {
+  .page .bloomMeta { gap: 28px 48px; }
+  .page .bloomMeta > .detailList p { font-size: clamp(12px, .95vw, 18px); line-height: 1.25; }
+  .page .bloomMeta > .detailList > div { grid-template-columns: 26px minmax(0, 1fr); gap: 18px; }
+  .page .bloomMeta .detailIcon { width: 26px; height: 26px; }
+  .page .bloomMeta > .gradientButton {
+    aspect-ratio: 5.3 / 1;
+    margin: 0 22px 0 26px;
+    min-height: 40px;
+  }
+  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 5.5cqw; font-weight: 700; }
+  .page .videoOffer .offerList { max-width: 23ch; line-height: 1.5; }
+}
+
+/* Use the actual creatives-card frame asset for all four offer prices. */
+.page .videoOffer .pricePair > div::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: var(--frame-5) center / 100% 100% no-repeat;
+  -webkit-mask: none;
+  mask: none;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* The frame image already contains the glass fill; avoid a second silhouette. */
+.page .videoOffer .pricePair > div,
+.page .videoOffer .pricePair > div:first-child,
+.page .videoOffer .pricePair > div:last-child {
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Keep the hover lift, with only the exported frame defining the surface. */
+.page .packageCard,
+.page .mixGrid .packageCard,
+.page .packageCard:hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
