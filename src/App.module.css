@@ -8611,3 +8611,20 @@
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+
+/* October 28: align the gaming panels to the outer content grid. */
+@media (min-width: 1301px) {
+  .page .gaming .videoOffer, .page .gaming .caseVideo { width: 100%; margin-inline: 0; }
+  .page .videoOffer .offerText { grid-template-columns: auto minmax(0, 1fr) auto auto; }
+  .page .videoOffer .offerText p { grid-area: 1 / 4; margin: 0; align-self: baseline; white-space: nowrap; }
+  .page .videoOffer .offerText h4:nth-of-type(2) { align-self: baseline; }
+  .page .videoOffer.reverse { margin-bottom: 205px; }
+}
+@media (min-width: 1900px) {
+  .page .videoOffer.reverse { margin-bottom: 175px; }
+}
+@media (max-width: 767px) {
+  /* The previous 261px gap below the logos becomes approximately 157px. */
+  .page .gaming > .audienceBanner { height: 496px; min-height: 496px; }
+}
+
