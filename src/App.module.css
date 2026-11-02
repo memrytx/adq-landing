@@ -8407,6 +8407,14 @@
   .page .bloomVideo { margin-bottom: calc(110px - var(--desktop-gap-trim)); }
 }
 
+/* Keep the October 19 phone layout; the pricing wrapper must not add a box. */
+.offerPricing { display: contents; }
+
+/* October 21–22 layouts apply to desktop and iPad-like tablets only.
+   Portrait ratios: 0.60–0.83; landscape ratios: 1.20–1.67. */
+@media (min-width: 1301px),
+  (min-width: 768px) and (max-width: 1300px) and (min-aspect-ratio: 3/5) and (max-aspect-ratio: 5/6),
+  (min-width: 768px) and (max-width: 1300px) and (min-aspect-ratio: 6/5) and (max-aspect-ratio: 5/3) {
 /* Responsive offer and case layouts: shared rows keep media and prices aligned. */
 .page .videoOffer .offerLayout,
 .page .videoOffer.reverse .offerLayout {
@@ -8421,6 +8429,7 @@
 .page .videoOffer.reverse .offerVisual { grid-column: 2; }
 .page .offerPricing { grid-area: 1 / 2; display: flex; flex-direction: column; min-width: 0; gap: 16px; }
 .page .reverse .offerPricing { grid-column: 1; }
+.page .offerPricing > .offerPackageNote { order: 1; }
 .page .videoOffer .pricePair { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; flex: 1; width: 100%; height: auto; min-height: 0; margin: 0; padding: 0; gap: 16px; }
 .page .videoOffer .pricePair > div { min-height: 0; padding: clamp(10px, 1.5vw, 28px); display: flex; flex-direction: column; }
 .page .videoOffer .pricePair span { font-size: clamp(11px, 1.25vw, 24px); line-height: 1.2; }
@@ -8612,6 +8621,8 @@
   backdrop-filter: none;
 }
 
+}
+
 /* October 28: align the gaming panels to the outer content grid. */
 @media (min-width: 1301px) {
   .page .gaming .videoOffer, .page .gaming .caseVideo { width: 100%; margin-inline: 0; }
@@ -8622,6 +8633,8 @@
 }
 @media (min-width: 1900px) {
   .page .videoOffer.reverse { margin-bottom: 175px; }
+  /* 563px × 0.7: reduce the showreel-to-Cinematic gap by 30% on 2K screens. */
+  .page .gaming > .wideMedia { margin-bottom: 394.1px; }
 }
 @media (max-width: 767px) {
   /* The previous 261px gap below the logos becomes approximately 157px. */
