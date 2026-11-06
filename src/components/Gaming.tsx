@@ -88,7 +88,7 @@ export function Gaming() {
         <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
-      <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
+      <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/figma-video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
         <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 

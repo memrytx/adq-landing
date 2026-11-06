@@ -8641,3 +8641,249 @@
   .page .gaming > .audienceBanner { height: 496px; min-height: 496px; }
 }
 
+
+/* Iteration 6 — measured against the supplied November Figma frames.
+   Keep these rules together: older revisions above target superseded layouts. */
+.iconChallenge { background-image: url('./assets/exported/mage_goals-fill.svg'); }
+.iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
+
+@media (min-width: 768px) {
+  .page .heroVisitLink { display: none; }
+  .page .hero { height: 1333px; }
+  .page .planSlide {
+    --phone-column: 220px;
+    --plan-gap: 28px;
+    grid-template-columns: var(--phone-column) minmax(0, 1fr);
+    column-gap: var(--plan-gap);
+    --flag-reach: calc(var(--plan-gap) + 2px);
+  }
+  .page .planPhone { width: 100%; height: auto; aspect-ratio: 292.228 / 600; }
+  .page .planPriceFlag {
+    width: calc(100% + var(--flag-reach));
+    margin-left: calc(-1 * var(--flag-reach));
+    padding-left: var(--flag-reach);
+  }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .hero { height: 1003px; }
+}
+@media (min-width: 1301px) {
+  .page .content, .page .gaming > .content, .page .playables > .content,
+  .page .nonGaming > .content { width: min(1608px, 84.375%); }
+  .page .videoOffer .offerLayout {
+    grid-template-columns: minmax(0, 964fr) minmax(0, 472fr);
+    gap: 55px 22px;
+  }
+  .page .videoOffer.reverse .offerLayout {
+    grid-template-columns: minmax(0, 472fr) minmax(0, 964fr);
+  }
+  .page .videoOffer .offerText {
+    grid-template-columns: 151fr 304fr 241fr 88fr;
+    grid-template-rows: auto;
+    column-gap: 20px;
+    align-items: baseline;
+  }
+  .page .videoOffer .offerText h4 { font-size: 32px; line-height: 1.2; white-space: nowrap; align-self: baseline; }
+  .page .videoOffer .offerList { grid-area: 1 / 2; max-width: none; padding-left: 27px; }
+  .page .videoOffer .offerList li::before { left: -18px; }
+  .page .videoOffer .offerList, .page .videoOffer .offerText p { font-size: 18px; line-height: 1.5; }
+  .page .videoOffer .offerText p { grid-area: 1 / 4; margin: 0; }
+  .page .videoOffer .pricePair span { font-size: 32px; }
+  .page .videoOffer .pricePair small { font-size: 18px; }
+  .page .videoOffer .pricePair strong { font-size: 26px; margin-top: 6.322px; }
+  .page .videoOffer .pricePair { gap: 30px; }
+  .page .videoOffer .pricePair > div { padding: 33.717px 33.717px 33.717px 37.932px; }
+
+  .page .caseVideo:not(.bloomVideo) {
+    grid-template-columns: minmax(0, 693.774fr) minmax(0, 494.226fr);
+    gap: 5.487%;
+    padding: 120px 5.487% 120px 7.545%;
+  }
+  .page .caseVideo:not(.bloomVideo) .splitPosters { aspect-ratio: 693.774 / 594.679; gap: 25.469px; }
+  .page .caseVideo:not(.bloomVideo) .detailList { gap: 50px; padding: 0 0 40px; }
+  .page .caseVideo:not(.bloomVideo) .detailList > div { grid-template-columns: 42.146px minmax(0, 1fr); gap: 25.288px; }
+  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: 18px; line-height: 22px; }
+  .page .caseVideo:not(.bloomVideo) .detailIcon { width: 42.146px; height: 42.146px; }
+  .page .caseVideo .detailList p strong { margin-bottom: 4.215px; }
+  .page .splitPosters .playButton { width: 110.366px; height: 110.393px; }
+
+  .page .bloomVideo { padding: 42.146px 42.146px 105.366px; border-radius: 63.22px; }
+  .page .bloomVideo .singlePoster { aspect-ratio: 1373.707 / 834.908; }
+  .page .bloomVideo .singlePoster img { border-radius: 65.32px; }
+  .page .bloomVideo .singlePoster .playButton { width: 205.73px; height: 238.82px; }
+  .page .bloomMeta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42.146px 100px;
+    padding: 63.22px 8.736% 0;
+  }
+  .page .bloomMeta > .detailList > div { grid-template-columns: 40px minmax(0, 1fr); gap: 24px; }
+  .page .bloomMeta .detailIcon { width: 40px; height: 40px; }
+  .page .bloomMeta > .detailList p { font-size: 18px; line-height: 22px; }
+  .page .bloomMeta > .gradientButton { margin: 0 44px; min-height: 95px; aspect-ratio: auto; padding: 20px; }
+  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 26px; }
+  .page .planSlide { --phone-column: 292.228px; --plan-gap: 50px; }
+}
+@media (min-width: 1900px) {
+  .page .videoOffer .offerLayout { grid-template-columns: minmax(0, 1021fr) minmax(0, 444fr); column-gap: 139px; }
+  .page .videoOffer.reverse .offerLayout { grid-template-columns: minmax(0, 444fr) minmax(0, 1021fr); }
+  .page .videoOffer .offerList, .page .videoOffer .offerText p { font-size: 22px; }
+  .page .bloomVideo .singlePoster { aspect-ratio: 1523.707 / 834.908; }
+  .page .planSlide { --phone-column: 292.228px; --plan-gap: 50px; }
+}
+@media (min-width: 1301px) and (max-width: 1599px) {
+  .page .videoOffer .offerText h4 { font-size: 26px; }
+  .page .videoOffer .offerList, .page .videoOffer .offerText p { font-size: 16px; }
+  .page .videoOffer .pricePair > div { padding: 28px; }
+  .page .videoOffer .pricePair span { font-size: 26px; }
+  .page .bloomMeta { column-gap: 40px; padding-inline: 5%; }
+  .page .bloomMeta > .gradientButton { margin-inline: 20px; }
+}
+@media (min-width: 1301px) {
+  .page .offerHeading, .page .videoOffer.reverse .offerHeading { margin-bottom: 58px; }
+  .page .offerHeading h3 { font-size: 50px; line-height: 61px; margin-top: 25.288px; }
+  .page .offerHeading .pill { width: 98px; height: 50px; font-size: 18px; }
+  .page .videoOffer .offerText { grid-template-columns: 151px 304px 257px 72px; }
+  .page .videoOffer .offerText h4:nth-of-type(2) { margin-left: 0; }
+  .page .videoOffer .offerText { column-gap: 16.859px; }
+  .page .videoOffer .offerText h4:nth-of-type(2) { transform: translateX(3.141px); }
+  .page .aboutInner { width: min(1458px, 84.375%); grid-template-columns: minmax(0, 660fr) minmax(0, 714fr); column-gap: 84px; }
+  .page .aboutCopy p { font-size: 32px; line-height: 1.3; font-weight: 400; }
+  .page .audienceGlowLeft, .page .audienceGlowRight { display: none; }
+  .page .planSlide { padding: 50px 50px 50px 71.606px; align-items: start; min-height: 700px; }
+  .page .planCopy { align-self: start; }
+  .page .planCopy h4 { font-size: 32px; line-height: 39px; }
+  .page .planCopy p { max-width: 530px; font-size: 22px; line-height: 1.3; margin: 16px 0 30px; }
+  .page .planPriceFlag { min-height: 151.239px; margin-top: 0; margin-bottom: 30px; padding-block: 20px; display: flex; flex-direction: column; justify-content: center; }
+  .page .planPriceFlag small { font-size: 18px; line-height: 27px; }
+  .page .planPriceFlag strong { font-size: 56.174px; line-height: 68px; }
+  .page .planCopy ul { font-size: 22px; line-height: 1.2; margin: 0 0 30px; }
+  .page .planCopy li + li { margin-top: 17.284px; }
+  .page .planCopy .demo { font-size: 26px; line-height: 31px; padding: 20px 40px; }
+}
+@media (min-width: 1900px) {
+  .page .videoOffer .offerText { grid-template-columns: 151px 304px 241px 88px; }
+}
+@media (min-width: 1301px) and (max-width: 1599px) {
+  .page .videoOffer .offerText { grid-template-columns: auto minmax(0, 1fr) auto auto; column-gap: 12px; }
+  .page .videoOffer .offerText h4 { font-size: 24px; }
+  .page .planSlide { --phone-column: 250px; padding-inline: 40px; }
+  .page .planCopy p, .page .planCopy ul { font-size: 18px; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .content, .page .gaming > .content, .page .playables > .content,
+  .page .nonGaming > .content { width: calc(100% - 60px); }
+}
+@media (max-width: 767px) {
+  .page .heroTitleLogo { width: 280px; }
+  .page .heroCopy p { max-width: 300px; margin-inline: auto; font-size: 16px; line-height: 20.8px; }
+  .page .heroCopy p br { display: none; }
+  .page .aboutCopy p { font-weight: 400; width: min(100%, 297.411px); line-height: 1.3; }
+  .page .aboutCopy .logo { width: 183.42px; }
+  .page .audienceBanner h2 { font-size: 44px; letter-spacing: 0; line-height: normal; }
+  .page .audienceBanner h2 small { font-size: 22px; }
+  .page .audience_non-gaming h2 small { display: block; }
+  .page .caseVideo:not(.bloomVideo) { padding: 48px 20px 60px; gap: 37px; }
+  .page .caseVideo:not(.bloomVideo) .splitPosters { gap: 20px; }
+  .page .caseVideo:not(.bloomVideo) .splitPosters > span { flex-basis: 264.065px; width: 264.065px; }
+  .page .caseVideo .detailList { gap: 22px; }
+  .page .caseVideo .detailList > div { grid-template-columns: 20px minmax(0, 1fr); gap: 10px; }
+  .page .caseVideo .detailList p { font-size: 14px; line-height: 1.2; font-weight: 400; }
+  .page .caseVideo .detailList p strong { color: #fff; margin-bottom: 4px; }
+  .page .caseVideo .detailIcon { width: 20px; height: 20px; }
+  .page .bloomMeta { padding-top: 47px; gap: 61px; }
+  .page .packageCard { min-height: 416px; }
+}
+/* Restore the reference's desktop rhythm; the hero CTA removal is the only
+   intentional vertical compression requested in Iteration 6. */
+@media (min-width: 1301px) {
+  .page { --desktop-gap-trim: 0px; --desktop-gaming-gap-trim: 0px; }
+  .page .heroCopy { width: 634.5px; }
+  .page .heroCopy .heroTitleLogo { width: 396px; }
+  .page .heroCopy p { font-size: 32px; line-height: 42px; margin-top: 50px; }
+  .page .heroRail { margin-top: 113px; }
+  .page .videoOffer:not(.reverse) { margin-bottom: 306px; }
+  .page .videoOffer.reverse .offerHeading { margin-bottom: 68px; }
+  .page .caseIntro { grid-template-columns: minmax(0, 714fr) minmax(0, 660fr); gap: 84px; }
+  .page .caseIntro .caseCopy { align-self: start; width: 714px; }
+  .page .caseIntro h3 { font-size: 50px; line-height: 61px; width: 714px; max-width: none; }
+  .page .bloomIntro h3 { white-space: nowrap; }
+  .page .caseIntro .caseCopy small { font-size: 18px; line-height: 22px; }
+  .page .caseIntro .caseCopy .detailList { margin-top: 120px; max-width: 642.732px; gap: 44px; }
+  .page .caseIntro .caseCopy .detailList p { font-size: 18px; line-height: 22px; }
+  .page .caseIntro .caseCopy .detailList > div { grid-template-columns: 42.146px minmax(0, 1fr); gap: 25.288px; }
+  .page .caseIntro .detailIcon { width: 42.146px; height: 42.146px; }
+  .page .caseIntro .detailResult .detailAccent { color: inherit; font-weight: inherit; }
+  .page .bloomIntro .caseCopy .detailList { max-width: 549px; }
+  .page .caseIntro .blobMedia { position: absolute; align-self: start; }
+  .page .caseIntro .blobAdventure { left: 596px; top: -12px; width: 1182.67px; height: 934.76px; }
+  .page .caseIntro .blobBloom { left: 600px; top: -26px; width: 1074.6px; height: 787.79px; }
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: 495px; }
+}
+@media (min-width: 1900px) {
+  .page .heroCopy .heroTitleLogo { width: 411px; }
+  .page .heroRail { margin-top: 151px; }
+  .page .aboutInner { width: 1374px; grid-template-columns: 491px 669px; column-gap: 212px; }
+  .page .aboutCopy p { font-size: 26px; line-height: 34px; }
+  .page .videoOffer:not(.reverse) { margin-bottom: 309px; }
+  .page .caseIntro .caseCopy { width: 554px; }
+  .page .caseIntro:not(.bloomIntro) .caseCopy { margin-left: 114px; }
+  .page .caseIntro h3 { font-size: 64px; line-height: 78px; width: 921px; }
+  .page .caseIntro .blobAdventure { left: 673.49px; top: 25.53px; }
+  .page .caseIntro .blobBloom { left: 726.83px; top: -26.18px; }
+  .page .caseVideo:not(.bloomVideo) { margin-bottom: 401px; }
+}
+@media (min-width: 1301px) and (max-width: 1599px) {
+  .page .caseIntro .caseCopy { width: 50%; }
+  .page .caseIntro h3 { font-size: 42px; width: 600px; }
+  .page .caseIntro .blobAdventure { left: 45%; width: 950px; height: auto; }
+  .page .caseIntro .blobBloom { left: 48%; width: 880px; height: auto; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .heroCopy { width: 500px; }
+  .page .heroCopy .heroTitleLogo { width: 396px; }
+  .page .heroCopy p { font-size: 20px; line-height: 26px; margin-top: 40px; }
+  .page .heroRail { margin-top: 99px; }
+}
+@media (min-width: 1301px) {
+  .page .videoOffer.reverse { margin-bottom: 596px; }
+  .page .audience_non-gaming h2 small { display: block; }
+}
+@media (min-width: 1900px) {
+  .page .gaming > .wideMedia { margin-bottom: 563px; }
+  .page .offerHeading h3 { font-size: 64px; line-height: 78px; }
+  .page .videoOffer.reverse { margin-bottom: 412px; }
+}
+@media (min-width: 768px) {
+  .page .process > i { display: none; }
+  .page .process > span { grid-row: 1; }
+  .page .process > span:nth-of-type(1) { grid-column: 1; }
+  .page .process > span:nth-of-type(2) { grid-column: 2; }
+  .page .process > span:nth-of-type(3) { grid-column: 3; }
+  .page .process > span:nth-of-type(4) { grid-column: 4; }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .audienceGlowLeft, .page .audienceGlowRight { display: none; }
+  .page .process > span:nth-of-type(n) { position: relative; top: 0; padding: 0; height: 48px; align-self: start; }
+  .page .process > span:nth-of-type(even) { top: 100px; }
+  .page .process > span:nth-of-type(n)::after { top: 69px; }
+  .page .process > span:nth-of-type(even)::after { top: -31px; }
+  .page .audience_non-gaming h2 small { display: block; }
+  .page .videoOffer .offerText { grid-template-columns: 85px minmax(0, 1fr) 140px; column-gap: 12px; }
+  .page .videoOffer .offerText h4 { font-size: 18px; line-height: 22px; }
+  .page .videoOffer .offerText p, .page .videoOffer .offerList { font-size: 16px; line-height: 20px; }
+  .page .videoOffer .pricePair span { font-size: 18px; }
+  .page .videoOffer .pricePair small { font-size: 14px; }
+  .page .videoOffer .pricePair strong { font-size: 24px; }
+  .page .caseIntro h3 { width: 437px; max-width: none; font-size: 34px; line-height: 41px; }
+  .page .bloomIntro h3 { white-space: nowrap; }
+  .page .caseVideo:not(.bloomVideo) { min-height: 524px; }
+  .page .caseVideo:not(.bloomVideo) {
+    grid-template-columns: minmax(0, 416.585fr) minmax(0, 207.415fr);
+    padding: 64px 45px 64px 60px;
+    gap: 30px;
+  }
+  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: 16px; line-height: 19px; }
+}
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .page .requirements, .page .important { width: min(1210px, 100%); margin-inline: auto; }
+}

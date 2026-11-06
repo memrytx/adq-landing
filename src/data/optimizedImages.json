@@ -341,5 +341,12 @@
     "height": 640,
     "small": "assets/optimized/playable-previews/ypo-153-13-640.webp",
     "smallWidth": 360
+  },
+  "assets/design/figma-video-tower.png": {
+    "src": "assets/optimized/design/figma-video-tower.webp",
+    "width": 1236,
+    "height": 693,
+    "small": "assets/optimized/design/figma-video-tower-640.webp",
+    "smallWidth": 640
   }
 }
