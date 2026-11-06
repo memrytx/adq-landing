@@ -16,16 +16,13 @@ export function Hero() {
     <GlowAccent asset="bridge" className={s.heroGlowAsset} parallax={false} />
     <div className={s.heroCopy}>
       <h1><MediaImage className={s.heroTitleLogo} src={adQuantumLogo} loading="eager" fetchPriority="high" alt="AdQuantum" /></h1>
-      <p>We make creatives for top publishers <br />all over the world</p>
+      <p>We make creatives for top publishers<br />all over the world</p>
     </div>
     <div ref={railRef} className={s.heroRail} role="region" aria-label="Game creative previews" tabIndex={0}>
       <div className={s.heroTrack}>
         {loop.map((src, i) => <MediaImage src={src} loading={i < cards.length ? "eager" : "lazy"} sizes="(max-width: 767px) 45vw, 360px" alt="" draggable={false} key={`${src}-${i}`} />)}
       </div>
     </div>
-    <a className={`${s.gradientButton} ${s.heroVisitLink}`} href="https://www.adquantum.com/" target="_blank" rel="noreferrer">
-      <span className={s.heroCtaMobile}>visit our site</span>
-    </a>
     <span className={s.heroLogoMobile}><Logo /></span>
   </section>
 }

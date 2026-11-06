@@ -34,7 +34,7 @@ function VideoOffer({ id, reverse = false, title, image, video, children, prices
   children: ReactNode
   prices: [[string, string], [string, string]]
 }) {
-  return <article className={`${s.videoOffer} ${reverse ? s.reverse : ''}`} id={id}>
+  return <article className={`${s.videoOffer} ${s.offerReference} ${reverse ? s.reverse : ''}`} id={id}>
     <div className={s.offerHeading}><div><span className={`${s.pill} ${s.planTag}`}>Plan</span><h3>{title}</h3></div></div>
     <div className={s.offerLayout}>
       <div className={s.offerText}>{children}</div>
@@ -88,7 +88,7 @@ export function Gaming() {
         <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
-      <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/figma-video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
+      <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
         <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
       </VideoOffer>
 
@@ -104,7 +104,7 @@ export function Gaming() {
         <CaseArt variant="adventure" alt="Adventure Bay Farm Games" />
       </article>
 
-      <article className={s.caseVideo} id="adventure-story">
+      <article className={`${s.caseVideo} ${s.adventureStory}`} id="adventure-story">
         <div className={s.splitPosters}>
           <span><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/case-runner.png')} alt="" /><VideoButton url={links.runner} label="Watch Adventure Bay runner video" /></span>
           <span><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/case-ground.png')} alt="" /><VideoButton url={links.ground} label="Watch Adventure Bay ground video" /></span>

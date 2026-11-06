@@ -117,7 +117,7 @@ Keep the desktop vertical rhythm close to the reference: sections should transit
 
 ## Known environment notes
 
-- This folder is a Git repository. In the managed Windows environment, Git may require an explicit `safe.directory` option for this checkout.
+- This folder is not currently a Git repository, so there is no `git diff`/commit history here.
 - Large Figma/PDF image exports may be capped at 32768px in height; compare proportionally and against the individual frame exports.
 - The local site can be developed and checked without Dev Mode. The exported `.fig`, PDF frame images, and extracted assets are sufficient.
 
@@ -127,7 +127,5 @@ When resuming in another chat:
 
 1. Read this file.
 2. Run `npm.cmd run build` before editing to establish a clean baseline.
-3. Read `AUDIT_ITERATION_6.md` for the current sources, changes, verification, and remaining discrepancies. Current Figma exports and full browser captures are in `../.audit/`; review sheets are in `docs/visual-audit/`.
+3. Start Vite and visually compare the four QA widths against `../exports/pdf_images/`.
 4. Preserve the source hierarchy and the playable-only scope rule above.
-
-For the November 6 visual audit, the user explicitly requested preserving the current prices and case dates. Do not replace these with conflicting values from desktop/mobile Figma frames.
