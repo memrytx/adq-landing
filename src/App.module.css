@@ -8154,7 +8154,7 @@
   .page .offerText { padding-left: 0; }
 }
 @media (min-width: 1900px) {
-  .page .planSlide { grid-template-columns: 290px minmax(0, 1fr); padding: 50px 60px; gap: 60px; --flag-reach: 60px; }
+  .page .planSlide { grid-template-columns: 290px minmax(0, 1fr); padding: 50px 60px; gap: 60px; --flag-reach: 65px; }
   .page .planPhone { width: 280px; }
   .page .planStage, .page .planSlide, .page .playablePlan { min-height: 698px; }
   .page .planCopy h4 { font-size: 36px; }
@@ -8660,6 +8660,11 @@
 @media (min-width: 768px) and (max-width: 1300px) {
   .page .planPhone { height: auto; aspect-ratio: 577 / 1184; }
   .page .planPhone .phoneFrame { object-fit: contain; }
+  .page .planPriceFlag {
+    /* The phone is centered in a 220:306 grid and capped at 220px.
+       Bridge the gap plus half of the unused space in its column. */
+    --flag-reach: calc(28px + max(0px, 100% * 110 / 306 - 110px));
+  }
 }
 
 /* iPad Air 820x1180: Cinematic and Videos use a 760px grid with 30px page margins. */
