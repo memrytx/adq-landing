@@ -44,7 +44,7 @@ export default function App() {
     }
 
     const updateScroll = () => {
-      const distance = window.matchMedia('(max-width: 900px)').matches ? 6 : 12
+      const distance = window.matchMedia('(max-width: 1300px)').matches ? 6 : 12
       root.style.setProperty('--scroll-glow', `${(Math.sin(window.scrollY / 620) * distance).toFixed(2)}px`)
     }
 

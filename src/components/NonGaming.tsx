@@ -24,7 +24,7 @@ export function NonGaming() {
     <h3 className={s.blockTitle}>UGC Net New Packages</h3><PackageCarousel items={ugc} />
     <CreativeRow title="AIGC creatives" images={[assetUrl('assets/design/ai-princess.png'), assetUrl('assets/design/ai-chat.png')]} videos={[videos.princess, videos.chat]} tiers={[{ name: '100 creatives', price: '$2,500', features: ['10 avatars', '10 variations', '10 working days'] }, { name: '200 creatives', price: '$4,500', features: ['20 avatars', '10 variations', '15 working days'] }]} />
     <CreativeRow title="Video AI" images={[assetUrl('assets/design/ai-baby.png'), assetUrl('assets/design/ai-family.png')]} videos={[videos.baby, videos.family]} tiers={[{ name: '50 creatives', price: '$3,500', features: ['5 AI main body', '10 variations', '15 working days'] }, { name: '100 creatives', price: '$5,000', features: ['10 AI main body', '10 variations', '20 working days'] }]} />
-    <h3 className={s.blockTitle}>Mix type UGC/AI/2D/3D <small>Create your own pack</small></h3><PackageCarousel items={mix} />
+    <h3 className={`${s.blockTitle} ${s.mixTypeTitle}`}>Mix type UGC/AI/2D/3D <small>Create your own pack</small></h3><PackageCarousel className={s.mixTypePackages} items={mix} />
     <section className={s.mixPackages} id="mix-packages">
       <h3 className={s.blockTitle}>Mix Packages</h3>
       <PackageCarousel className={s.mixGrid} items={[

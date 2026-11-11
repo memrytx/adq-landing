@@ -1,5 +1,5 @@
 export function shouldOpenPlayableDirectly() {
-  return window.matchMedia('(max-width: 900px), (pointer: coarse)').matches
+  return window.matchMedia('(max-width: 1300px), (pointer: coarse)').matches
 }
 
 export function openPlayableDirectly(url: string) {

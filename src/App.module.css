@@ -1,3 +1,6 @@
+/* Four Figma layouts: phone 360, tablet 820, laptop 1728, desktop 2560.
+   Shared boundaries: 768, 1301 and 1900px. Typography is fixed within each tier;
+   grids and media continue to fit the available width. */
 .page {
   min-height: 100vh;
   position: relative;
@@ -100,11 +103,15 @@
 }
 .logo {
   display: inline-block;
+  width: calc(1em * 408 / 103);
+  max-width: 100%;
   line-height: 0;
 }
 .logo img {
-  width: auto;
-  height: 1em;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 408 / 103;
+  object-fit: contain;
   display: block;
 }
 .logoCompact {
@@ -220,9 +227,6 @@
   gap: var(--rail-gap);
   animation: heroMarquee 42s linear infinite;
   will-change: transform;
-}
-.heroTrack:hover {
-  animation-play-state: paused;
 }
 .heroTrack img {
   width: 286px;
@@ -1995,7 +1999,7 @@
   background: var(--price-flag) left center / 100% 100% no-repeat;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .gaming::after {
     background-position: -245px 8%, calc(100% + 250px) 29%, -250px 60%, calc(100% + 245px) 88%;
     background-size: 500px auto;
@@ -2096,7 +2100,7 @@
   background: linear-gradient(130deg, rgba(25, 31, 49, 0.54), rgba(29, 30, 36, 0.28));
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .heroGlowAsset,
   .closingGlowAsset {
     width: calc(100vw + 620px);
@@ -2372,7 +2376,7 @@
   content: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .heroGlowAsset,
   .closingGlowAsset {
     width: calc(100vw + 620px);
@@ -2540,7 +2544,7 @@
   left: 37.5%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .glowAccent img {
     animation-duration: 14s;
   }
@@ -3656,7 +3660,7 @@
   border-radius: 18px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .gaming::after {
     background-position: -245px 8%, calc(100% + 250px) 29%, -250px 60%, calc(100% + 245px) 88%;
     background-size: 500px auto;
@@ -3818,7 +3822,7 @@
   content: none;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1301px) {
   .blobMedia {
     --case-edge-space: min(8vw, calc((100vw - min(1280px, calc(100vw - 120px))) / 2));
   }
@@ -3892,7 +3896,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .offerMedia {
     width: 100%;
     min-width: 0;
@@ -4670,7 +4674,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .playDemoDesktop {
     display: none;
   }
@@ -4680,7 +4684,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .hero {
     height: 793px;
     padding-top: 148px;
@@ -5231,7 +5235,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .audienceGlowLayer,
   .audience_playable .audienceGlowLayer {
     filter: blur(18px) saturate(0.7);
@@ -6461,7 +6465,7 @@
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1301px) {
   .creativeRow:nth-child(5) .tierColumn {
     grid-column: 2;
   }
@@ -6650,59 +6654,6 @@
   .requirements,
   .important {
     width: 100%;
-  }
-}
-
-@media (min-width: 1301px) and (max-width: 1727px) {
-  .offerLayout {
-    grid-template-columns: minmax(0, 964fr) minmax(0, 344fr);
-    gap: clamp(48px, 7vw, 148px);
-  }
-
-  .videoOffer.reverse .offerLayout {
-    grid-template-columns: minmax(0, 240fr) minmax(0, 1087fr);
-    gap: clamp(48px, 7vw, 129px);
-  }
-
-  .offerHeading,
-  .videoOffer:not(.reverse) .offerHeading,
-  .videoOffer.reverse .offerHeading {
-    max-width: 75%;
-  }
-
-  .aboutInner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 8vw;
-  }
-
-  .stats {
-    gap: 70px 28px;
-  }
-
-  .stat strong {
-    font-size: clamp(40px, 3.5vw, 61px);
-  }
-
-  .fastTrack {
-    padding-left: 0;
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 45px;
-  }
-
-  .fastTrack .packageGrid {
-    gap: 18px;
-  }
-
-  .packageCard {
-    padding: 28px 20px;
-  }
-
-  .packageCard h4 {
-    font-size: 24px;
-  }
-
-  .packageCard ul {
-    font-size: 14px;
   }
 }
 
@@ -7402,8 +7353,8 @@
   .aboutCopy .logo { font-size: 103px; }
   .aboutCopy p { max-width: 660px; margin-top: 56px; font-size: 32px; line-height: 38.617px; font-weight: 400; color: #e8e4e8; }
   .stats { padding-top: 0; grid-template-columns: minmax(0, 217.398fr) minmax(0, 202.553fr) minmax(0, 209.902fr); grid-template-rows: 144px auto; gap: 72.334px 2.43056vw; }
-  .stat strong { font-size: clamp(48px, 3.704vw, 64px); line-height: 78px; }
-  .stat span { margin-top: 5px; font-size: clamp(14px, 1.04167vw, 18px); line-height: 22px; }
+  .stat strong { font-size: 64px; line-height: 78px; }
+  .stat span { margin-top: 5px; font-size: 18px; line-height: 22px; }
   .tiktok { margin-top: -35px; }
   .tiktok img { width: 110px; height: 112px; }
   .tiktok span { margin-top: 23px; }
@@ -7693,7 +7644,7 @@
 /* Scale the wordmark and two-line tagline together, as in the reference. */
 .heroCopy { width: min(740px, calc(100% - 40px)); margin-inline: auto; container-type: inline-size; }
 .heroCopy .heroTitleLogo { width: 81%; height: auto; object-fit: contain; }
-.heroCopy p { max-width: 100%; font-size: 5.1cqw; line-height: 1.3; margin-top: 9cqw; }
+.heroCopy p { max-width: 100%; font-size: var(--font-hero-tagline); line-height: 1.3; margin-top: 9cqw; }
 
 /* Supplied vector icons replace the raster sprite sheets. */
 .detailIcon { background-size: contain; background-position: center; }
@@ -7806,7 +7757,7 @@
   .page .planStage { border: 1px solid rgba(217, 219, 242, 0.24); border-radius: 38px; }
   .page .planStage::before { content: none; }
 }
-@media (min-width: 768px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1300px) {
   .page .playablePlan { width: calc(100% - 112px); }
   .page .planArrow { width: 44px; height: 44px; }
   .page .planArrow:first-child { left: -56px; }
@@ -7839,14 +7790,6 @@
 .page .packageCard li + li { margin-top: 11px; }
 .page .packageCard > strong { font-size: 36px; line-height: 1.22; }
 .page .packageCard small { font-size: 20px; line-height: 1.5; margin-top: 0; }
-@media (min-width: 1301px) and (max-width: 1600px) {
-  .page .packageCard { padding: 28px; min-height: 550px; }
-  .page .packageCard h4 { font-size: 28px; margin-bottom: 32px; }
-  .page .packageCard b { font-size: 24px; }
-  .page .packageCard ul { font-size: 16px; }
-  .page .packageCard > strong { font-size: 32px; }
-  .page .packageCard small { font-size: 16px; }
-}
 @media (min-width: 1900px) {
   .page .packageCard { padding: 63px 42px; min-height: 773px; }
   .page .packageCard h4 { font-size: 32px; margin-bottom: 70px; }
@@ -8030,7 +7973,7 @@
   .page .offerPackageNote { position: absolute; inset: auto 20px calc(100% + 18px) auto; width: 62px; margin: 0; text-align: right; font-size: 10px; line-height: 1.2; }
   .page .offerPackageNote strong { display: block; margin: 4px 0 0; font-size: 19px; }
   .page .reverse .offerHeading { padding-right: 85px; }
-  .page .reverse .offerHeading h3 { font-size: clamp(23px, 6.2vw, 32px); }
+  .page .reverse .offerHeading h3 { font-size: 23px; }
   .page .blobMedia .caseArtPicture { display: none; }
   .page .blobMedia { width: 100vw; height: auto; aspect-ratio: auto; margin-inline: calc((100% - 100vw) / 2); overflow: visible; isolation: auto; }
   .page .blobMedia::before, .page .blobMedia::after { content: none; }
@@ -8056,7 +7999,7 @@
 .page .pill:is(.planTag, .caseTag) {
   display: inline-grid; place-items: center; padding: 0; margin: 0;
   width: clamp(48px, 5.68vw, 98px); height: auto; aspect-ratio: 98 / 54;
-  font-size: clamp(11px, 1.04vw, 18px); font-weight: 400;
+  font-size: var(--font-section-tag); font-weight: 400;
   border: 0; border-radius: 999px; color: #eeeaf0;
   background: rgba(181,199,227,.18);
   -webkit-backdrop-filter: blur(16px) saturate(115%); backdrop-filter: blur(16px) saturate(115%);
@@ -8202,7 +8145,7 @@
     gap: clamp(32px, 4vw, 90px);
   }
   .page .bloomMeta > .gradientButton { width: 100%; }
-  .page .bloomMeta > .detailList p { font-size: clamp(14px, 1.4vw, 26px); line-height: 1.3; }
+  .page .bloomMeta > .detailList p { font-size: var(--font-case-body); line-height: 1.3; }
 }
 @media (min-width: 1301px) {
   .page .aboutInner {
@@ -8219,10 +8162,6 @@
   .page .fastTrack .packageCard { min-height: var(--fast-height); }
   .page .fastTrack .packageGrid { gap: 28px; }
 }
-@media (min-width: 1301px) and (max-width: 1600px) {
-  .page .packageCard { min-height: 590px; }
-  .page .fastTrack { --fast-height: 590px; }
-}
 @media (min-width: 1900px) {
   .page .nonGaming .packageGrid { gap: 48px; }
   .page .nonGaming .packageCard { min-height: 820px; }
@@ -8238,9 +8177,9 @@
 }
 
 /* Reference review: readable laptop labels and mobile panel rhythm. */
-@media (min-width: 768px) and (max-width: 1600px) {
+@media (min-width: 768px) and (max-width: 1300px) {
   .page .offerText h4 {
-    font-size: clamp(18px, 1.75vw, 28px);
+    font-size: 18px;
     line-height: 1.25;
     white-space: nowrap;
   }
@@ -8410,11 +8349,8 @@
 /* Keep the October 19 phone layout; the pricing wrapper must not add a box. */
 .offerPricing { display: contents; }
 
-/* October 21–22 layouts apply to desktop and iPad-like tablets only.
-   Portrait ratios: 0.60–0.83; landscape ratios: 1.20–1.67. */
-@media (min-width: 1301px),
-  (min-width: 768px) and (max-width: 1300px) and (min-aspect-ratio: 3/5) and (max-aspect-ratio: 5/6),
-  (min-width: 768px) and (max-width: 1300px) and (min-aspect-ratio: 6/5) and (max-aspect-ratio: 5/3) {
+/* Tablet and desktop layouts use the shared width boundaries. */
+@media (min-width: 768px) {
 /* Responsive offer and case layouts: shared rows keep media and prices aligned. */
 .page .videoOffer .offerLayout,
 .page .videoOffer.reverse .offerLayout {
@@ -8432,19 +8368,19 @@
 .page .offerPricing > .offerPackageNote { order: 1; }
 .page .videoOffer .pricePair { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; flex: 1; width: 100%; height: auto; min-height: 0; margin: 0; padding: 0; gap: 16px; }
 .page .videoOffer .pricePair > div { min-height: 0; padding: clamp(10px, 1.5vw, 28px); display: flex; flex-direction: column; }
-.page .videoOffer .pricePair span { font-size: clamp(11px, 1.25vw, 24px); line-height: 1.2; }
-.page .videoOffer .pricePair small { margin-top: auto; padding-top: 10px; font-size: clamp(8px, .85vw, 16px); line-height: 1.2; }
-.page .videoOffer .pricePair strong { margin-top: 3px; font-size: clamp(14px, 1.8vw, 34px); line-height: 1.15; }
-.page .videoOffer .offerPackageNote { position: static; inset: auto; width: auto; margin: 0; font-size: clamp(8px, .9vw, 17px); line-height: 1.2; text-align: left; }
+.page .videoOffer .pricePair span { font-size: 32px; line-height: 1.2; }
+.page .videoOffer .pricePair small { margin-top: auto; padding-top: 10px; font-size: 18px; line-height: 1.2; }
+.page .videoOffer .pricePair strong { margin-top: 3px; font-size: 26px; line-height: 1.15; }
+.page .videoOffer .offerPackageNote { position: static; inset: auto; width: auto; margin: 0; font-size: 24px; line-height: 1.2; text-align: left; }
 .page .videoOffer .offerPackageNote strong { display: inline; margin: 0; font-size: 1.5em; }
 .page .videoOffer .offerText { grid-area: 2 / 1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto 1fr; align-content: start; column-gap: 12px; width: auto; padding: 0; margin: 0; }
 .page .videoOffer.reverse .offerText { grid-column: 2; }
-.page .videoOffer .offerText h4 { margin: 0; font-size: clamp(11px, 1vw, 20px); line-height: 1.4; }
+.page .videoOffer .offerText h4 { margin: 0; font-size: 32px; line-height: 1.4; }
 .page .videoOffer .offerText h4:first-child { grid-area: 1 / 1; }
 .page .videoOffer .offerList { grid-area: 1 / 2 / 3 / 3; padding-left: 12px; margin: 0; }
 .page .videoOffer .offerText h4:nth-of-type(2) { grid-area: 1 / 3; }
 .page .videoOffer .offerText p { grid-area: 2 / 3; margin: 5px 0 0; }
-.page .videoOffer .offerList, .page .videoOffer .offerText p { font-size: clamp(9px, .85vw, 16px); line-height: 1.45; }
+.page .videoOffer .offerList, .page .videoOffer .offerText p { font-size: 18px; line-height: 1.45; }
 .page .caseVideo:not(.bloomVideo) { align-items: center; }
 .page .caseVideo:not(.bloomVideo) .detailList { align-self: center; height: auto; margin: 0; padding: 0; gap: clamp(16px, 2vw, 38px); }
 .page .bloomMeta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; align-items: start; padding: 28px 6% 20px; }
@@ -8454,10 +8390,10 @@
 .page .bloomMeta > .detailList > div:nth-child(1) { grid-area: 1 / 1; }
 .page .bloomMeta > .detailList > div:nth-child(2) { grid-area: 2 / 1; }
 .page .bloomMeta > .detailList > div:nth-child(3) { grid-area: 1 / 2; }
-.page .bloomMeta > .gradientButton { grid-area: 2 / 2; align-self: center; justify-self: stretch; width: auto; min-width: 0; height: auto; min-height: 44px; margin: 0 6px 0 26px; padding: 12px 16px; font-size: clamp(11px, 1vw, 20px); }
+.page .bloomMeta > .gradientButton { grid-area: 2 / 2; align-self: center; justify-self: stretch; width: auto; min-width: 0; height: auto; min-height: 44px; margin: 0 6px 0 26px; padding: 12px 16px; font-size: 17.28px; }
 @media (min-width: 1301px) {
   .page .gaming .videoOffer, .page .gaming .caseVideo { width: 83.333333%; margin-left: auto; margin-right: auto; }
-  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: clamp(13px, 1.05vw, 21px); }
+  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: 18px; }
 }
 @media (max-width: 1300px) {
   .page .bloomMeta > .detailList > div:nth-child(2) { grid-area: 1 / 2; }
@@ -8473,7 +8409,7 @@
   .page .caseVideo:not(.bloomVideo) { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 20px; padding: 32px 20px; }
   .page .caseVideo:not(.bloomVideo) .splitPosters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; overflow: visible; aspect-ratio: auto; }
   .page .splitPosters > span { width: auto; }
-  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: clamp(10px, 1.8vw, 14px); line-height: 1.25; }
+  .page .caseVideo:not(.bloomVideo) .detailList p { font-size: 18px; line-height: 1.25; }
   .page .caseVideo:not(.bloomVideo) .detailList > div { grid-template-columns: 14px minmax(0, 1fr); gap: 6px; }
   .page .caseVideo:not(.bloomVideo) .detailIcon { width: 14px; height: 14px; }
   .page .splitPosters .playButton { width: 36px; height: 36px; }
@@ -8503,7 +8439,7 @@
     background: linear-gradient(105deg, #50bc67, #25a9dc);
   }
   .page .bloomMeta > .gradientButton > .caseCtaDesktop {
-    font-size: 6.7cqw;
+    font-size: 26px;
     font-weight: 700;
     line-height: 1.2;
   }
@@ -8568,7 +8504,7 @@
 .page .bloomMeta .iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
 @media (min-width: 768px) {
   .page .bloomMeta { gap: 28px 48px; }
-  .page .bloomMeta > .detailList p { font-size: clamp(12px, .95vw, 18px); line-height: 1.25; }
+  .page .bloomMeta > .detailList p { font-size: 18px; line-height: 1.25; }
   .page .bloomMeta > .detailList > div { grid-template-columns: 26px minmax(0, 1fr); gap: 18px; }
   .page .bloomMeta .detailIcon { width: 26px; height: 26px; }
   .page .bloomMeta > .gradientButton {
@@ -8576,7 +8512,7 @@
     margin: 0 22px 0 26px;
     min-height: 40px;
   }
-  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 5.5cqw; font-weight: 700; }
+  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 26px; font-weight: 700; }
   .page .videoOffer .offerList { max-width: 23ch; line-height: 1.5; }
 }
 
@@ -8641,19 +8577,19 @@
   .page .gaming > .audienceBanner { height: 496px; min-height: 496px; }
 }
 
-/* Remove 20% of the measured preview-to-about gap after removing the hero CTA.
+/* Reduce the current measured preview-to-about gap by a further 25%.
    Keep the preview position fixed and move the following sections upward. */
 @media (max-width: 767px) {
-  .page .hero { height: calc(793px - 249.375px * .2); }
+  .page .hero { height: calc(793px - 249.375px * .2 - 191.5px * .25); }
 }
 @media (min-width: 768px) and (max-width: 1300px) {
-  .page .hero { height: calc(1130px - 284.9375px * .2); }
+  .page .hero { height: calc(1130px - 284.9375px * .2 - 227.9375px * .25); }
 }
 @media (min-width: 1301px) and (max-width: 1899px) {
-  .page .hero { height: calc(1580px - 547.9375px * .2); }
+  .page .hero { height: calc(1580px - 547.9375px * .2 - 331.34375px * .25); }
 }
 @media (min-width: 1900px) {
-  .page .hero { height: calc(1580px - 583.9375px * .2); }
+  .page .hero { height: calc(1580px - 583.9375px * .2 - 360.140625px * .25); }
 }
 
 /* The tablet grid can narrow the phone; derive its height from the frame asset. */
@@ -8675,8 +8611,8 @@
     margin-inline: calc((100% - (100vw - 60px)) / 2);
   }
   .page .videoOffer.offerReference .offerHeading { width: auto; margin-bottom: 6.05263cqw; }
-  .page .videoOffer.offerReference .offerHeading .pill { width: 8.81579cqw; height: 3.68421cqw; padding: 0; font-size: 2.10526cqw; }
-  .page .videoOffer.offerReference .offerHeading h3 { font-size: 3.68421cqw; line-height: 1.21429; margin-top: 1.57895cqw; }
+  .page .videoOffer.offerReference .offerHeading .pill { width: 8.81579cqw; height: 3.68421cqw; padding: 0; font-size: 16px; }
+  .page .videoOffer.offerReference .offerHeading h3 { font-size: 28px; line-height: 1.21429; margin-top: 1.57895cqw; }
   .page .videoOffer.offerReference .offerLayout {
     display: grid;
     grid-template-columns: minmax(0, 500fr) minmax(0, 241fr);
@@ -8687,33 +8623,33 @@
   .page .videoOffer.offerReference .offerPricing { grid-area: 1 / 2; display: flex; }
   .page .videoOffer.offerReference .pricePair { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; flex: 1; height: auto; margin: 0; gap: 2.10526cqw; }
   .page .videoOffer.offerReference .pricePair > div { display: flex; flex-direction: column; padding: 2.10526cqw 2.36842cqw; }
-  .page .videoOffer.offerReference .pricePair span { font-size: 2.36842cqw; line-height: 1.22222; }
-  .page .videoOffer.offerReference .pricePair small { margin-top: auto; padding-top: 0; font-size: 1.71053cqw; line-height: 1.23077; }
-  .page .videoOffer.offerReference .pricePair strong { margin-top: 0.39474cqw; font-size: 2.85756cqw; line-height: 1.19719; }
+  .page .videoOffer.offerReference .pricePair span { font-size: 18px; line-height: 1.22222; }
+  .page .videoOffer.offerReference .pricePair small { margin-top: auto; padding-top: 0; font-size: 13px; line-height: 1.23077; }
+  .page .videoOffer.offerReference .pricePair strong { margin-top: 0.39474cqw; font-size: 21.72px; line-height: 1.19719; }
   .page .videoOffer.offerReference .offerText {
     grid-area: 2 / 1;
     display: grid;
-    grid-template-columns: 11.18421cqw 37.63158cqw 17.89474cqw;
+    grid-template-columns: minmax(max-content, 11.18421cqw) minmax(0, 1fr) minmax(max-content, 17.89474cqw);
     grid-template-rows: auto 1fr;
     gap: 0;
     margin: 0;
     padding: 0;
     align-items: start;
   }
-  .page .videoOffer.offerReference .offerText h4 { margin: 0; font-size: 2.36842cqw; line-height: 1.22222; white-space: nowrap; }
+  .page .videoOffer.offerReference .offerText h4 { margin: 0; font-size: 18px; line-height: 1.22222; white-space: nowrap; }
   .page .videoOffer.offerReference .offerText h4:first-child { grid-area: 1 / 1; }
   .page .videoOffer.offerReference .offerText h4:nth-of-type(2) { grid-area: 1 / 3; }
-  .page .videoOffer.offerReference .offerList { grid-area: 1 / 2 / 3 / 3; max-width: none; margin: 0; padding-left: 3.15789cqw; font-size: 2.10526cqw; line-height: 1.5; }
+  .page .videoOffer.offerReference .offerList { grid-area: 1 / 2 / 3 / 3; max-width: none; margin: 0; padding-left: 3.15789cqw; font-size: 16px; line-height: 1.5; }
   .page .videoOffer.offerReference .offerList li::before { left: -1.84211cqw; }
-  .page .videoOffer.offerReference .offerText p { grid-area: 2 / 3; margin: 1.31579cqw 0 0; font-size: 2.10526cqw; line-height: 1.5; }
+  .page .videoOffer.offerReference .offerText p { grid-area: 2 / 3; margin: 1.31579cqw 0 0; font-size: 16px; line-height: 1.5; }
   .page .videoOffer.offerReference .playButton { width: 11.84211cqw; height: 11.84211cqw; }
   .page .offerReference.reverse .offerHeading { margin-bottom: 4.86842cqw; }
   .page .offerReference.reverse .offerLayout { grid-template-columns: minmax(0, 235fr) minmax(0, 507fr); gap: 4.34211cqw 2.36842%; }
   .page .offerReference.reverse .offerVisual { grid-area: 1 / 2; aspect-ratio: 507 / 309.216; align-self: start; }
   .page .offerReference.reverse .offerPricing { grid-area: 1 / 1; flex-direction: column; gap: 2.89474cqw; }
   .page .offerReference.reverse .pricePair { gap: 3.28947cqw; grid-template-rows: 116fr 120fr; }
-  .page .offerReference.reverse .offerPackageNote { order: 1; margin: 0; font-size: 1.57895cqw; line-height: 1.32673; }
-  .page .offerReference.reverse .offerPackageNote strong { font-size: 2.67774cqw; }
+  .page .offerReference.reverse .offerPackageNote { order: 1; margin: 0; font-size: 12px; line-height: 1.32673; }
+  .page .offerReference.reverse .offerPackageNote strong { font-size: 20.35px; }
   .page .offerReference.reverse .offerText { grid-area: 2 / 2; }
 }
 
@@ -8734,7 +8670,7 @@
   .page .adventureStory .splitPosters { height: auto; aspect-ratio: 416.585 / 349.652; gap: 3.60951cqw; }
   .page .caseVideo.adventureStory .detailList { gap: 3.66412cqw; padding: 0; margin: 0; align-self: center; }
   .page .adventureStory .detailList > div { display: grid; grid-template-columns: 3.05344cqw minmax(0, 1fr); gap: 1.83206cqw; }
-  .page .caseVideo.adventureStory .detailList p { font-size: 2.44275cqw; line-height: 1.1875; font-weight: 400; }
+  .page .caseVideo.adventureStory .detailList p { font-size: 16px; line-height: 1.1875; font-weight: 400; }
   .page .adventureStory .detailList p strong { display: block; margin-bottom: 0.30534cqw; }
   .page .adventureStory .detailAccent { font-weight: 700; }
   .page .adventureStory .detailIcon { width: 3.05344cqw; height: 3.05344cqw; }
@@ -8766,8 +8702,8 @@
   .page .bloomMeta > .detailList > div:nth-child(2) { grid-area: 1 / 2; }
   .page .bloomMeta > .detailList > div:nth-child(3) { grid-area: 2 / 1; }
   .page .bloomMeta .detailIcon { width: 2.77778cqw; height: 2.77778cqw; }
-  .page .bloomMeta > .detailList p { font-size: 1.94444cqw; line-height: 1.28571; font-weight: 400; }
-  .page .bloomMeta > .detailList p strong { display: block; font-size: 2.22222cqw; line-height: 1.3125; margin-bottom: 0.27778cqw; }
+  .page .bloomMeta > .detailList p { font-size: 14px; line-height: 1.28571; font-weight: 400; }
+  .page .bloomMeta > .detailList p strong { display: block; font-size: 16px; line-height: 1.3125; margin-bottom: 0.27778cqw; }
   .page .bloomMeta .detailAccent { font-weight: 700; }
   .page .bloomMeta > .gradientButton {
     container-type: normal;
@@ -8781,7 +8717,7 @@
     align-self: center;
   }
   .page .bloomMeta > .gradientButton > .caseCtaDesktop { display: none; }
-  .page .bloomMeta > .gradientButton > .caseCtaMobile { display: inline; font-size: 2.12239cqw; font-weight: 700; line-height: 1.24336; }
+  .page .bloomMeta > .gradientButton > .caseCtaMobile { display: inline; font-size: 15.28px; font-weight: 700; line-height: 1.24336; }
 }
 
 /* MacBook 1728x1117: Cinematic and Videos use a 1458px panel with a 22px media gap.
@@ -8793,27 +8729,27 @@
     margin-inline: -2.734375%;
   }
   .page .videoOffer.offerReference .offerHeading { width: auto; margin-bottom: 3.97805cqw; }
-  .page .videoOffer.offerReference .offerHeading h3 { font-size: 3.42936cqw; line-height: 1.22; margin-top: 1.73443cqw; }
+  .page .videoOffer.offerReference .offerHeading h3 { font-size: 50px; line-height: 1.22; margin-top: 1.73443cqw; }
   .page .videoOffer.offerReference .offerLayout {
     grid-template-columns: minmax(0, 964fr) minmax(0, 472fr);
     gap: 3.77229cqw 1.50892%;
   }
   .page .videoOffer.offerReference .pricePair { gap: 2.05761cqw; }
   .page .videoOffer.offerReference .pricePair > div { padding: 2.31255cqw 2.31255cqw 2.31255cqw 2.60165cqw; }
-  .page .videoOffer.offerReference .pricePair span { font-size: 2.19479cqw; line-height: 1.2; }
-  .page .videoOffer.offerReference .pricePair small { font-size: 1.23457cqw; line-height: 1.5; padding-top: 0; }
-  .page .videoOffer.offerReference .pricePair strong { font-size: 1.78326cqw; line-height: 1.2; margin-top: .43361cqw; }
+  .page .videoOffer.offerReference .pricePair span { font-size: 32px; line-height: 1.2; }
+  .page .videoOffer.offerReference .pricePair small { font-size: 18px; line-height: 1.5; padding-top: 0; }
+  .page .videoOffer.offerReference .pricePair strong { font-size: 26px; line-height: 1.2; margin-top: .43361cqw; }
   .page .videoOffer.offerReference .offerText {
-    grid-template-columns: 10.35665cqw 20.85048cqw 17.62689cqw auto;
+    grid-template-columns: minmax(max-content, 10.35665cqw) minmax(0, 1fr) minmax(max-content, 17.62689cqw) auto;
     grid-template-rows: auto;
     column-gap: 1.15631cqw;
     align-items: baseline;
   }
-  .page .videoOffer.offerReference .offerText h4 { font-size: 2.19479cqw; line-height: 1.2; white-space: nowrap; }
+  .page .videoOffer.offerReference .offerText h4 { font-size: 32px; line-height: 1.2; white-space: nowrap; }
   .page .videoOffer.offerReference .offerList { grid-area: 1 / 2; max-width: none; padding-left: 1.85185cqw; }
   .page .videoOffer.offerReference .offerList li::before { left: -1.23457cqw; }
   .page .videoOffer.offerReference .offerText p,
-  .page .videoOffer.offerReference .offerList { font-size: 1.23457cqw; line-height: 1.5; }
+  .page .videoOffer.offerReference .offerList { font-size: 18px; line-height: 1.5; }
   .page .videoOffer.offerReference .offerText p { grid-area: 1 / 4; margin: 0; align-self: baseline; }
   .page .videoOffer.offerReference .offerText h4:nth-of-type(2) { margin: 0; transform: none; }
   .page .videoOffer.offerReference .playButton { width: 10.28807cqw; height: 10.28807cqw; }
@@ -8824,8 +8760,8 @@
   }
   .page .offerReference.reverse .offerPricing { min-height: 41.42661cqw; gap: 3.42936cqw; }
   .page .offerReference.reverse .offerVisual { align-self: start; }
-  .page .offerReference.reverse .offerPackageNote { margin: 0; font-size: 1.64609cqw; line-height: 1.2; }
-  .page .offerReference.reverse .offerPackageNote strong { font-size: 2.88066cqw; }
+  .page .offerReference.reverse .offerPackageNote { margin: 0; font-size: 24px; line-height: 1.2; }
+  .page .offerReference.reverse .offerPackageNote strong { font-size: 42px; }
 }
 
 /* MacBook Adventure story: 1458px panel, 1268px inner grid at 1728px. */
@@ -8843,7 +8779,7 @@
   .page .adventureStory .splitPosters { height: auto; aspect-ratio: 693.774 / 594.679; gap: 2.0086cqw; }
   .page .caseVideo.adventureStory .detailList { gap: 3.94322cqw; padding: 0 0 3.15457cqw; align-self: center; }
   .page .adventureStory .detailList > div { display: grid; grid-template-columns: 3.32384cqw minmax(0, 1fr); gap: 1.99432cqw; }
-  .page .caseVideo.adventureStory .detailList p { font-size: 1.41956cqw; line-height: 1.22222; font-weight: 400; }
+  .page .caseVideo.adventureStory .detailList p { font-size: 18px; line-height: 1.22222; font-weight: 400; }
   .page .adventureStory .detailList p strong { display: block; margin-bottom: .33238cqw; }
   .page .adventureStory .detailIcon { width: 3.32384cqw; height: 3.32384cqw; }
   .page .adventureStory .splitPosters .playButton { width: 8.70394cqw; height: 8.70607cqw; }
@@ -8870,7 +8806,7 @@
   }
   .page .bloomMeta > .detailList > div { grid-template-columns: 2.91183cqw minmax(0, 1fr); gap: 1.74710cqw; }
   .page .bloomMeta .detailIcon { width: 2.91183cqw; height: 2.91183cqw; }
-  .page .bloomMeta > .detailList p { font-size: 1.31032cqw; line-height: 1.22222; font-weight: 400; }
+  .page .bloomMeta > .detailList p { font-size: 18px; line-height: 1.22222; font-weight: 400; }
   .page .bloomMeta > .detailList p strong { display: block; margin-bottom: 0.30681cqw; }
   .page .bloomMeta > .gradientButton {
     container-type: normal;
@@ -8882,7 +8818,7 @@
     padding: 0 1.45591cqw;
     align-self: center;
   }
-  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 1.89269cqw; font-weight: 700; line-height: 1.2; }
+  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 26px; font-weight: 700; line-height: 1.2; }
 }
 
 /* iMac 2560x1440 and nearby large desktop widths (existing 1900px breakpoint).
@@ -8899,7 +8835,7 @@
   }
   .page .bloomMeta > .detailList > div { grid-template-columns: 2.6252cqw minmax(0, 1fr); gap: 1.5751cqw; }
   .page .bloomMeta .detailIcon { width: 2.6252cqw; height: 2.6252cqw; }
-  .page .bloomMeta > .detailList p { font-size: 1.44385cqw; line-height: 1.18182; font-weight: 400; }
+  .page .bloomMeta > .detailList p { font-size: 21.89px; line-height: 1.18182; font-weight: 400; }
   .page .bloomMeta > .detailList p strong { display: block; margin-bottom: .27661cqw; }
   .page .bloomMeta > .gradientButton {
     container-type: normal;
@@ -8911,7 +8847,7 @@
     padding: 0 1.3126cqw;
     align-self: center;
   }
-  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 1.70636cqw; font-weight: 700; line-height: 1.2; }
+  .page .bloomMeta > .gradientButton > .caseCtaDesktop { font-size: 25.87px; font-weight: 700; line-height: 1.2; }
 }
 
 /* Adventure story: 1604px reference panel, 1372px inner content width. */
@@ -8927,7 +8863,7 @@
   .page .adventureStory .splitPosters { height: auto; aspect-ratio: 791.779 / 683.705; gap: 1.7074cqw; }
   .page .caseVideo.adventureStory .detailList { gap: 3.6443cqw; padding: 0 0 2.9155cqw; align-self: center; }
   .page .adventureStory .detailList > div { display: grid; grid-template-columns: 3.0719cqw minmax(0, 1fr); gap: 1.8431cqw; }
-  .page .caseVideo.adventureStory .detailList p { font-size: 1.6035cqw; line-height: 1.18182; font-weight: 400; }
+  .page .caseVideo.adventureStory .detailList p { font-size: 21.95px; line-height: 1.18182; font-weight: 400; }
   .page .adventureStory .detailList p strong { display: block; margin-bottom: .7289cqw; }
   .page .adventureStory .detailIcon { width: 3.0719cqw; height: 3.0719cqw; }
   .page .adventureStory .splitPosters .playButton { width: 9.727cqw; height: 9.7294cqw; }
@@ -8936,7 +8872,7 @@
 }
 
 /* Cinematic and Videos: proportions measured from the supplied side-by-side reference.
-   Container units keep typography and spacing proportional to this panel. */
+   Container units keep media and spacing proportional; typography follows the shared tiers. */
 @media (min-width: 1900px) {
   .page .offerReference { container-type: inline-size; }
   .page .offerReference .offerLayout {
@@ -8945,19 +8881,19 @@
   }
   .page .offerReference .pricePair { gap: 1.87cqw; }
   .page .offerReference .pricePair > div { padding: 2.36cqw; border-radius: 2cqw; }
-  .page .offerReference .pricePair span { font-size: 1.995cqw; line-height: 1.2; }
-  .page .offerReference .pricePair small { font-size: 1.247cqw; line-height: 1.5; padding-top: 0; }
-  .page .offerReference .pricePair strong { font-size: 2.993cqw; line-height: 1.2; margin-top: .374cqw; }
+  .page .offerReference .pricePair span { font-size: 31.92px; line-height: 1.2; }
+  .page .offerReference .pricePair small { font-size: 19.95px; line-height: 1.5; padding-top: 0; }
+  .page .offerReference .pricePair strong { font-size: 47.89px; line-height: 1.2; margin-top: .374cqw; }
   .page .offerReference .offerText {
-    grid-template-columns: 9.414cqw 17.456cqw 15.025cqw auto;
+    grid-template-columns: minmax(max-content, 9.414cqw) minmax(0, 1fr) minmax(max-content, 15.025cqw) auto;
     grid-template-rows: auto;
     column-gap: 1.87cqw;
     align-items: baseline;
   }
-  .page .offerReference .offerText h4 { font-size: 1.995cqw; line-height: 1.2; white-space: nowrap; }
+  .page .offerReference .offerText h4 { font-size: 31.92px; line-height: 1.2; white-space: nowrap; }
   .page .offerReference .offerList { grid-area: 1 / 2; max-width: none; padding-left: 1.247cqw; }
   .page .offerReference .offerList li::before { left: -1.247cqw; }
-  .page .offerReference .offerText p, .page .offerReference .offerList { font-size: 1.3716cqw; line-height: 1.5; }
+  .page .offerReference .offerText p, .page .offerReference .offerList { font-size: 21.95px; line-height: 1.5; }
   .page .offerReference .offerText p { grid-area: 1 / 4; margin: 0; align-self: baseline; }
   .page .offerReference .offerText h4:nth-of-type(2) { margin: 0; transform: none; }
   .page .offerReference.reverse .offerLayout {
@@ -8965,6 +8901,133 @@
     gap: 3cqw 8.666%;
   }
   .page .offerReference.reverse .offerPricing { gap: 4.2cqw; }
-  .page .offerReference.reverse .offerPackageNote { margin: 0; font-size: 1.496cqw; line-height: 1.2; }
-  .page .offerReference.reverse .offerPackageNote strong { font-size: 2.618cqw; }
+  .page .offerReference.reverse .offerPackageNote { margin: 0; font-size: 23.94px; line-height: 1.2; }
+  .page .offerReference.reverse .offerPackageNote strong { font-size: 41.89px; }
+}
+
+/* Typography shared by rules spanning multiple layout tiers. */
+@media (max-width: 767px) {
+  .page {
+    --font-hero-tagline: 16.32px;
+    --font-section-tag: 11px;
+    --font-case-body: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page {
+    --font-hero-tagline: 37.74px;
+    --font-section-tag: 16px;
+    --font-case-body: 14px;
+  }
+}
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .page {
+    --font-hero-tagline: 37.74px;
+    --font-section-tag: 17.9712px;
+    --font-case-body: 17.9999px;
+  }
+}
+@media (min-width: 1900px) {
+  .page {
+    --font-hero-tagline: 37.74px;
+    --font-section-tag: 18px;
+    --font-case-body: 21.891px;
+  }
+}
+
+/* Fixed tier typography must fit shrinking columns without local font-size changes. */
+.page .packageCard h4 { overflow-wrap: anywhere; }
+@media (min-width: 1900px) {
+  .page .closing .processTitle { width: fit-content; max-width: 100%; padding-right: .12em; box-sizing: content-box; }
+}
+
+@media (max-width: 767px) {
+  .page .heroCopy { width: min(320px, calc(100% - 40px)); }
+}
+/* Brand artwork always uses its intrinsic SVG proportions. */
+.page .logo img { width: 100%; height: auto; aspect-ratio: 408 / 103; object-fit: contain; }
+.page .heroCopy .heroTitleLogo { height: auto; aspect-ratio: 396 / 47; object-fit: contain; }
+
+/* Figma headings use the real Montserrat ExtraBold face on every layout. */
+.page.page :is(h1, h2, h3, h4, h5, h6),
+.page .audienceBanner h2 small,
+.page .pricePair > div > span,
+.page .detailList p > strong,
+.page .packageCard > b,
+.page .tierColumn article > strong,
+.page .process > span,
+.page .requirementsHead,
+.page .requirementRow > strong {
+  font-weight: 800;
+}
+/* Bloom intro and video details share one icon size in each layout tier. */
+.page { --bloom-detail-icon-size: 25px; }
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page { --bloom-detail-icon-size: 20px; }
+}
+@media (min-width: 1301px) {
+  .page { --bloom-detail-icon-size: 40px; }
+}
+.page .bloomIntro .detailIcon,
+.page .bloomMeta .detailIcon {
+  width: var(--bloom-detail-icon-size);
+  height: var(--bloom-detail-icon-size);
+}
+.page .bloomIntro .detailList > div,
+.page .bloomMeta > .detailList > div {
+  grid-template-columns: var(--bloom-detail-icon-size) minmax(0, 1fr);
+}
+/* Move mobile publisher rows down by 10% of their remaining space before content. */
+@media (max-width: 767px) {
+  .page .gaming > .audienceBanner { --publisher-row-offset: 15.734375px; }
+  .page .audience_playable { --publisher-row-offset: 16.9453125px; }
+  .page .audience_non-gaming { --publisher-row-offset: 18.1484375px; }
+  .page .audienceBanner .logoRail { margin-top: calc(30px + var(--publisher-row-offset)); }
+}
+/* iPad: all four steps share one timeline, independent of label positioning. */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .process > span:nth-of-type(n) {
+    position: relative;
+    top: 0;
+    left: auto;
+    width: auto;
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    transform: none;
+    align-self: start;
+  }
+  .page .process > span:nth-of-type(even) { padding-top: 100px; }
+  .page .process > span:nth-of-type(n)::after {
+    position: absolute;
+    left: 50%;
+    top: 76px;
+    bottom: auto;
+    margin: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Four readable panels with a separate title, feature list and bottom price. */
+  .page .mixTypeTitle,
+  .page .mixTypePackages {
+    width: calc(100vw - 60px);
+    margin-inline: calc((100% - 100vw + 60px) / 2);
+  }
+  .page .mixTypeTitle { margin-bottom: 30px; }
+  .page .mixTypePackages .packageGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .page .mixTypePackages .packageCard { min-height: 480px; padding: 28px 16px; }
+  .page .mixTypePackages .packageCard h4 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 44px;
+    overflow-wrap: normal;
+  }
+  .page .mixTypePackages .packageCard > b { font-size: 18px; line-height: 1.25; }
+  .page .mixTypePackages .packageCard ul { font-size: 12px; line-height: 1.4; margin: 12px 0 28px; }
+  .page .mixTypePackages .packageCard li + li { margin-top: 8px; }
+  .page .mixTypePackages .packageCard > strong { margin-top: auto; font-size: 24px; line-height: 1.25; }
+  .page .mixTypePackages .packageCard > small { font-size: 12px; line-height: 1.4; min-height: 2.8em; }
 }
