@@ -9008,26 +9008,32 @@
   }
 
   /* Four readable panels with a separate title, feature list and bottom price. */
-  .page .mixTypeTitle,
-  .page .mixTypePackages {
+  .page .tabletPackageTitle,
+  .page .tabletPackagePanels {
     width: calc(100vw - 60px);
     margin-inline: calc((100% - 100vw + 60px) / 2);
   }
-  .page .mixTypeTitle { margin-bottom: 30px; }
-  .page .mixTypePackages .packageGrid {
+  .page .tabletPackageTitle { margin-bottom: 30px; }
+  .page .tabletPackagePanels .packageGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
   }
-  .page .mixTypePackages .packageCard { min-height: 480px; padding: 28px 16px; }
-  .page .mixTypePackages .packageCard h4 {
+  .page .tabletPackagePanels .packageCard { min-height: 480px; padding: 28px 16px; }
+  .page .tabletPackagePanels .packageCard h4 {
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 44px;
     overflow-wrap: normal;
   }
-  .page .mixTypePackages .packageCard > b { font-size: 18px; line-height: 1.25; }
-  .page .mixTypePackages .packageCard ul { font-size: 12px; line-height: 1.4; margin: 12px 0 28px; }
-  .page .mixTypePackages .packageCard li + li { margin-top: 8px; }
-  .page .mixTypePackages .packageCard > strong { margin-top: auto; font-size: 24px; line-height: 1.25; }
-  .page .mixTypePackages .packageCard > small { font-size: 12px; line-height: 1.4; min-height: 2.8em; }
+  .page .tabletPackagePanels .packageCard > b { font-size: 18px; line-height: 1.25; }
+  .page .tabletPackagePanels .packageCard ul { font-size: 12px; line-height: 1.4; margin: 12px 0 28px; }
+  .page .tabletPackagePanels .packageCard li + li { margin-top: 8px; }
+  .page .tabletPackagePanels .packageCard > strong { margin-top: auto; font-size: 24px; line-height: 1.25; }
+  .page .tabletPackagePanels .packageCard > small { font-size: 12px; line-height: 1.4; min-height: 2.8em; }
+}
+
+/* UGC reference: one-line asset note and a shorter four-panel row. */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .ugcPackagePanels .packageCard { min-height: 450px; }
+  .page .ugcPackagePanels .packageCard > small { min-height: 1.4em; }
 }
