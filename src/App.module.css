@@ -8586,7 +8586,10 @@
   .page .hero { height: calc(1130px - 284.9375px * .2 - 227.9375px * .25); }
 }
 @media (min-width: 1301px) and (max-width: 1899px) {
-  .page .hero { height: calc(1580px - 547.9375px * .2 - 331.34375px * .25); }
+  .page .hero {
+    padding-top: 287px;
+    height: calc(1580px - 547.9375px * .2 - 331.34375px * .25 - 60px);
+  }
 }
 @media (min-width: 1900px) {
   .page .hero { height: calc(1580px - 583.9375px * .2 - 360.140625px * .25); }
@@ -8956,9 +8959,31 @@
 .page .packageCard > b,
 .page .tierColumn article > strong,
 .page .process > span,
-.page .requirementsHead,
 .page .requirementRow > strong {
   font-weight: 800;
+}
+.page .requirementsHead {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Keep the IMPORTANT title and list markers on the same vertical guide. */
+.page .important { --important-list-inset: 24px; }
+.page .important h3 { margin-left: var(--important-list-inset); }
+.page .important ul { padding-left: var(--important-list-inset); list-style: none; }
+.page .important li { position: relative; padding-left: 1em; }
+.page .important li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: .25em;
+  height: .25em;
+  border-radius: 50%;
+  background: #31c2e8;
+}
+@media (max-width: 767px) {
+  .page .important { --important-list-inset: 0px; }
 }
 /* Bloom intro and video details share one icon size in each layout tier. */
 .page { --bloom-detail-icon-size: 25px; }
@@ -9036,4 +9061,89 @@
 @media (min-width: 768px) and (max-width: 1300px) {
   .page .ugcPackagePanels .packageCard { min-height: 450px; }
   .page .ugcPackagePanels .packageCard > small { min-height: 1.4em; }
+}
+/* One tablet content frame, including short landscape viewports. */
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .content,
+  .page .gaming > .content,
+  .page .playables > .content,
+  .page .nonGaming > .content,
+  .page .closing > .content {
+    width: calc(100% - 60px);
+    margin-inline: auto;
+  }
+  .page .gaming > .wideMedia { height: auto; aspect-ratio: auto; }
+  .page .gaming > .wideMedia > img { width: 100%; height: auto; }
+  .page .closing .processTitle { width: auto; margin-inline: 0; }
+  .page .fastTrack .packageCard h4 { overflow-wrap: normal; }
+}
+
+/* The horizontal timeline fades out at both ends in every horizontal layout. */
+@media (min-width: 768px) {
+  .page .process::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55) 18%, rgba(255, 255, 255, .55) 82%, transparent);
+  }
+}
+
+/* Give the phone and three Fast track panels enough room at the laptop boundary. */
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .page .fastHead,
+  .page .fastTrack {
+    width: calc(100vw - 60px);
+    margin-inline: calc((100% - 100vw + 60px) / 2);
+  }
+  .page .fastTrack { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 24px; }
+  .page .fastTrack .packageGrid { gap: 24px; }
+  .page .fastTrack .packageCard { padding-inline: 24px; }
+  .page .fastTrack .packageCard h4 { overflow-wrap: normal; }
+  .page .fastTrack .fastPhone { height: auto; aspect-ratio: 577 / 1184; max-width: 312px; }
+}
+
+/* Paint the price frame at the card's outer edge, level with the video row. */
+@media (min-width: 768px) {
+  .page .videoOffer .pricePair > div::after { inset: -1px; }
+}
+
+/* The side-light centers sit at 60.5399% of the padded SVG, not at its midpoint. */
+@media (min-width: 1301px) {
+  .page .playablePlan::before {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-60.5399%);
+  }
+}
+
+/* Delivery stays beside Includes; only the duration wraps when space runs out. */
+.offerDelivery { display: contents; }
+@media (max-width: 767px) {
+  .page .offerDelivery h4 { margin-top: 27px; }
+}
+@media (min-width: 768px) {
+  .page .videoOffer.offerReference .offerText {
+    grid-template-columns: max-content minmax(0, max-content) minmax(min-content, 1fr);
+    grid-template-rows: auto;
+    justify-content: start;
+    column-gap: 24px;
+    align-items: baseline;
+  }
+  .page .videoOffer.offerReference .offerList {
+    grid-area: 1 / 2;
+    max-width: 23ch;
+    padding-left: 20px;
+  }
+  .page .videoOffer.offerReference .offerList li::before { left: -20px; }
+  .page .videoOffer.offerReference .offerDelivery {
+    grid-area: 1 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    align-content: start;
+    gap: 12px 24px;
+  }
+  .page .videoOffer.offerReference .offerDelivery > h4,
+  .page .videoOffer.offerReference .offerDelivery > p {
+    margin: 0;
+    transform: none;
+    white-space: nowrap;
+  }
 }

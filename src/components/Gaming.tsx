@@ -85,11 +85,11 @@ export function Gaming() {
     <div className={s.wideMedia}><MediaImage loading="lazy" decoding="async" src={assetUrl('assets/design/showreel-goblin.png')} alt="3D gaming showreel" /><VideoButton url={links.reel} label="Watch gaming showreel" /></div>
     <div className={s.content}>
       <VideoOffer id="gaming-cinematic" title="2D / 3D Cinematic" image={assetUrl('assets/design/video-pocket-champs.png')} video={links.cinematic} prices={[["2D Cinematic:", "$1,800"], ["3D Cinematic:", "$2,600"]]}>
-        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
+        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language + optional</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><div className={s.offerDelivery}><h4>Delivery time:</h4><p>5 weeks</p></div>
       </VideoOffer>
 
       <VideoOffer id="gaming-videos" reverse title="2D / 3D Videos" image={assetUrl('assets/design/video-tower.png')} video={links.videos} prices={[["2D Video:", "$1,500"], ["3D Video:", "$2,000"]]}>
-        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><h4>Delivery time:</h4><p>5 weeks</p>
+        <h4>Includes:</h4><ul className={s.offerList}><li>Concepts</li><li>Resizes</li><li>Single language</li><li>2 rounds of corrections</li><li>Add-ons — per request</li></ul><div className={s.offerDelivery}><h4>Delivery time:</h4><p>5 weeks</p></div>
       </VideoOffer>
 
       <article className={s.caseIntro} id="adventure-case">
