@@ -5032,7 +5032,7 @@
   }
 
   .fastHead {
-    margin-top: 95px;
+    margin-top: 114px;
   }
 
   .playDemoMobile {
@@ -6054,7 +6054,7 @@
   }
 
   .fastHead {
-    margin-top: 66px;
+    margin-top: 79.2px;
     padding: 0;
     height: 50px;
   }
@@ -7153,7 +7153,7 @@
   .bloomVideo { width: calc(100% + 8px); min-height: 1437px; margin-left: -4px; padding: 42.146px; border-radius: 63.22px; }
   .bloomVideo .singlePoster { aspect-ratio: 1523.707 / 834.908; }
   .bloomVideo .singlePoster img { border-radius: 39px; }
-  .bloomVideo .singlePoster .playButton { width: 150px; height: 157px; border-width: 8px; font-size: 60px; }
+  .bloomVideo .singlePoster .playButton { width: 150px; height: auto; aspect-ratio: 1; border-width: 8px; font-size: 60px; }
   .bloomMeta { grid-template-columns: 628px minmax(0, 1fr); gap: 179.707px; padding: 63.22px 0 0; }
   .bloomMeta > .gradientButton { width: 628px; height: 109.58px; font-size: 26px; }
   .bloomMeta > .detailList { gap: 46.36px; }
@@ -7182,7 +7182,7 @@
   .audience_non-gaming .logoRail { margin-top: 213px; }
   .ugcHero { height: 887px; margin-bottom: 357px; }
   .nonGaming .blockTitle { margin-bottom: 63px; position: relative; }
-  .nonGaming .blockTitle small { position: absolute; top: 100%; right: 0; line-height: 24px; font-size: 20px; }
+  .nonGaming .blockTitle small { line-height: 24px; font-size: 20px; }
   .nonGaming .packageCard { min-height: 773px; }
   .nonGaming .packageGrid { gap: 43px; }
   .nonGaming .packageCard { padding: 63px 41px 62px; }
@@ -7685,6 +7685,21 @@
   box-shadow: none;
 }
 .playDemo img { display: block; width: 100%; height: auto; }
+.page .fastHead .playDemoMobile {
+  border-radius: 999px;
+  background: linear-gradient(100deg, #52be64, #2aabe0);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.2;
+}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .page .fastHead .playDemoMobile { width: 141px; height: 50px; aspect-ratio: auto; }
+  .page .fastHead .blockTitle { font-size: 32px; line-height: 1.22; }
+  .page .fastTrack { margin-top: 24px; }
+  .page .fastTrack .packageCard { padding-top: 30px; }
+  .page .fastTrack .packageCard h4 { font-size: 24px; }
+}
 .page .planArrow { padding: 0; background: transparent; border: 0; box-shadow: none; }
 .planArrow img { width: 100%; height: 100%; object-fit: contain; }
 .planArrow[aria-label="Previous playable plan"] img { transform: rotate(180deg); }
@@ -8677,7 +8692,7 @@
   .page .adventureStory .detailList p strong { display: block; margin-bottom: 0.30534cqw; }
   .page .adventureStory .detailAccent { font-weight: 700; }
   .page .adventureStory .detailIcon { width: 3.05344cqw; height: 3.05344cqw; }
-  .page .adventureStory .splitPosters .playButton { width: 9.16031cqw; height: 9.16255cqw; }
+  .page .adventureStory .splitPosters .playButton { width: 9.16031cqw; height: auto; aspect-ratio: 1; }
   .page .adventureStory .iconChallenge { background-image: url('./assets/exported/mage_goals-fill.svg'); }
   .page .adventureStory .iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
 }
@@ -8693,7 +8708,7 @@
     min-height: 0;
   }
   .page .bloomVideo .singlePoster { aspect-ratio: 720 / 396.195; }
-  .page .bloomVideo .singlePoster .playButton { width: 12.50000cqw; height: 12.50000cqw; }
+  .page .bloomVideo .singlePoster .playButton { width: 12.50000cqw; height: auto; aspect-ratio: 1; }
   .page .bloomContour { padding: 1px; }
   .page .bloomMeta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8785,7 +8800,7 @@
   .page .caseVideo.adventureStory .detailList p { font-size: 18px; line-height: 1.22222; font-weight: 400; }
   .page .adventureStory .detailList p strong { display: block; margin-bottom: .33238cqw; }
   .page .adventureStory .detailIcon { width: 3.32384cqw; height: 3.32384cqw; }
-  .page .adventureStory .splitPosters .playButton { width: 8.70394cqw; height: 8.70607cqw; }
+  .page .adventureStory .splitPosters .playButton { width: 8.70394cqw; height: auto; aspect-ratio: 1; }
   .page .adventureStory .iconChallenge { background-image: url('./assets/exported/mage_goals-fill.svg'); }
   .page .adventureStory .iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
 }
@@ -8800,8 +8815,7 @@
   }
   .page .bloomVideo .singlePoster { aspect-ratio: 1373.707 / 834.908; }
   .page .bloomVideo .singlePoster img { border-radius: 4.75502cqw; }
-  .page .bloomVideo .singlePoster .playButton { width: 14.97630cqw; height: 17.38509cqw; }
-  .page .bloomVideo .singlePoster .playButton svg { transform: scaleY(1.16084); }
+  .page .bloomVideo .singlePoster .playButton { width: 14.97630cqw; height: auto; aspect-ratio: 1; }
   .page .bloomMeta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 4.60214cqw 8.73548% 0;
@@ -8830,7 +8844,7 @@
 @media (min-width: 1900px) {
   .page .bloomVideo { container-type: inline-size; padding: 2.62104% 2.62104% 6.55261%; }
   .page .bloomVideo .singlePoster { aspect-ratio: 1523.707 / 834.908; }
-  .page .bloomVideo .singlePoster .playButton { width: 9.8444cqw; height: 10.3028cqw; }
+  .page .bloomVideo .singlePoster .playButton { width: 9.8444cqw; height: auto; aspect-ratio: 1; }
   .page .bloomMeta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 4.1491cqw 7.8755% 0;
@@ -8869,7 +8883,7 @@
   .page .caseVideo.adventureStory .detailList p { font-size: 21.95px; line-height: 1.18182; font-weight: 400; }
   .page .adventureStory .detailList p strong { display: block; margin-bottom: .7289cqw; }
   .page .adventureStory .detailIcon { width: 3.0719cqw; height: 3.0719cqw; }
-  .page .adventureStory .splitPosters .playButton { width: 9.727cqw; height: 9.7294cqw; }
+  .page .adventureStory .splitPosters .playButton { width: 9.727cqw; height: auto; aspect-ratio: 1; }
   .page .adventureStory .iconChallenge { background-image: url('./assets/exported/mage_goals-fill.svg'); }
   .page .adventureStory .iconImpact { background-image: url('./assets/exported/heroicons_fire-16-solid.svg'); }
 }
@@ -9057,7 +9071,24 @@
   .page .tabletPackagePanels .packageCard > small { font-size: 12px; line-height: 1.4; min-height: 2.8em; }
 }
 
-/* UGC reference: one-line asset note and a shorter four-panel row. */
+/* The Includes label is secondary to the package name. */
+@media (min-width: 1301px) {
+  .page .tabletPackagePanels .packageCard > b {
+    font-size: 26px;
+    font-weight: 700;
+  }
+}
+
+/* Keep all four package names on one line on laptops. */
+@media (min-width: 1301px) and (max-width: 1899px) {
+  .page .tabletPackagePanels .packageCard { padding-inline: 24px; }
+  .page .tabletPackagePanels .packageCard h4 {
+    font-size: 32px;
+    overflow-wrap: normal;
+  }
+}
+
+/* UGC tablet cards use a single-line price note. */
 @media (min-width: 768px) and (max-width: 1300px) {
   .page .ugcPackagePanels .packageCard { min-height: 450px; }
   .page .ugcPackagePanels .packageCard > small { min-height: 1.4em; }

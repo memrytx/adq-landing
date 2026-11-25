@@ -208,7 +208,10 @@ export function PlayableAds() {
         <div className={s.dots}>{planSlides.map((slide, index) => <button type="button" onClick={() => goTo(index, index > active ? 1 : -1)} className={indicatedIndex === index ? s.dotActive : ''} aria-current={indicatedIndex === index ? 'true' : undefined} aria-label={`Show ${slide.title}`} key={slide.title} />)}</div>
       </section>
 
-      <div className={s.fastHead}><h3 className={s.blockTitle}>Fast track</h3><button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><MediaImage src={playDemoButton} alt="" /></button></div>
+      <div className={s.fastHead}>
+        <h3 className={s.blockTitle}>Fast track</h3>
+        <button className={`${s.playDemo} ${s.playDemoMobile}`} type="button" onClick={() => openDemo()}>Play demo</button>
+      </div>
       <div className={s.fastTrack}><div className={s.fastPhone}><MediaImage className={s.phoneScreen} src={assetUrl('assets/design/hero-game.png')} alt="" /><MediaImage className={s.phoneFrame} src={phoneFrame} alt="" aria-hidden="true" /><button className={`${s.playDemo} ${s.playDemoDesktop}`} type="button" onClick={() => openDemo()} aria-label="Play demo"><MediaImage src={playDemoButton} alt="" /></button></div><PackageCarousel items={packages} /></div>
 
     </div>
