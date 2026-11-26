@@ -1064,6 +1064,7 @@
   animation: phoneFloat 4.8s ease-in-out infinite;
 }
 .packageGrid {
+  --package-hover-lift: 7px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
@@ -1090,16 +1091,11 @@
     rgba(33, 69, 115, 0.32)
   );
   box-shadow: 0 0 60px rgba(76, 42, 255, 0.17);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
 }
 @media (hover: hover) and (pointer: fine) {
   .packageCard:hover {
-    transform: translateY(-7px);
-    border-color: rgba(72, 199, 239, 0.42);
-    box-shadow: 0 18px 70px rgba(66, 83, 255, 0.23);
+    transform: translateY(calc(-1 * var(--package-hover-lift)));
   }
 }
 .packageCard h4 {
@@ -7083,6 +7079,8 @@
 
 @media (min-width: 1301px) {
   .audienceBanner h2 { font-size: 128px; line-height: 1.22; letter-spacing: 0; }
+  .audience_gaming h2 small { vertical-align: baseline; }
+  .audience_non-gaming h2 small { display: block; margin-bottom: .35em; }
   .audienceGlowLeft { width: 950px; height: 744px; left: calc(50% - 1320px); top: 105px; }
   .audienceGlowRight { width: 1050px; height: 776px; right: calc(50% - 1370px); top: 85px; }
   .videoOffer.reverse .offerHeading { text-align: right; }
@@ -7239,6 +7237,22 @@
   .important ul { margin: 0; padding-left: 20px; }
   .important li { font-size: 22px; line-height: 33px; margin: 0; }
   .fastTrack { grid-template-columns: 288px minmax(0, 1fr); padding-left: 147px; gap: 150px; }
+}
+@media (max-width: 1300px) {
+  .audience_gaming h2,
+  .audience_non-gaming h2 {
+    letter-spacing: normal;
+    line-height: 1.22;
+  }
+  .audience_gaming h2 small,
+  .audience_non-gaming h2 small {
+    font-size: .48em;
+    vertical-align: baseline;
+  }
+  .audience_non-gaming h2 small {
+    display: block;
+    margin-bottom: .35em;
+  }
 }
 @media (min-width: 768px) and (max-width: 1300px) {
   .audienceTitleGlow { top: calc(260px - 43.838vw); }
@@ -8136,13 +8150,17 @@
 .page .tierColumn article::after {
   content: ''; position: absolute; inset: 0; z-index: -1;
   border-radius: inherit; opacity: 1;
-  background: var(--frame-3) center / 100% 100% no-repeat;
   pointer-events: none;
 }
-.page .packageCard:nth-child(2)::after { background-image: var(--frame-4); }
-.page .packageCard:nth-child(3)::after { background-image: var(--frame-6); }
-.page .packageCard:nth-child(4)::after { background-image: var(--frame-7); }
-.page .tierColumn article::after { background-image: var(--frame-5); }
+.page .packageCard::after {
+  background: none;
+  /* Each export contains its entire rounded corner in a 64px square. */
+  border-image: var(--frame-3) 64 fill / clamp(18px, 3vw, 28px) stretch;
+}
+.page .packageCard:nth-child(2)::after { border-image-source: var(--frame-4); }
+.page .packageCard:nth-child(3)::after { border-image-source: var(--frame-6); }
+.page .packageCard:nth-child(4)::after { border-image-source: var(--frame-7); }
+.page .tierColumn article::after { background: var(--frame-5) center / 100% 100% no-repeat; }
 .page .packageCard { min-height: 640px; }
 .page .packageGrid { gap: 28px; }
 .page .aboutCopy p { color: #fff; }
@@ -8240,8 +8258,14 @@
 .page .nonGaming > .content > .packageViewport:nth-child(7)::before {
   inset: -80px -70px;
   background:
-    radial-gradient(ellipse 40% 43% at 42% 57%, rgba(35, 110, 221, .68) 0%, rgba(35, 110, 221, .4) 35%, transparent 100%),
-    radial-gradient(ellipse 34% 42% at 64% 42%, rgba(99, 59, 190, .7) 0%, rgba(99, 59, 190, .46) 35%, transparent 100%);
+    radial-gradient(ellipse 40% 43% at 42% 57%, rgba(35, 110, 221, var(--package-blue-alpha, .68)) 0%, rgba(35, 110, 221, .4) 35%, transparent 100%),
+    radial-gradient(ellipse 34% 42% at 64% 42%, rgba(99, 59, 190, var(--package-purple-alpha, .7)) 0%, rgba(99, 59, 190, .46) 35%, transparent 100%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .packageViewport:has(.packageCard:hover) {
+    --package-blue-alpha: .8;
+    --package-purple-alpha: .82;
+  }
 }
 .page .tierColumn article::before,
 .page .tierColumn article:nth-child(2)::before {
@@ -8561,17 +8585,24 @@
   backdrop-filter: none;
 }
 
-/* Keep the hover lift, with only the exported frame defining the surface. */
+}
+
+/* The rail owns the diffuse light; the exported frame owns the card corners. */
 .page .packageCard,
 .page .mixGrid .packageCard,
-.page .packageCard:hover {
+.page .mixGrid .packageCard:nth-child(-n+2) {
   background: transparent;
   border-color: transparent;
   box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
-
+@media (max-width: 767px) and (hover: hover) and (pointer: fine) {
+  /* Reserve the lift inside the scrollport while keeping the resting row in place. */
+  .page .packageGrid {
+    padding-top: var(--package-hover-lift);
+    margin-top: calc(-1 * var(--package-hover-lift));
+  }
 }
 
 /* October 28: align the gaming panels to the outer content grid. */
@@ -9104,7 +9135,14 @@
     margin-inline: auto;
   }
   .page .gaming > .wideMedia { height: auto; aspect-ratio: auto; }
-  .page .gaming > .wideMedia > img { width: 100%; height: auto; }
+  .page .gaming > .wideMedia > img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    /* Crop the outline in the artwork, then fit the remaining 97.5% to the viewport. */
+    clip-path: inset(1.25%);
+    transform: scale(calc(1 / .975));
+  }
   .page .closing .processTitle { width: auto; margin-inline: 0; }
   .page .fastTrack .packageCard h4 { overflow-wrap: normal; }
 }
